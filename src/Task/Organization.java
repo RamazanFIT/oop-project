@@ -18,7 +18,7 @@ public class Organization {
     /**
      * @generated
      */
-    private Organization name;
+    private Enums.Organization name;
 
     /**
      * @generated
@@ -31,13 +31,13 @@ public class Organization {
      */
     private Student student;
 
-    public Organization(Organization name, RoleOfOrganisation role, Student student) {
+    public Organization(Enums.Organization name, RoleOfOrganisation role, Student student) {
         this.name = name;
         this.role = role;
         this.student = student;
     }
 
-    public Organization(Organization name, Student student){
+    public Organization(Enums.Organization name, Student student){
         this.name = name;
         this.student = student;
         this.role = RoleOfOrganisation.MEMBER;
@@ -48,14 +48,14 @@ public class Organization {
     /**
      * @generated
      */
-    public Organization getName() {
+    public Enums.Organization getName() {
         return this.name;
     }
 
     /**
      * @generated
      */
-    public void setName(Organization name) {
+    public void setName(Enums.Organization name) {
         this.name = name;
     }
 

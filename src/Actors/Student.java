@@ -72,12 +72,14 @@ public class Student extends User implements Researcher {
     /**
      * @generated
      */
-    public void setOrganization(Organization organization, RoleOfOrganisation role) {
-
+    public void setOrganization(Enums.Organization organization, RoleOfOrganisation role) {
+        DataBase dataBase = DataBase.getInstance();
+        dataBase.setOrganizationToStudent(this, organization, role);
     }
 
-    public void setOrganization(Organization organization) {
-
+    public void setOrganization(Enums.Organization organization) {
+        DataBase dataBase = DataBase.getInstance();
+        dataBase.setOrganizationToStudent(this, organization);
     }
 
     /**

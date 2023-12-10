@@ -83,4 +83,18 @@ public class DataBase {
         return result;
     }
 
+    public void setOrganizationToStudent(Student student, Enums.Organization organization){
+        if(!organizations.contains(new Task.Organization(organization, student))){
+            organizations.add(new Task.Organization(organization, student));
+        }
+    }
+
+    public void setOrganizationToStudent(Student student,
+         Enums.Organization organization, RoleOfOrganisation role){
+
+        if(!organizations.contains(new Task.Organization(organization, role, student))){
+            organizations.add(new Task.Organization(organization, role, student));
+        }
+    }
+
 }
