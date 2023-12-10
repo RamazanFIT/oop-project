@@ -71,4 +71,13 @@ public class DataBase {
         return cntOfCreditStudent;
     }
 
+    public void addStudentToOrganisation(Student student, Enums.Organization organisation){
+        if(organizations.contains(new Task.Organisation()))
+    }
+
+    public void addStudentToOrganisation(Student student,
+                                         Enums.Organization organisation, RoleOfOrganisation role){
+        if(organizations.contains(new Task.Organisation()))
+    }
+
 }

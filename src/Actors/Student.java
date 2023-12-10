@@ -16,7 +16,6 @@ import Task.Organization;
  */
 public class Student extends User implements Researcher {
 
-    public Organization organization;
     public FACULTY faculty;
     public DiplomaProject diplomaProject;
     public boolean isResearcher;
@@ -73,10 +72,13 @@ public class Student extends User implements Researcher {
     /**
      * @generated
      */
-    public void setOrganization(Organization organization) {
-        this.organization = organization;
+    public void setOrganization(Organization organization, RoleOfOrganisation role) {
+
     }
 
+    public void setOrganization(Organization organization) {
+
+    }
 
     /**
      * @generated
