@@ -3,7 +3,6 @@ package Actors;
 import Actors.*;
 import Enums.*;
 import Exceptions.*;
-import Comparators.*;
 import Science.*;
 import java.util.*;
 import Interfaces.*;
@@ -18,8 +17,8 @@ public abstract class Employee extends User implements Researcher {
     /**
      * @generated
      */
-    private String department;
-    private double salary;
+    public String department;
+    public double salary;
 
     /**
      * @generated

@@ -67,7 +67,7 @@ public class Student extends User implements Researcher {
      */
     public Vector<Task.Organization> getOrganization() {
         DataBase dataBase = DataBase.getInstance();
-        return dataBase.getStudentOrganizations(this);
+        return dataBase.getStudentOrganizations(this)
     }
 
     /**
