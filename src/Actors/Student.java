@@ -112,10 +112,10 @@ public class Student extends User implements Researcher {
     /**
      * @generated
      */
-//    public String getInfoAboutTeacher(Course course) {
-//        //TODO
-//        return "";
-//    }
+    public Vector<Teacher> getInfoAboutTeacher(Course course) {
+       DataBase dataBase = DataBase.getInstance();
+        return dataBase.getTeacherInfo(course);
+    }
 
     /**
      * @generated
