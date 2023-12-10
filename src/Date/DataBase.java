@@ -140,6 +140,29 @@ public class DataBase {
         }
         return null;
     }
+    public Vector<Course> getMajorCoursesOfStudent(Student student){
+        Vector<Course> courses = this.getUserCourses(student);
+        Vector<Course> majorCourses = this.majorOnCourse.get(student.getFaculty());
+        Vector<Course> result = new Vector<Course>();
+        for(Course c : courses){
+            if(majorCourses.contains(c)){
+                result.add(c);
+            }
+        }
+        return result;
+    }
+    
+    public Vector<Course> getMinorCoursesOfStudent(Student student){
+        Vector<Course> courses = this.getUserCourses(student);
+        Vector<Course> majorCourses = this.getMajorCoursesOfStudent(student);
+        Vector<Course> result = new Vector<Course>();
+        for(Course c : courses){
+            if(!majorCourses.contains(c)){
+                result.add(c);
+            }
+        }
+        return result;
+    }
 
     public Vector<Teacher> getTeacherInfo(Course course){
         Vector<Teacher> result = new Vector<Teacher>();
