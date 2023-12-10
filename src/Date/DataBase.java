@@ -39,7 +39,7 @@ public class DataBase {
                 result.add(journals.get(i));
             }
         }
-        return result;
+        return result; // TO TEST
     }
 
     public Vector<Course> getUserCourses(User user){
@@ -50,7 +50,7 @@ public class DataBase {
                 result.add(courses.get(i));
             }
         }
-        return result;
+        return result; // TO TEST
     }
 
     public TreeMap<Course, Grade> getMarkOfStudent(Student student){
@@ -60,7 +60,7 @@ public class DataBase {
                 result.put(courses.get(i), courses.get(i).getGrades().get(student));
             }
         }
-        return result;
+        return result; // TO TEST
     }
 
     public int getCntOfCreditStudent(Student student){
@@ -69,7 +69,7 @@ public class DataBase {
         for(Course c : courseOfStudent){
             cntOfCreditStudent += c.getCredit();
         }
-        return cntOfCreditStudent;
+        return cntOfCreditStudent; // TO TEST
     }
 
     public Vector<Task.Organization> getStudentOrganizations(Student student){
@@ -80,13 +80,13 @@ public class DataBase {
             }
         }
 
-        return result;
+        return result; // TO TEST
     }
 
     public void setOrganizationToStudent(Student student, Enums.Organization organization){
         if(!organizations.contains(new Task.Organization(organization, student))){
             organizations.add(new Task.Organization(organization, student));
-        }
+        } // TO TEST
     }
 
     public void setOrganizationToStudent(Student student,
@@ -94,7 +94,7 @@ public class DataBase {
 
         if(!organizations.contains(new Task.Organization(organization, role, student))){
             organizations.add(new Task.Organization(organization, role, student));
-        }
+        } // TO TEST
     }
 
     public boolean existsDiplomaProject(Student student){
@@ -103,14 +103,14 @@ public class DataBase {
                 return true;
             }
         }
-        return false;
+        return false; // TO TEST
     }
 
 
     public void addDiplomaProject(DiplomaProject project, Student student){
         Vector<Student> v = new Vector<Student>();
         v.add(student);
-        diplomaProject.put(project, v);
+        diplomaProject.put(project, v); // TO TEST
     }
 
     public DiplomaProject getDiplomaProject(Student student){
@@ -119,7 +119,7 @@ public class DataBase {
                 return project;
             }
         }
-        return null;
+        return null; // TO TEST
     }
     public Vector<Course> getMajorCoursesOfStudent(Student student){
         Vector<Course> courses = this.getUserCourses(student);
@@ -130,7 +130,7 @@ public class DataBase {
                 result.add(c);
             }
         }
-        return result;
+        return result; // TO TEST
     }
     
     public Vector<Course> getMinorCoursesOfStudent(Student student){
@@ -142,7 +142,7 @@ public class DataBase {
                 result.add(c);
             }
         }
-        return result;
+        return result; // TO TEST
     }
     
     public Vector<ResearchProject> getStudentProjects(Student student) {
@@ -153,17 +153,17 @@ public class DataBase {
             }
         }
 
-        return studentProjects;
+        return studentProjects; // TO TEST
     }
 
     public Vector<Teacher> getTeacherInfo(Course course){
         Vector<Teacher> result = new Vector<Teacher>();
         for(int i = 0; i < courses.size(); i++){
-            if(courses.get(i).getTitle() == course.getTitle()){
+            if(courses.get(i).equals(course)){
                 result.addAll(course.getInstructors());
             }
         }
-        return result;
+        return result; // TO TEST
     }
 
     public Vector<ResearchPaper> getResearchPaperOfStudent(Researcher researcher){
@@ -176,6 +176,7 @@ public class DataBase {
         }
         return result; // TO TEST
     }
+
 
 
 
