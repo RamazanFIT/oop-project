@@ -53,7 +53,7 @@ public interface Researcher {
     /**
      * @generated
      */
-    public void delPapers(ResearchPaper paper);
+    public void delPapers(ResearchPaper paper) throws ImposterException;
 
     /**
      * @generated

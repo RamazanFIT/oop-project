@@ -181,10 +181,9 @@ public class DataBase {
         papers.add(paper);
     }
     
-    public void removeResearchPaperFromStudent(ResearchPaper paper, Student student) {
+    public void removeResearchPaperFromStudent(ResearchPaper paper) {
         if (papers.contains(paper)) {
             papers.remove(paper);
-            student.getPapers().remove(paper);
         }
     }
 

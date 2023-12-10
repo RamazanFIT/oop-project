@@ -177,9 +177,10 @@ public class Student extends User implements Researcher {
     }
 
     @Override
-    public void delPapers(ResearchPaper paper) {
+    public void delPapers(ResearchPaper paper) throws ImposterException {
         DataBase dataBase = DataBase.getInstance();
-        dataBase.removeResearchPaperFromStudent(paper, this);
+        if(!paper.getAuthor().equals(this)) throw  new ImposterException("Can't delete'");
+        dataBase.removeResearchPaperFromStudent(paper);
     }
 
     @Override
