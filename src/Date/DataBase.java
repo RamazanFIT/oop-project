@@ -107,6 +107,25 @@ public class DataBase {
     }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public void addDiplomaProject(DiplomaProject project, Student student){
         Vector<Student> v = new Vector<Student>();
         v.add(student);
@@ -154,6 +173,16 @@ public class DataBase {
         }
 
         return studentProjects;
+    }
+
+    public Vector<Teacher> getTeacherInfo(Course course){
+        Vector<Teacher> result = new Vector<Teacher>();
+        for(int i = 0; i < courses.size(); i++){
+            if(courses.get(i).getTitle() == course.getTitle()){
+                result.addAll(course.getInstructors());
+            }
+        }
+        return result;
     }
 
 }
