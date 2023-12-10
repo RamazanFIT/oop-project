@@ -170,7 +170,8 @@ public class Student extends User implements Researcher {
 
     @Override
     public void addPapers(ResearchPaper paper) {
-
+        DataBase dataBase = DataBase.getInstance();
+        dataBase.addResearchPaperToStudent(paper);
     }
 
     @Override

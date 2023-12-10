@@ -177,7 +177,8 @@ public class DataBase {
         return result; // TO TEST
     }
 
-
-
+    public void addResearchPaperToStudent(ResearchPaper paper){
+        papers.add(paper);
+    }
 
 }
