@@ -120,15 +120,15 @@ public class Student extends User implements Researcher {
     /**
      * @generated
      */
-    public String getMajor() {
-        //TODO
-        return "";
+    public Vector<Course> getMajor() {
+        DataBase dataBase = DataBase.getInstance();
+        return dataBase.getMajorCoursesOfStudent(this);
     }
 
     /**
      * @generated
      */
-    public String getMinor() {
+    public Vector<Course> getMinor() {
         //TODO
         return "";
     }
