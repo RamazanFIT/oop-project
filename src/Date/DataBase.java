@@ -141,4 +141,14 @@ public class DataBase {
         return null;
     }
 
+    public Vector<Teacher> getTeacherInfo(Course course){
+        Vector<Teacher> result = new Vector<Teacher>();
+        for(int i = 0; i < courses.size(); i++){
+            if(courses.get(i).getTitle() == course.getTitle()){
+                result.addAll(course.getInstructors());
+            }
+        }
+        return result;
+    }
+
 }
