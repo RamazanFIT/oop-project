@@ -187,51 +187,13 @@ public class DataBase {
         }
     }
 
+    public void addResearchProject(ResearchProject researchProject){
+        this.projects.add(researchProject);
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    public void delResearchProject(ResearchProject researchProject){
+        this.projects.remove(researchProject);
+    }
 
 
 

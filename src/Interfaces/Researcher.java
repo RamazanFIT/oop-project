@@ -32,7 +32,7 @@ public interface Researcher {
     /**
      * @generated
      */
-    public void addProject(ResearchProject project);
+    public void addProject(ResearchProject project) throws ImposterException;
 
 
     /**

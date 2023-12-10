@@ -155,13 +155,20 @@ public class Student extends User implements Researcher {
     }
 
     @Override
-    public void addProject(ResearchProject project) {
-
+    public void addProject(ResearchProject project) throws ImposterException {
+        DataBase dataBase = DataBase.getInstance();
+        if(!project.getProjectParticipant().contains(project) ||
+                !project.getSuperVisor().equals(this)){
+            throw new ImposterException("ProjectParticipant not in project");
+        }
+        dataBase.addResearchProject(project);
     }
+
 
     @Override
     public void delProject(ResearchProject project) {
-
+        DataBase dataBase = DataBase.getInstance();
+        dataBase.delResearchProject(project);
     }
 
     @Override
@@ -208,9 +215,9 @@ public class Student extends User implements Researcher {
     /**
      * @generated
      */
-//    public void registerForCourse(Course course) {
-//        //TODO
-//    }
+    public void registerForCourse(Course course) {
+        //TODO
+    }
 
 }
 
