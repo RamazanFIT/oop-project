@@ -10,6 +10,7 @@ import Interfaces.*;
 import Date.*;
 import Task.*;
 import Main.*;
+import Task.Organization;
 
 public class DataBase {
     public Vector<ResearchPaper> papers;
@@ -69,6 +70,17 @@ public class DataBase {
             cntOfCreditStudent += c.getCredit();
         }
         return cntOfCreditStudent;
+    }
+
+    public Vector<Task.Organization> getStudentOrganizations(Student student){
+        Vector<Task.Organization> result = new Vector<Organization>();
+        for(int i = 0; i < organizations.size(); i++){
+            if(organizations.get(i).getStudent() == student){
+                result.add(organizations.get(i));
+            }
+        }
+
+        return result;
     }
 
 }

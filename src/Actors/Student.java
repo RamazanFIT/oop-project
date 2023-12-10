@@ -26,8 +26,7 @@ public class Student extends User implements Researcher {
 
     }
 
-    public Student(int credits, Organization organization, FACULTY faculty, DiplomaProject diplomaProject){
-        this.credits = credits;
+    public Student(Organization organization, FACULTY faculty, DiplomaProject diplomaProject){
         this.organization = organization;
         this.faculty = faculty;
         this.diplomaProject = diplomaProject;
@@ -66,8 +65,9 @@ public class Student extends User implements Researcher {
     /**
      * @generated
      */
-    public Organization getOrganization() {
-        return organization;
+    public Vector<Task.Organization> getOrganization() {
+        DataBase dataBase = DataBase.getInstance();
+        return dataBase.getStudentOrganizations(this);
     }
 
     /**
