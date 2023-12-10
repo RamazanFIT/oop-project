@@ -12,23 +12,33 @@ import Task.*;
 import Main.*;
 
 public class DataBase {
-    Vector<ResearchPaper> papers;
-    Vector<ResearchProject> projects;
-    Vector<Course> courses;
-    Vector<User> users;
-    TreeMap<FACULTY, Vector<Course>> majorOnCourse;
-    TreeMap<Course, Vector<Lesson>> lessonsOnCourse;
-    Queue<MessageSupport> messageOfSupport;
-    TreeMap<User, Vector<Message>> messagesOfUser;
-    TreeMap<DiplomaProject, Vector<Student>> diplomaProject;
-    Vector<Task.Organization> organizations;
+    public Vector<ResearchPaper> papers;
+    public Vector<ResearchProject> projects;
+    public Vector<Course> courses;
+    public Vector<User> users;
+    public TreeMap<FACULTY, Vector<Course>> majorOnCourse;
+    public TreeMap<Course, Vector<Lesson>> lessonsOnCourse;
+    public Queue<MessageSupport> messageOfSupport;
+    public TreeMap<User, Vector<Message>> messagesOfUser;
+    public TreeMap<DiplomaProject, Vector<Student>> diplomaProject;
+    public Vector<Task.Organization> organizations;
+    public Vector<ResearhJournal> journals;
     private static DataBase instance = new DataBase();
     private DataBase(){
 
     }
-    public DataBase getInstance(){
+    public static DataBase getInstance(){
         return instance;
     }
 
+    public Vector<ResearhJournal> getUserSubscriptions(User user){
+        Vector<ResearhJournal> result = new Vector<ResearhJournal>();
+        for(int i = 0; i < journals.size(); i++){
+            if(journals.get(i).getMembers().contains(user)){
+                result.add(journals.get(i));
+            }
+        }
+        return result;
+    }
 
 }
