@@ -97,4 +97,48 @@ public class DataBase {
         }
     }
 
+    public boolean existsDiplomaProject(Student student){
+        for(DiplomaProject project : diplomaProject.keySet()){
+            if(diplomaProject.get(project).contains(student)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public void addDiplomaProject(DiplomaProject project, Student student){
+        Vector<Student> v = new Vector<Student>();
+        v.add(student);
+        diplomaProject.put(project, v);
+    }
+
+    public DiplomaProject getDiplomaProject(Student student){
+        for(DiplomaProject project : diplomaProject.keySet()){
+            if(diplomaProject.get(project).contains(student)){
+                return project;
+            }
+        }
+        return null;
+    }
+
 }

@@ -13,7 +13,7 @@ import Task.Organization;
  */
 public class Student extends User implements Researcher {
     public FACULTY faculty;
-    public DiplomaProject diplomaProject;
+
     public boolean isResearcher;
     //Anuar
 
@@ -96,8 +96,18 @@ public class Student extends User implements Researcher {
      * @generated
      */
     public DiplomaProject getDiplomaProject() {
-        return diplomaProject;
+        DataBase dataBase = DataBase.getInstance();
+        return dataBase.getDiplomaProject(this);
     }
+
+    public void createDiplomaProject(DiplomaProject project) {
+        DataBase dataBase = DataBase.getInstance();
+        if(!dataBase.existsDiplomaProject(this)){
+            dataBase.addDiplomaProject(project, this);
+        }
+    }
+
+
 
     /**
      * @generated
