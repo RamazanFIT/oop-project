@@ -131,9 +131,16 @@ public class Student extends User implements Researcher {
         return dataBase.getMinorCoursesOfStudent(this);
     }
 
-    @Override
-    public String printPapers(Comparator comparator) {
-        return null;
+//    @Override
+//    public Vector<ResearchPaper> printPapers(Comparator comparator) {
+//        DataBase dataBase = DataBase.getInstance();
+//        return dataBase.getResearchPaperOfStudent(this, comparator);
+//        // TODO
+//    }
+
+    public Vector<ResearchPaper> printPapers() {
+        DataBase dataBase = DataBase.getInstance();
+        return dataBase.getResearchPaperOfStudent(this);
     }
 
     @Override

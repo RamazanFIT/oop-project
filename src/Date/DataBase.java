@@ -107,25 +107,6 @@ public class DataBase {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public void addDiplomaProject(DiplomaProject project, Student student){
         Vector<Student> v = new Vector<Student>();
         v.add(student);
@@ -184,5 +165,18 @@ public class DataBase {
         }
         return result;
     }
+
+    public Vector<ResearchPaper> getResearchPaperOfStudent(Researcher researcher){
+        Vector<ResearchPaper> result = new Vector<ResearchPaper>();
+        for(ResearchPaper paper : papers){
+            if(paper.getAuthor().equals(researcher)){
+                result.add(paper);
+            }
+
+        }
+        return result; // TO TEST
+    }
+
+
 
 }
