@@ -1,6 +1,5 @@
 package Date;
 
-import Task.Organization;
 import Actors.*;
 import Enums.*;
 import Exceptions.*;
@@ -17,8 +16,8 @@ public class DataBase {
     Vector<ResearchProject> projects;
     Vector<Course> courses;
     Vector<User> users;
-    TreeMap<faculty, Vector<Course>> majorOnCourse;
-    TreeMap<Course, Vector<lesson>> lessonsOnCourse;
+    TreeMap<FACULTY, Vector<Course>> majorOnCourse;
+    TreeMap<Course, Vector<Lesson>> lessonsOnCourse;
     Queue<MessageSupport> messageOfSupport;
     TreeMap<User, Vector<Message>> messagesOfUser;
     TreeMap<DiplomaProject, Vector<Student>> diplomaProject;
