@@ -16,7 +16,6 @@ import Task.Organization;
  */
 public class Student extends User implements Researcher {
 
-    public int credits;
     public Organization organization;
     public FACULTY faculty;
     public DiplomaProject diplomaProject;
@@ -59,7 +58,8 @@ public class Student extends User implements Researcher {
      * @generated
      */
     public int getCredits() {
-        return credits;
+        DataBase dataBase = DataBase.getInstance();
+        return dataBase.getCntOfCreditStudent(this);
     }
 
 

@@ -62,4 +62,13 @@ public class DataBase {
         return result;
     }
 
+    public int getCntOfCreditStudent(Student student){
+        int cntOfCreditStudent = 0;
+        Vector<Course> courseOfStudent = this.getUserCourses(student);
+        for(Course c : courseOfStudent){
+            cntOfCreditStudent += c.getCredit();
+        }
+        return cntOfCreditStudent;
+    }
+
 }
