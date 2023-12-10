@@ -16,6 +16,7 @@ import Main.*;
  */
 public class Course {
 
+    public int credit;
     /**
      * @generated
      */
