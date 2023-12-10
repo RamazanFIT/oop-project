@@ -173,17 +173,24 @@ public class Student extends User implements Researcher {
 
     @Override
     public Vector<ResearchProject> getOwnProject() {
-        return null;
+        DataBase dataBase = DataBase.getInstance();
+        return dataBase.getStudentProjects(this);
     }
 
+    /**
+     * @generated
+     */
     @Override
     public boolean isResearcher() {
-        return false;
+        return isResearcher;
     }
 
+    /**
+     * @generated
+     */
     @Override
     public void setResearcher(boolean isResearcher) {
-
+        this.isResearcher = isResearcher;
     }
 
     /**

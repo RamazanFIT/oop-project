@@ -144,5 +144,16 @@ public class DataBase {
         }
         return result;
     }
+    
+    public Vector<ResearchProject> getStudentProjects(Student student) {
+        Vector<ResearchProject> studentProjects = new Vector<>();
+        for (ResearchProject project : projects) {
+            if (project.getProjectParticipant().contains(student)) {
+                studentProjects.add(project);
+            }
+        }
+
+        return studentProjects;
+    }
 
 }
