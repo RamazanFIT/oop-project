@@ -107,25 +107,6 @@ public class DataBase {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public void addDiplomaProject(DiplomaProject project, Student student){
         Vector<Student> v = new Vector<Student>();
         v.add(student);
