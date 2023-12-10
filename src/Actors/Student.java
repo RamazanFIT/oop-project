@@ -1,9 +1,6 @@
 package Actors;
 
-import Actors.*;
 import Enums.*;
-import Exceptions.*;
-import java.util.Comparator.*;
 import Science.*;
 import java.util.*;
 import Interfaces.*;
@@ -15,7 +12,6 @@ import Task.Organization;
  * @generated
  */
 public class Student extends User implements Researcher {
-
     public FACULTY faculty;
     public DiplomaProject diplomaProject;
     public boolean isResearcher;
@@ -25,9 +21,7 @@ public class Student extends User implements Researcher {
 
     }
 
-    public Student(int credits, Organization organization, FACULTY faculty, DiplomaProject diplomaProject){
-        this.credits = credits;
-        this.organization = organization;
+    public Student( FACULTY faculty, DiplomaProject diplomaProject){
         this.faculty = faculty;
         this.diplomaProject = diplomaProject;
         isResearcher = false;
@@ -65,8 +59,9 @@ public class Student extends User implements Researcher {
     /**
      * @generated
      */
-    public Organization getOrganization() {
-        return organization;
+    public Vector<Task.Organization> getOrganization() {
+        DataBase dataBase = DataBase.getInstance();
+        return dataBase.getStudentOrganizations(this);
     }
 
     /**
