@@ -21,6 +21,7 @@ public class Student extends User implements Researcher {
     public FACULTY faculty;
     public DiplomaProject diplomaProject;
     public boolean isResearcher;
+    //Anuar
 
     public Student(){
 
@@ -33,13 +34,13 @@ public class Student extends User implements Researcher {
         this.diplomaProject = diplomaProject;
         isResearcher = false;
     }
-
+    //Anuar
 
     /**
      * @generated
      */
 //    public Vector<Course> getEnrolledCourses() {
-////        return "";
+//        return "";
 //    }
 
     /**
@@ -52,24 +53,24 @@ public class Student extends User implements Researcher {
     /**
      * @generated
      */
-//    public int getCredits() {
-//        return "";
-//    }
+    public int getCredits() {
+        return credits;
+    }
 
 
     /**
      * @generated
      */
-//    public Organization getOrganization() {
-//        return ""
-//    }
+    public Organization getOrganization() {
+        return organization;
+    }
 
     /**
      * @generated
      */
-//    public void setOrganization(Organization organization) {
-//
-//    }
+    public void setOrganization(Organization organization) {
+        this.organization = organization;
+    }
 
 
     /**
@@ -90,9 +91,9 @@ public class Student extends User implements Researcher {
     /**
      * @generated
      */
-//    public DiplomaProject getDiplomaProject() {
-//        return // TODO
-//    }
+    public DiplomaProject getDiplomaProject() {
+        return diplomaProject;
+    }
 
     /**
      * @generated
