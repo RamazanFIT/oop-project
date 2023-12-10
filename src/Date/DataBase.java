@@ -18,6 +18,7 @@ public class DataBase {
     public Vector<Course> courses;
     public Vector<User> users;
     public TreeMap<FACULTY, Vector<Course>> majorOnCourse;
+    public TreeMap<FACULTY, Vector<Course>> minorOnCourse;
     public TreeMap<Course, Vector<Lesson>> lessonsOnCourse;
     public Queue<MessageSupport> messageOfSupport;
     public TreeMap<User, Vector<Message>> messagesOfUser;
@@ -127,6 +128,18 @@ public class DataBase {
         Vector<Course> result = new Vector<Course>();
         for(Course c : courses){
             if(majorCourses.contains(c)){
+                result.add(c);
+            }
+        }
+        return result;
+    }
+    
+    public Vector<Course> getMinorCoursesOfStudent(Student student){
+        Vector<Course> courses = this.getUserCourses(student);
+        Vector<Course> minorCourses = this.minorOnCourse.get(student.getFaculty());
+        Vector<Course> result = new Vector<Course>();
+        for(Course c : courses){
+            if(minorCourses.contains(c)){
                 result.add(c);
             }
         }

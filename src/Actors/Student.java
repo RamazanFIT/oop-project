@@ -127,8 +127,8 @@ public class Student extends User implements Researcher {
      * @generated
      */
     public Vector<Course> getMinor() {
-        //TODO
-        return "";
+        DataBase dataBase = DataBase.getInstance();
+        return dataBase.getMinorCoursesOfStudent(this);
     }
 
     @Override
