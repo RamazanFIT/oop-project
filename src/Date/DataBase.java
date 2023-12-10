@@ -145,10 +145,10 @@ public class DataBase {
         return result; // TO TEST
     }
     
-    public Vector<ResearchProject> getStudentProjects(Student student) {
+    public Vector<ResearchProject> getResearcherProjects(Researcher researcher) {
         Vector<ResearchProject> studentProjects = new Vector<>();
         for (ResearchProject project : projects) {
-            if (project.getProjectParticipant().contains(student)) {
+            if (project.getProjectParticipant().contains(researcher)) {
                 studentProjects.add(project);
             }
         }
@@ -166,7 +166,7 @@ public class DataBase {
         return result; // TO TEST
     }
 
-    public Vector<ResearchPaper> getResearchPaperOfStudent(Researcher researcher){
+    public Vector<ResearchPaper> getResearchPaper(Researcher researcher){
         Vector<ResearchPaper> result = new Vector<ResearchPaper>();
         for(ResearchPaper paper : papers){
             if(paper.getAuthor().equals(researcher)){
@@ -196,6 +196,60 @@ public class DataBase {
     }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public int calculateHIndexOfResearcher(Researcher researcher){
+        Vector<ResearchPaper> somePapers = this.getResearchPaper(researcher);
+        Vector<ResearchProject> someProjects = this.getResearcherProjects(researcher);
+        for(ResearchProject project : someProjects){
+            for(ResearchPaper paper : project.getPublishedPapers()){
+                if(!somePapers.contains(paper)){
+                    somePapers.add(paper);
+                }
+            }
+        }
+        Vector<Integer> citations = new Vector<Integer>();
+        for(ResearchPaper paper : somePapers){
+            citations.add(paper.getCitation());
+        }
+        Collections.sort(citations);
+        int hIndex = 0;
+        for (int i = citations.size() - 1; i >= 0; i--) {
+            int citation = citations.get(i);
+            int rank = citations.size() - i;
+            if (citation >= rank) {
+                hIndex = rank;
+            } else {
+                break;
+            }
+        }
+        return hIndex;
+    }
 
 
 

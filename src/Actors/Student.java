@@ -141,12 +141,13 @@ public class Student extends User implements Researcher {
 
     public Vector<ResearchPaper> printPapers() {
         DataBase dataBase = DataBase.getInstance();
-        return dataBase.getResearchPaperOfStudent(this);
+        return dataBase.getResearchPaper(this);
     }
 
     @Override
     public int cntHIndex() {
-        return 0;
+        DataBase dataBase = DataBase.getInstance();
+        return dataBase.calculateHIndexOfResearcher(this);
     }
 
     @Override
@@ -193,7 +194,7 @@ public class Student extends User implements Researcher {
     @Override
     public Vector<ResearchProject> getOwnProject() {
         DataBase dataBase = DataBase.getInstance();
-        return dataBase.getStudentProjects(this);
+        return dataBase.getResearcherProjects(this);
     }
 
     /**

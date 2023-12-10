@@ -124,6 +124,11 @@ public class ResearchPaper {
         return "";
     }
 
+    public int getCitation() {
+        //TODO
+        return citations;
+    }
+
 
 }
 
