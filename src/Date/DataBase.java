@@ -22,6 +22,7 @@ public class DataBase {
     TreeMap<User, Vector<Message>> messagesOfUser;
     TreeMap<DiplomaProject, Vector<Student>> diplomaProject;
     Vector<Task.Organization> organizations;
+    Vector<ResearhJournal> journals;
     private static DataBase instance = new DataBase();
     private DataBase(){
 
