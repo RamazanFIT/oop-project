@@ -36,9 +36,15 @@ public class Course {
      */
     private Vector<Student> students;
 
+    private TreeMap<Student, Grade> grades;
 
+    public void setMarkToStudent(Student student, Grade grade){
+        grades.put(student, grade);
+    }
 
-
+    public TreeMap<Student, Grade> getGrades(){
+        return grades;
+    }
 
 
     /**

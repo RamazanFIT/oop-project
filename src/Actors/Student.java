@@ -39,16 +39,21 @@ public class Student extends User implements Researcher {
     /**
      * @generated
      */
-//    public Vector<Course> getEnrolledCourses() {
-//        return "";
-//    }
+    public Vector<Course> getEnrolledCourses() {
+        DataBase dataBase = DataBase.getInstance();
+        return dataBase.getUserCourses(this);
+    }
 
     /**
      * @generated
      */
-//    public Transcript getTranscript() {
-////        return ""
-//    }
+    public Transcript getTranscript() {
+        DataBase dataBase = DataBase.getInstance();
+        Transcript transcript = new Transcript();
+        transcript.setCourseGrades(dataBase.getMarkOfStudent(this));
+        transcript.setStudent(this);
+        return transcript;
+    }
 
     /**
      * @generated

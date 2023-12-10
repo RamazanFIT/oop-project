@@ -41,4 +41,25 @@ public class DataBase {
         return result;
     }
 
+    public Vector<Course> getUserCourses(User user){
+        Student student = (Student)(user);
+        Vector<Course> result = new Vector<Course>();
+        for(int i = 0; i < courses.size(); i++){
+            if(courses.get(i).getStudents().contains(student)){
+                result.add(courses.get(i));
+            }
+        }
+        return result;
+    }
+
+    public TreeMap<Course, Grade> getMarkOfStudent(Student student){
+        TreeMap<Course, Grade> result = new TreeMap<Course, Grade>();
+        for(int i = 0; i < courses.size(); i++){
+            if(courses.get(i).getGrades().containsKey(student)){
+                result.put(courses.get(i), courses.get(i).getGrades().get(student));
+            }
+        }
+        return result;
+    }
+
 }
