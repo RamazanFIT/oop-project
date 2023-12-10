@@ -131,12 +131,12 @@ public class Student extends User implements Researcher {
         return dataBase.getMinorCoursesOfStudent(this);
     }
 
-//    @Override
-//    public Vector<ResearchPaper> printPapers(Comparator comparator) {
-//        DataBase dataBase = DataBase.getInstance();
-//        return dataBase.getResearchPaperOfStudent(this, comparator);
-//        // TODO
-//    }
+    @Override
+    public Vector<ResearchPaper> printPapers(Comparator comparator) {
+        DataBase dataBase = DataBase.getInstance();
+        return dataBase.getResearchPaperOfStudent(this, comparator);
+        // TODO
+    }
 
     public Vector<ResearchPaper> printPapers() {
         DataBase dataBase = DataBase.getInstance();
@@ -150,7 +150,7 @@ public class Student extends User implements Researcher {
 
     @Override
     public Vector<ResearchProject> getProjects() {
-        return null;
+        return this.getOwnProject();
     }
 
     @Override
@@ -165,7 +165,7 @@ public class Student extends User implements Researcher {
 
     @Override
     public Vector<ResearchPaper> getPapers() {
-        return null;
+        return this.printPapers();
     }
 
     @Override
