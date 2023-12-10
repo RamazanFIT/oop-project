@@ -1,6 +1,7 @@
 package Actors;
 
 import Enums.*;
+import Exceptions.*;
 import Science.*;
 import java.util.*;
 import Interfaces.*;
@@ -169,8 +170,9 @@ public class Student extends User implements Researcher {
     }
 
     @Override
-    public void addPapers(ResearchPaper paper) {
+    public void addPapers(ResearchPaper paper) throws ImposterException {
         DataBase dataBase = DataBase.getInstance();
+        paper.setAuthor(this);
         dataBase.addResearchPaperToStudent(paper);
     }
 

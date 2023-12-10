@@ -48,7 +48,7 @@ public interface Researcher {
     /**
      * @generated
      */
-    public void addPapers(ResearchPaper paper);
+    public void addPapers(ResearchPaper paper) throws ImposterException;
 
     /**
      * @generated
