@@ -148,7 +148,7 @@ public class DataBase {
                 result.addAll(course.getInstructors());
             }
         }
-        return result;
+        return result
     }
 
 }
