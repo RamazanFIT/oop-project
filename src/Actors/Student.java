@@ -178,7 +178,8 @@ public class Student extends User implements Researcher {
 
     @Override
     public void delPapers(ResearchPaper paper) {
-
+        DataBase dataBase = DataBase.getInstance();
+        dataBase.removeResearchPaperFromStudent(paper, this);
     }
 
     @Override
