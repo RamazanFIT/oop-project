@@ -6,5 +6,6 @@ public class Test {
 //        if(w1 instanceof q){
             System.out.println(q2.getClass());
 //        }
+        System.out.println("ss");
     }
 }
