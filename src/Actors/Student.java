@@ -23,8 +23,8 @@ public class Student extends User implements Researcher {
 
     public Student( FACULTY faculty, DiplomaProject diplomaProject){
         this.faculty = faculty;
-        this.diplomaProject = diplomaProject;
         isResearcher = false;
+        createDiplomaProject(diplomaProject);
     }
     //Anuar
 
