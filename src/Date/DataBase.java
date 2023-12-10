@@ -180,5 +180,12 @@ public class DataBase {
     public void addResearchPaperToStudent(ResearchPaper paper){
         papers.add(paper);
     }
+    
+    public void removeResearchPaperFromStudent(ResearchPaper paper, Student student) {
+        if (papers.contains(paper)) {
+            papers.remove(paper);
+            student.getPapers().remove(paper);
+        }
+    }
 
 }
