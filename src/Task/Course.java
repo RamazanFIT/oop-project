@@ -63,6 +63,14 @@ public class Course {
     }
 
 
+    public void setCredit(int credit){
+        this.credit = credit;
+    }
+
+    public int getCredit(){
+        return credit;
+    }
+
     /**
      * @generated
      */
