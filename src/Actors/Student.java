@@ -107,8 +107,6 @@ public class Student extends User implements Researcher {
         }
     }
 
-
-
     /**
      * @generated
      */
