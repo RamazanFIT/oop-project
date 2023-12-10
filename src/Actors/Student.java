@@ -16,7 +16,6 @@ import Task.Organization;
  */
 public class Student extends User implements Researcher {
 
-    public Organization organization;
     public FACULTY faculty;
     public DiplomaProject diplomaProject;
     public boolean isResearcher;
@@ -26,7 +25,8 @@ public class Student extends User implements Researcher {
 
     }
 
-    public Student(Organization organization, FACULTY faculty, DiplomaProject diplomaProject){
+    public Student(int credits, Organization organization, FACULTY faculty, DiplomaProject diplomaProject){
+        this.credits = credits;
         this.organization = organization;
         this.faculty = faculty;
         this.diplomaProject = diplomaProject;
@@ -65,18 +65,20 @@ public class Student extends User implements Researcher {
     /**
      * @generated
      */
-    public Vector<Task.Organization> getOrganization() {
-        DataBase dataBase = DataBase.getInstance();
-        return dataBase.getStudentOrganizations(this)
+    public Organization getOrganization() {
+        return organization;
     }
 
     /**
      * @generated
      */
-    public void setOrganization(Organization organization) {
-        this.organization = organization;
+    public void setOrganization(Organization organization, RoleOfOrganisation role) {
+
     }
 
+    public void setOrganization(Organization organization) {
+
+    }
 
     /**
      * @generated

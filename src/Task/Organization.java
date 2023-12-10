@@ -31,6 +31,18 @@ public class Organization {
      */
     private Student student;
 
+    public Organization(Organization name, RoleOfOrganisation role, Student student) {
+        this.name = name;
+        this.role = role;
+        this.student = student;
+    }
+
+    public Organization(Organization name, Student student){
+        this.name = name;
+        this.student = student;
+        this.role = RoleOfOrganisation.MEMBER;
+    }
+
 
 
     /**
