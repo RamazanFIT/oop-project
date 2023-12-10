@@ -217,7 +217,8 @@ public class Student extends User implements Researcher {
      * @generated
      */
     public void registerForCourse(Course course) {
-        //TODO
+        DataBase dataBase = DataBase.getInstance();
+        dataBase.registerStudentForCourse(course);
     }
 
 }

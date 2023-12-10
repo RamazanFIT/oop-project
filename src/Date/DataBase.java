@@ -195,7 +195,19 @@ public class DataBase {
         this.projects.remove(researchProject);
     }
 
+    public void registerStudentForCourse(Course course){
+        int maxCredit = 30;
+        int sumCredit = 0;
+        courses.add(course);
+        for(Course course1 : courses){
+            sumCredit += course1.getCredit();
+        }
+        if(sumCredit >= maxCredit){
+            courses.remove(course);
+            throw new ImposterException("Exceeded credit limit");
+        }
 
+    }
 
 
 
