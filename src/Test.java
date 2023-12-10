@@ -7,5 +7,7 @@ public class Test {
             System.out.println(q2.getClass());
 //        }
         System.out.println("ss");
+        System.out.println("roma");
+
     }
 }
