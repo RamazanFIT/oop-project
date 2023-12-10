@@ -216,9 +216,9 @@ public class Student extends User implements Researcher {
     /**
      * @generated
      */
-    public void registerForCourse(Course course) {
+    public void registerForCourse(Course course) throws ExceededCreditException {
         DataBase dataBase = DataBase.getInstance();
-        dataBase.registerStudentForCourse(course);
+        dataBase.registerStudentForCourse(course, this);
     }
 
 }

@@ -195,44 +195,24 @@ public class DataBase {
         this.projects.remove(researchProject);
     }
 
-    public void registerStudentForCourse(Course course){
+    public void registerStudentForCourse(Course course, Student student) throws ExceededCreditException {
         int maxCredit = 30;
-        int sumCredit = 0;
-        courses.add(course);
-        for(Course course1 : courses){
+        int sumCredit = course.getCredit();
+
+        Vector<Course> coursesOfStudent = this.getUserCourses(student);
+        for(Course course1 : coursesOfStudent){
             sumCredit += course1.getCredit();
         }
         if(sumCredit >= maxCredit){
-            courses.remove(course);
-            throw new ImposterException("Exceeded credit limit");
+            throw new ExceededCreditException("Exceeded credit limit");
         }
-
+        for(Course course1 : courses){
+            if(course1.equals(course)){
+                if(!course1.getStudents().contains(student))
+                 course1.addStudent(student);
+            }
+        }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     public int calculateHIndexOfResearcher(Researcher researcher){
@@ -262,20 +242,6 @@ public class DataBase {
         }
         return hIndex;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
