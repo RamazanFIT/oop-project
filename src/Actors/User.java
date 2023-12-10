@@ -1,12 +1,10 @@
 package Actors;
 
-import Actors.*;
 import Enums.*;
 import Exceptions.*;
-import Comparators.*;
-import Science.*;
+
 import java.util.*;
-import Interfaces.*;
+
 import Date.*;
 import Task.*;
 
@@ -164,14 +162,15 @@ public abstract class User {
         if(!isActive) kidaiException();
         journal.getMembers().remove(this);
     }
-    public void subcribeToJournal(journal ResearchJournal) throws NotAutorizedException{
+    public void subcribeToJournal(ResearhJournal journal) throws NotAutorizedException{
         if(!isActive) kidaiException();
         journal.getMembers().add(this);
     }
 
-    public Vector<ResearchJournal> getSubscriptions() throws NotAutorizedException{
-        //        if(!isActive) kidaiException();
+    public Vector<ResearhJournal> getSubscriptions() throws NotAutorizedException{
+        if(!isActive) kidaiException();
         DataBase dataBase = DataBase.getInstance();
+        return dataBase.getUserSubscriptions(this);
     }
 
 }
