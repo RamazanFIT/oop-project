@@ -23,6 +23,12 @@ public class Teacher extends Employee {
     /**
      * @generated
      */
+    public boolean isResearcher;
+
+
+    /**
+     * @generated
+     */
     private TeacherRole teacherRole;
 
 
@@ -45,14 +51,16 @@ public class Teacher extends Employee {
      * @generated
      */
     public List<Course> getListCourses() {
-        return this.listCourses; // TODO
+        DataBase dataBase = DataBase.getInstance();
+        return dataBase.getTeachCourseList(this);
     }
 
     /**
      * @generated
      */
     public void addTeachCourse(Course course) {
-        this.listCourses = listCourses; // TODO
+        DataBase dataBase = DataBase.getInstance();
+
     }
 
 
@@ -72,63 +80,13 @@ public class Teacher extends Employee {
 
 
     @Override
-    public Vector<ResearchPaper> printPapers(Comparator comparator) {
-        return null;
-    }
-
-    @Override
-    public int cntHIndex() {
-        return 0;
-    }
-
-    @Override
-    public Vector<ResearchProject> getProjects() {
-        return null;
-    }
-
-    @Override
-    public void addProject(ResearchProject project) throws ImposterException {
-
-    }
-
-    @Override
-    public void delProject(ResearchProject project) {
-
-    }
-
-    @Override
-    public Vector<ResearchPaper> getPapers() {
-        return null;
-    }
-
-    @Override
-    public void addPapers(ResearchPaper paper) throws ImposterException {
-
-    }
-
-    @Override
-    public void delPapers(ResearchPaper paper) throws ImposterException {
-
-    }
-
-    @Override
-    public Vector<ResearchProject> getOwnProject() {
-        return null;
-    }
-
-    @Override
     public boolean isResearcher() {
-        return false;
+        return isResearcher;
     }
 
     @Override
     public void setResearcher(boolean isResearcher) {
-
+        this.isResearcher = isResearcher;
     }
-
-
-    //                          Operations
-
-
 }
 

@@ -247,4 +247,14 @@ public class DataBase {
         this.messagesOfUser.add(message);
     }
 
+    public Vector<Course> getTeachCourseList(Teacher teacher){
+        Vector<Course> result = new Vector<Course>();
+        for(Course c : courses){
+            if(c.getInstructors().contains(teacher)){
+                result.add(c);
+            }
+        }
+        return result;
+    }
+
 }
