@@ -354,6 +354,9 @@ public class DataBase {
         users.add(user);
     }
 
-
+    public MessageSupport getMessageSupport(){
+//        Collections.sort(messageOfSupport, comparatorOfStatusOrder);
+        return messageOfSupport.get(0);
+    }
 
 }
