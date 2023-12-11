@@ -15,22 +15,35 @@ import Task.*;
 public class Admin extends Employee {
 
     /**
-     * @generated
+     * This field is used to describe the User is a researcher?
      */
     private boolean isResearcher;
+
+    /**
+     * @generated
+     */
     public Vector<String> seeLogAboutUser(User user) throws NotAutorizedException {
         return user.getLogFiles();
     }
 
+    /**
+     * @generated
+     */
     public void removeUser(User user){
         DataBase dataBase = DataBase.getInstance();
         dataBase.kickUser(user);
     }
 
+    /**
+     * @generated
+     */
     public void UpdateUser(User oldUser, User newUser) throws NotAutorizedException {
         oldUser.changeToNewDataOfUser(newUser);
     }
 
+    /**
+     * @generated
+     */
     public void addUser(User user){
         DataBase dataBase = DataBase.getInstance();
         dataBase.addUser(user);

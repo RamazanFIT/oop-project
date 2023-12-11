@@ -190,4 +190,17 @@ public abstract class User {
         this.lang = newDataUser.getLang();
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        User user = (User) obj;
+        if(user == this) return true;
+        if(this.name.equals(user.getName()) && this.surname.equals(user.getSurname())
+                && this.password.equals(user.password) && (this.isActive == user.getIsActive())) return true;
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, surname, password, isActive, logFiles, lang);
+    }
 }

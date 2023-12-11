@@ -11,6 +11,9 @@ import Date.*;
 import Task.*;
 import Main.*;
 
+/**
+ * @generated
+ */
 public class Dean extends Employee implements Researcher{
 
     private boolean isResearcher;
