@@ -17,21 +17,32 @@ public class Admin extends Employee {
     /**
      * @generated
      */
-    public String seeLogAboutUser(User user) {
-        //TODO
-        return "";
+    private boolean isResearcher;
+    public Vector<String> seeLogAboutUser(User user) throws NotAutorizedException {
+        return user.getLogFiles();
     }
 
     public void removeUser(User user){
-
+        DataBase dataBase = DataBase.getInstance();
+        dataBase.kickUser(user);
     }
 
-    public void UpdateUser(User oldUser, User newUser){
-        // TODO
+    public void UpdateUser(User oldUser, User newUser) throws NotAutorizedException {
+        oldUser.changeToNewDataOfUser(newUser);
     }
 
     public void addUser(User user){
-        // TODO
+        DataBase dataBase = DataBase.getInstance();
+        dataBase.addUser(user);
     }
 
+    @Override
+    public boolean isResearcher() {
+        return false;
+    }
+
+    @Override
+    public void setResearcher(boolean isResearcher) {
+        this.isResearcher = isResearcher;
+    }
 }

@@ -40,7 +40,7 @@ public abstract class User {
     /**
      * @generated
      */
-    private String logFiles;
+    private Vector<String> logFiles;
 
     /**
      * @generated
@@ -107,7 +107,7 @@ public abstract class User {
     /**
      * @generated
      */
-    public String getLogFiles() throws NotAutorizedException {
+    public Vector<String> getLogFiles() throws NotAutorizedException {
         if(!isActive) kidaiException();
 
         return this.logFiles;
@@ -178,6 +178,16 @@ public abstract class User {
         DataBase dataBase = DataBase.getInstance();
         Message message = new Message(this, to,  messageText);
         dataBase.addMessageToUser(message);
+    }
+
+    public void changeToNewDataOfUser(User newDataUser) throws NotAutorizedException{
+        if(!isActive) kidaiException();
+
+        this.name = newDataUser.getName();
+        this.surname = newDataUser.getSurname();
+        this.password = newDataUser.getPassword();
+        this.isActive = newDataUser.isActive;
+        this.lang = newDataUser.getLang();
     }
 
 }
