@@ -9,7 +9,7 @@ import Interfaces.*;
 import Date.*;
 import Task.*;
 /**
- * @generated
+ * @generated1
  */
 public abstract class Employee extends User implements Researcher {
 
