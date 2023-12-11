@@ -156,5 +156,16 @@ public class Student extends User implements Researcher {
         dataBase.registerStudentForCourse(course, this);
     }
 
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null || getClass() != object.getClass()) return false;
+        if (!super.equals(object)) return false;
+        Student student = (Student) object;
+        return isResearcher() == student.isResearcher() && java.util.Objects.equals(getFaculty(), student.getFaculty());
+    }
+
+    public int hashCode() {
+        return Objects.hash(getFaculty(), isResearcher());
+    }
 }
 
