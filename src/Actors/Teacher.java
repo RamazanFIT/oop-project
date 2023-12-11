@@ -98,7 +98,60 @@ public class Teacher extends Employee {
         this.course = course;
     }
 
+    @Override
+    public Vector<ResearchPaper> printPapers(Comparator comparator) {
+        return null;
+    }
 
+    @Override
+    public int cntHIndex() {
+        return 0;
+    }
+
+    @Override
+    public Vector<ResearchProject> getProjects() {
+        return null;
+    }
+
+    @Override
+    public void addProject(ResearchProject project) throws ImposterException {
+
+    }
+
+    @Override
+    public void delProject(ResearchProject project) {
+
+    }
+
+    @Override
+    public Vector<ResearchPaper> getPapers() {
+        return null;
+    }
+
+    @Override
+    public void addPapers(ResearchPaper paper) throws ImposterException {
+
+    }
+
+    @Override
+    public void delPapers(ResearchPaper paper) throws ImposterException {
+
+    }
+
+    @Override
+    public Vector<ResearchProject> getOwnProject() {
+        return null;
+    }
+
+    @Override
+    public boolean isResearcher() {
+        return false;
+    }
+
+    @Override
+    public void setResearcher(boolean isResearcher) {
+
+    }
 
 
     //                          Operations

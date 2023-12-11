@@ -135,8 +135,9 @@ public class Student extends User implements Researcher {
     @Override
     public Vector<ResearchPaper> printPapers(Comparator comparator) {
         DataBase dataBase = DataBase.getInstance();
-        return dataBase.getResearchPaperOfStudent(this, comparator);
+//        return dataBase.getResearchPaperOfStudent(this, comparator);
         // TODO
+        return new Vector<ResearchPaper>();
     }
 
     public Vector<ResearchPaper> printPapers() {

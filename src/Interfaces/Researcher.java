@@ -17,7 +17,7 @@ public interface Researcher {
     /**
      * @generated
      */
-    public String printPapers(Comparator comparator);
+    public Vector<ResearchPaper> printPapers(Comparator comparator);
 
     /**
      * @generated
