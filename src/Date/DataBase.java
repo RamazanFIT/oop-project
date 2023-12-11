@@ -24,6 +24,8 @@ public class DataBase {
     public TreeMap<DiplomaProject, Vector<Student>> diplomaProject;
     public Vector<Task.Organization> organizations;
     public Vector<ResearhJournal> journals;
+    public Vector<News> news;
+
     private static DataBase instance = new DataBase();
     private DataBase(){
 
@@ -274,6 +276,14 @@ public class DataBase {
 //                return;
 //            }  // DO NOT DELEtE this method
 //
+    }
+
+    public void addNews(News news){
+        this.news.add(news);
+    }
+
+    public void removeNews(News news){
+        this.news.remove(news);
     }
 
 

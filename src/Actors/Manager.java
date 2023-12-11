@@ -19,6 +19,8 @@ public class Manager extends Employee {
     /**
      * @generated
      */
+
+    private boolean isResearcher;
     private ManagerType managerType;
 
     /**
@@ -36,20 +38,40 @@ public class Manager extends Employee {
     }
 
     public Vector<Student> getInfoStudents(Course course, Comparator compare) {
-        // TODO
+        Vector<Student> students = course.getStudents();
+        Collections.sort(students, compare);
+        return students;
     }
 
+
     public Vector<Teacher> getInfoTeachers(Course course, Comparator compare) {
-        // TODO
+        Vector<Teacher> teachers = course.getInstructors();
+        Collections.sort(teachers, compare);
+        return teachers;
     }
 
     public void addStudentToCourse(Student student, Course course){
-        // TODO
+        course.addStudent(student);
     }
 
     public void addNews(News news){
-        // TODO
+        DataBase dataBase = DataBase.getInstance();
+        dataBase.addNews(news);
     }
 
+    public void removeNews(News news){
+        DataBase dataBase = DataBase.getInstance();
+        dataBase.removeNews(news);
+    }
+
+    @Override
+    public boolean isResearcher() {
+        return false;
+    }
+
+    @Override
+    public void setResearcher(boolean isResearcher) {
+        this.isResearcher = isResearcher;
+    }
 }
 
