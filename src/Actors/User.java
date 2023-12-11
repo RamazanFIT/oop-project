@@ -4,7 +4,7 @@ import Enums.*;
 import Exceptions.*;
 
 import java.util.*;
-
+import Main.*;
 import Date.*;
 import Task.*;
 
@@ -171,6 +171,13 @@ public abstract class User {
         if(!isActive) kidaiException();
         DataBase dataBase = DataBase.getInstance();
         return dataBase.getUserSubscriptions(this);
+    }
+
+    public void sendMessage(User to, String messageText) throws NotAutorizedException{
+        if(!isActive) kidaiException();
+        DataBase dataBase = DataBase.getInstance();
+        Message message = new Message(this, to,  messageText);
+        dataBase.addMessageToUser(message);
     }
 
 }

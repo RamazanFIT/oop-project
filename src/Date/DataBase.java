@@ -20,7 +20,7 @@ public class DataBase {
     public TreeMap<FACULTY, Vector<Course>> majorOnCourse;
     public TreeMap<Course, Vector<Lesson>> lessonsOnCourse;
     public Queue<MessageSupport> messageOfSupport;
-    public TreeMap<User, Vector<Message>> messagesOfUser;
+    public Vector<Message> messagesOfUser;
     public TreeMap<DiplomaProject, Vector<Student>> diplomaProject;
     public Vector<Task.Organization> organizations;
     public Vector<ResearhJournal> journals;
@@ -243,7 +243,8 @@ public class DataBase {
         return hIndex;
     }
 
-
-
+    public void addMessageToUser(Message message) {
+        this.messagesOfUser.add(message);
+    }
 
 }

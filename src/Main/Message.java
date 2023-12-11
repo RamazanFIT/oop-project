@@ -28,7 +28,13 @@ public class Message {
      * @generated
      */
     private User sender;
+    private User receiver;
 
+    public Message(User sender, User receiver, String message){
+        this.sender = sender;
+        this.receiver = receiver;
+        this.message = message;
+    }
 
 
     /**
@@ -74,6 +80,15 @@ public class Message {
     public void setSender(User sender) {
         this.sender = sender;
     }
+
+    public void setReceiver(User user){
+        this.receiver = user;
+    }
+
+    public User getReceiver() {
+        return this.receiver;
+    }
+
 
 
 }
