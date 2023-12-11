@@ -17,49 +17,84 @@ public interface Researcher {
     /**
      * @generated
      */
-    public Vector<ResearchPaper> printPapers(Comparator comparator);
+    default public Vector<ResearchPaper> printPapers(Comparator comparator) {
+        DataBase dataBase = DataBase.getInstance();
+//        return dataBase.getResearchPaperOfStudent(this, comparator);
+        // TODO
+        return new Vector<ResearchPaper>();
+    }
 
-    /**
-     * @generated
-     */
-    public int cntHIndex();
-
-    /**
-     * @generated
-     */
-    public Vector<ResearchProject> getProjects();
-
-    /**
-     * @generated
-     */
-    public void addProject(ResearchProject project) throws ImposterException;
+    default public Vector<ResearchPaper> printPapers() {
+        DataBase dataBase = DataBase.getInstance();
+        return dataBase.getResearchPaper(this);
+    }
 
 
     /**
      * @generated
      */
-    public void delProject(ResearchProject project);
+    default public int cntHIndex() {
+        DataBase dataBase = DataBase.getInstance();
+        return dataBase.calculateHIndexOfResearcher(this);
+    }
 
     /**
      * @generated
      */
-    public Vector<ResearchPaper> getPapers();
+    default public Vector<ResearchProject> getProjects() {
+        return this.getOwnProject();
+    }
 
     /**
      * @generated
      */
-    public void addPapers(ResearchPaper paper) throws ImposterException;
+    default public void addProject(ResearchProject project) throws ImposterException {
+        DataBase dataBase = DataBase.getInstance();
+        if(!project.getProjectParticipant().contains(project) ||
+                !project.getSuperVisor().equals(this)){
+            throw new ImposterException("ProjectParticipant not in project");
+        }
+        dataBase.addResearchProject(project);
+    }
 
     /**
      * @generated
      */
-    public void delPapers(ResearchPaper paper) throws ImposterException;
+    default public void delProject(ResearchProject project) {
+        DataBase dataBase = DataBase.getInstance();
+        dataBase.delResearchProject(project);
+    }
+    /**
+     * @generated
+     */
+    default public Vector<ResearchPaper> getPapers() {
+        return this.printPapers();
+    }
+
 
     /**
      * @generated
      */
-    public Vector<ResearchProject> getOwnProject();
-
+    default public void addPapers(ResearchPaper paper) throws ImposterException {
+        DataBase dataBase = DataBase.getInstance();
+        paper.setAuthor(this);
+        dataBase.addResearchPaperToStudent(paper);
+    }
+    /**
+     * @generated
+     */
+    default public void delPapers(ResearchPaper paper) throws ImposterException {
+        DataBase dataBase = DataBase.getInstance();
+        if(!paper.getAuthor().equals(this)) throw  new ImposterException("Can't delete'");
+        dataBase.removeResearchPaperFromStudent(paper);
+    }
+    /**
+     * @generated
+     */
+    default public Vector<ResearchProject> getOwnProject() {
+        DataBase dataBase = DataBase.getInstance();
+        return dataBase.getResearcherProjects(this);
+    }
     /**
      * @generated
      */

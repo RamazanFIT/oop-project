@@ -23,19 +23,7 @@ public class Teacher extends Employee {
     /**
      * @generated
      */
-    private List<Course> listCourses;
-
-    /**
-     * @generated
-     */
     private TeacherRole teacherRole;
-
-
-    /**
-     * @generated
-     */
-    private Course course;
-
 
 
     /**
@@ -48,7 +36,7 @@ public class Teacher extends Employee {
     /**
      * @generated
      */
-    public Subject setSubjectSpecialization(Subject subjectSpecialization) {
+    public void setSubjectSpecialization(Subject subjectSpecialization) {
         this.subjectSpecialization = subjectSpecialization;
     }
 
@@ -57,14 +45,14 @@ public class Teacher extends Employee {
      * @generated
      */
     public List<Course> getListCourses() {
-        return this.listCourses;
+        return this.listCourses; // TODO
     }
 
     /**
      * @generated
      */
-    public List<Course> setListCourses(List<Course> listCourses) {
-        this.listCourses = listCourses;
+    public void addTeachCourse(Course course) {
+        this.listCourses = listCourses; // TODO
     }
 
 
@@ -78,25 +66,10 @@ public class Teacher extends Employee {
     /**
      * @generated
      */
-    public TeacherRole setTeacherRole(TeacherRole teacherRole) {
+    public void setTeacherRole(TeacherRole teacherRole) {
         this.teacherRole = teacherRole;
     }
 
-
-
-    /**
-     * @generated
-     */
-    public Course getCourse() {
-        return this.course;
-    }
-
-    /**
-     * @generated
-     */
-    public Course setCourse(Course course) {
-        this.course = course;
-    }
 
     @Override
     public Vector<ResearchPaper> printPapers(Comparator comparator) {
