@@ -93,5 +93,17 @@ public class Teacher extends Employee {
 //        DataBase dataBase = DataBase.getInstance();
             course.setMarkToStudent(student, grade);
     }
+
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null || getClass() != object.getClass()) return false;
+        if (!super.equals(object)) return false;
+        Teacher teacher = (Teacher) object;
+        return isResearcher == teacher.isResearcher && java.util.Objects.equals(subjectSpecialization, teacher.subjectSpecialization) && java.util.Objects.equals(teacherRole, teacher.teacherRole);
+    }
+
+    public int hashCode() {
+        return Objects.hash(subjectSpecialization, isResearcher, teacherRole);
+    }
 }
 
