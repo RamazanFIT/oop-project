@@ -60,7 +60,7 @@ public class Teacher extends Employee {
      */
     public void addTeachCourse(Course course) {
         DataBase dataBase = DataBase.getInstance();
-
+        dataBase.addTeacherToTeachCourse(this, course);
     }
 
 

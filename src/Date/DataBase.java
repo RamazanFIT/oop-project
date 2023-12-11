@@ -257,4 +257,13 @@ public class DataBase {
         return result;
     }
 
+    public void addTeacherToTeachCourse(Teacher teacher, Course course){
+        for(Course c : courses){
+            if(c.equals(course)){
+                c.addInstructor(teacher);
+                return;
+            }
+        }
+    }
+
 }
