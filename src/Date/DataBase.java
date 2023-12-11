@@ -253,6 +253,26 @@ public class DataBase {
         this.messagesOfUser.add(message);
     }
 
+    public Vector<Message> getMessagesOfUser(User user) {
+        Vector<Message> result = new Vector<Message>();
+        for(Message message : messagesOfUser){
+            if(message.getReceiver().equals(user)){
+                result.add(message);
+            }
+        }
+        return result;
+    }
+
+    public Vector<Message> getMessageWhichSendUser(User user) {
+        Vector<Message> result = new Vector<Message>();
+        for(Message message : messagesOfUser){
+            if(message.getSender().equals(user)){
+                result.add(message);
+            }
+        }
+        return result;
+    }
+
     public Vector<Course> getTeachCourseList(Teacher teacher){
         Vector<Course> result = new Vector<Course>();
         for(Course c : courses){
@@ -306,5 +326,32 @@ public class DataBase {
         }
     }
 
+    public void kickUser(User user){
+        Vector<Course> coursesToDelete = this.getUserCourses(user);
+        for(Course c : coursesToDelete){
+            c.removeStudent((Student)user);
+        }
+        Vector<ResearchPaper> toRemove = this.getResearchPaper((Researcher) user);
+        for(ResearchPaper paper : papers){
+            papers.remove(paper);
+        }
+        Vector<ResearchProject> projectsToDelete = this.getResearcherProjects((Researcher) user);
+        for(ResearchProject project : projectsToDelete){
+            projects.remove(project);
+        }
+        Vector<Message> messagesToDelete = this.getMessagesOfUser(user);
+        for(Message message : messagesToDelete){
+            this.messagesOfUser.remove(message);
+        }
+        messagesToDelete = this.getMessageWhichSendUser(user);
+        for(Message message : messagesToDelete){
+            this.messagesOfUser.remove(message);
+        }
+        users.remove(user);
+    }
+
+    public void addUser(User user){
+        users.add(user);
+    }
 
 }

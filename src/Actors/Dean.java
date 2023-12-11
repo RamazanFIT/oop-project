@@ -12,6 +12,8 @@ import Task.*;
 import Main.*;
 
 public class Dean extends Employee implements Researcher{
+
+    private boolean isResearcher;
     public void sendMessageToSupport(MessageSupport messageSupport){
         DataBase dataBase = DataBase.getInstance();
         dataBase.addMessageToSupport(messageSupport);
@@ -29,11 +31,13 @@ public class Dean extends Employee implements Researcher{
 
 
     public void kickStudent(Student student){
-        // TODO
+        DataBase dataBase = DataBase.getInstance();
+        dataBase.kickUser(student);
     }
 
     public void addStudent(Student student){
-        // TODO
+        DataBase dataBase = DataBase.getInstance();
+        dataBase.addUser(student);
     }
 
 
@@ -44,6 +48,6 @@ public class Dean extends Employee implements Researcher{
 
     @Override
     public void setResearcher(boolean isResearcher) {
-
+        this.isResearcher = isResearcher;
     }
 }
