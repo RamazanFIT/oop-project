@@ -88,5 +88,10 @@ public class Teacher extends Employee {
     public void setResearcher(boolean isResearcher) {
         this.isResearcher = isResearcher;
     }
+
+    public void putMark(Student student, Grade grade, Course course){
+//        DataBase dataBase = DataBase.getInstance();
+            course.setMarkToStudent(student, grade);
+    }
 }
 

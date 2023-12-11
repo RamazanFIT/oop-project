@@ -266,4 +266,18 @@ public class DataBase {
         }
     }
 
+    public void putMarkToStudent(Student student, Grade grade, Course course){
+//        Vector<Course> coursesOfStudent = this.getUserCourses(student);
+//        for(Course c : coursesOfStudent){
+//            if(c.equals(course)){
+//                c.setMarkToStudent(student, grade);
+//                return;
+//            }  // DO NOT DELEtE this method
+//
+    }
+
+
+
+
+
 }
