@@ -11,6 +11,7 @@ import Date.*;
 import Task.*;
 import Main.*;
 import Task.Organization;
+import com.sun.management.GarbageCollectionNotificationInfo;
 
 public class DataBase {
     public Vector<ResearchPaper> papers;
@@ -19,8 +20,11 @@ public class DataBase {
     public Vector<User> users;
     public TreeMap<FACULTY, Vector<Course>> majorOnCourse;
     public TreeMap<Course, Vector<Lesson>> lessonsOnCourse;
-    public Queue<MessageSupport> messageOfSupport;
+    public Vector<MessageSupport> messageOfSupport;
     public Vector<Message> messagesOfUser;
+    public Vector<MessageToDean> messagesOfDean;
+
+
     public TreeMap<DiplomaProject, Vector<Student>> diplomaProject;
     public Vector<Task.Organization> organizations;
     public Vector<ResearhJournal> journals;
@@ -286,8 +290,21 @@ public class DataBase {
         this.news.remove(news);
     }
 
+    public void addMessageToSupport(MessageSupport message){
+        if(!messageOfSupport.contains(message))
+            messageOfSupport.add(message);
+    }
 
+    public MessageToDean getMessageToDean(){
+//        Collection.sort(messagesOfDean, comparatorOfUrgency);
+        return messagesOfDean.get(0);
+    }
 
+    public void sendMessageToDean(MessageToDean message){
+        if(!messagesOfDean.contains(message)){
+            messagesOfDean.add(message);
+        }
+    }
 
 
 }

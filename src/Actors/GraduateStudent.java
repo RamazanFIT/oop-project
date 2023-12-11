@@ -11,5 +11,5 @@ import Date.*;
 import Task.*;
 
 public class GraduateStudent extends Student {
-
+    // Is used to determine is the student GraduateStudent
 }

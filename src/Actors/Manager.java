@@ -4,6 +4,7 @@ import Actors.*;
 import Enums.*;
 import Exceptions.*;
 import Comparators.*;
+import Main.MessageToDean;
 import Science.*;
 import java.util.*;
 import Interfaces.*;
@@ -72,6 +73,10 @@ public class Manager extends Employee {
     @Override
     public void setResearcher(boolean isResearcher) {
         this.isResearcher = isResearcher;
+    }
+    public void sendMessageToDean(MessageToDean messageToDean){
+        DataBase dataBase = DataBase.getInstance();
+        dataBase.sendMessageToDean(messageToDean);
     }
 }
 

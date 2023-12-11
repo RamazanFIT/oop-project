@@ -9,10 +9,12 @@ import java.util.*;
 import Interfaces.*;
 import Date.*;
 import Task.*;
+import Main.*;
 
-public class Dean extends Employee implements Researchers{
+public class Dean extends Employee implements Researcher{
     public void sendMessageToSupport(MessageSupport messageSupport){
-//        TODO
+        DataBase dataBase = DataBase.getInstance();
+        dataBase.addMessageToSupport(messageSupport);
     }
 
     public String checkStudent(Student student){
@@ -20,8 +22,11 @@ public class Dean extends Employee implements Researchers{
     }
 
     public MessageToDean getMessageToDean(){
-//        return // TODO
+        DataBase dataBase = DataBase.getInstance();
+        return dataBase.getMessageToDean();
     }
+
+
 
     public void kickStudent(Student student){
         // TODO
@@ -32,5 +37,13 @@ public class Dean extends Employee implements Researchers{
     }
 
 
+    @Override
+    public boolean isResearcher() {
+        return false;
+    }
 
+    @Override
+    public void setResearcher(boolean isResearcher) {
+
+    }
 }
