@@ -13,7 +13,7 @@ import Task.*;
 /**
  * @generated
  */
-public class DiplomaProject {
+public class DiplomaProject implements Comparable<DiplomaProject>{
 
     /**
      * @generated
@@ -25,9 +25,10 @@ public class DiplomaProject {
      */
     private String title;
 
-
-
-
+    public DiplomaProject(String topic, String title) {
+        this.topic = topic;
+        this.title = title;
+    }
 
     /**
      * @generated
@@ -62,16 +63,22 @@ public class DiplomaProject {
     /**
      * @generated
      */
-//    public Vector<Student> getMembers() {
-//        //TODO
-//    }
+    public Vector<Student> getMembers() {
+        DataBase dataBase = DataBase.getInstance();
+        return dataBase.getMembersOfDiplomaProject(this);
+    }
 
     /**
      * @generated
      */
-//    public Vector<Student> addMember(Student member) {
-//        // TODO
-//    }
+    public void addMember(Student member) {
+        DataBase dataBase = DataBase.getInstance();
+        dataBase.addMemberToDiplomaProject(this, member);
+    }
 
+    @Override
+    public int compareTo(DiplomaProject o) {
+        return 0;
+    }
 }
 

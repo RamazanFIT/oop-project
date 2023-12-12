@@ -12,7 +12,7 @@ import Task.*;
 /**
  * @generated
  */
-public class Grade {
+public class Grade implements Comparable<Grade>{
 
     /**
      * @generated
@@ -24,9 +24,10 @@ public class Grade {
      */
     private String mark;
 
-
-
-
+    public Grade(int score, String mark) {
+        this.score = score;
+        this.mark = mark;
+    }
 
     /**
      * @generated
@@ -57,5 +58,9 @@ public class Grade {
         this.mark = mark;
     }
 
+    @Override
+    public int compareTo(Grade o) {
+        return 0;
+    }
 }
 
