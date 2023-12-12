@@ -32,7 +32,15 @@ public class DataBase {
 
     private static DataBase instance = new DataBase();
     private DataBase(){
-
+        papers = new Vector<ResearchPaper>();
+        projects = new Vector<ResearchProject>();
+        courses = new Vector<Course>();
+        users = new Vector<User>();
+        majorOnCourse = new TreeMap<FACULTY, Vector<Course>>();
+        lessonsOnCourse = new TreeMap<Course, Vector<Lesson>>();
+        messageOfSupport = new Vector<MessageSupport>();
+        messagesOfUser = new Vector<Message>();
+        messagesOfDean = new Vector<MessageToDean>();
     }
     public static DataBase getInstance(){
         return instance;
