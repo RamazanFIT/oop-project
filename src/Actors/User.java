@@ -217,4 +217,5 @@ public abstract class User {
         return Objects.hash(super.hashCode(), name, surname, password, isActive, logFiles, lang);
     }
 
+
 }
