@@ -16,16 +16,9 @@ public abstract class User {
     /**
      * @generated
      */
-    private String name;
-    private String surname;
+    public String name;
+    public String surname;
 
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
 
     /**
      * @generated
@@ -35,7 +28,7 @@ public abstract class User {
     /**
      * @generated
      */
-    private boolean isActive;
+    public boolean isActive;
 
     /**
      * @generated
@@ -45,7 +38,27 @@ public abstract class User {
     /**
      * @generated
      */
-    private LANGUAGES lang;
+    public LANGUAGES lang;
+
+    public User(){
+
+    }
+
+
+    public User(String name, String surname, String password, LANGUAGES lang){
+        this.name = name;
+        this.surname = surname;
+        this.password = password;
+        this.lang = lang;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
 
 
     /**
@@ -133,7 +146,7 @@ public abstract class User {
 
     @Override
     public String toString(){
-        return getName() + " " + getSurname();
+        return "Name: " + getName() + ", Surname: " + getSurname();
     }
 
     /**
@@ -203,4 +216,5 @@ public abstract class User {
     public int hashCode() {
         return Objects.hash(name, surname, password, isActive, logFiles, lang);
     }
+
 }

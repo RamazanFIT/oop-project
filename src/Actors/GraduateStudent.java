@@ -3,7 +3,7 @@ package Actors;
 import Actors.*;
 import Enums.*;
 import Exceptions.*;
-import Comparators.*;
+import java.util.Comparator.*;
 import Science.*;
 import java.util.*;
 import Interfaces.*;

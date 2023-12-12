@@ -16,7 +16,16 @@ import Main.*;
  */
 public class Dean extends Employee implements Researcher{
 
-    private boolean isResearcher;
+    public boolean isResearcher;
+
+    public Dean(){
+
+    }
+
+    public Dean(String name, String surname, String password, LANGUAGES lang, String department, double salary){
+        super(name, surname, password, lang, department, salary);
+        isResearcher = false;
+    }
     public void sendMessageToSupport(MessageSupport messageSupport){
         DataBase dataBase = DataBase.getInstance();
         dataBase.addMessageToSupport(messageSupport);
@@ -52,5 +61,23 @@ public class Dean extends Employee implements Researcher{
     @Override
     public void setResearcher(boolean isResearcher) {
         this.isResearcher = isResearcher;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Dean dean = (Dean) o;
+        return isResearcher == dean.isResearcher;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), isResearcher);
+    }
+
+    public String toString(){
+        return super.toString();
     }
 }

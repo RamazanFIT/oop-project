@@ -3,7 +3,7 @@ package Actors;
 import Actors.*;
 import Enums.*;
 import Exceptions.*;
-import Comparators.*;
+import java.util.Comparator.*;
 import Main.MessageToDean;
 import Science.*;
 import java.util.*;
@@ -21,8 +21,18 @@ public class Manager extends Employee {
      * @generated
      */
 
-    private boolean isResearcher;
-    private ManagerType managerType;
+    public boolean isResearcher;
+    public ManagerType managerType;
+
+    public Manager(){
+
+    }
+
+    public Manager(String name, String surname, String password, LANGUAGES lang, String department, double salary, ManagerType managerType){
+        super(name, surname, password, lang, department, salary);
+        this.managerType = managerType;
+        isResearcher = false;
+    }
 
     /**
      * @generated
@@ -77,6 +87,24 @@ public class Manager extends Employee {
     public void sendMessageToDean(MessageToDean messageToDean){
         DataBase dataBase = DataBase.getInstance();
         dataBase.sendMessageToDean(messageToDean);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Manager manager = (Manager) o;
+        return isResearcher == manager.isResearcher && managerType == manager.managerType;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), isResearcher, managerType);
+    }
+
+    public String toString(){
+        return super.toString() + ", Manager type: " + managerType;
     }
 }
 

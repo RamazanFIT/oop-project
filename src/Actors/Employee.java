@@ -23,7 +23,18 @@ public abstract class Employee extends User implements Researcher {
     /**
      * @generated
      */
-    private boolean isResearcher;
+    public boolean isResearcher;
+
+
+    public Employee(){
+
+    }
+    public Employee(String name, String surname, String password, LANGUAGES lang, String department, double salary){
+        super(name, surname, password, lang);
+        this.department = department;
+        this.salary = salary;
+        isResearcher = false;
+    }
 
     /**
      * @generated
@@ -62,6 +73,22 @@ public abstract class Employee extends User implements Researcher {
         return this.salary;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Employee employee = (Employee) o;
+        return Double.compare(salary, employee.salary) == 0 && isResearcher == employee.isResearcher && Objects.equals(department, employee.department);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), department, salary, isResearcher);
+    }
+
+    public String toString(){
+        return super.toString() + ", department: " + department;
+    }
 }
 

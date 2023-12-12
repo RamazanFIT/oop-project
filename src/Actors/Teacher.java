@@ -3,7 +3,7 @@ package Actors;
 import Actors.*;
 import Enums.*;
 import Exceptions.*;
-import Comparators.*;
+import java.util.Comparator.*;
 import Science.*;
 import java.util.*;
 import Interfaces.*;
@@ -18,7 +18,7 @@ public class Teacher extends Employee {
     /**
      * @generated
      */
-    private Subject subjectSpecialization;
+    public Subject subjectSpecialization;
 
     /**
      * @generated
@@ -29,7 +29,17 @@ public class Teacher extends Employee {
     /**
      * @generated
      */
-    private TeacherRole teacherRole;
+    public TeacherRole teacherRole;
+
+    public Teacher(){
+
+    }
+
+    public Teacher(String name, String surname, String password, LANGUAGES lang, String department, double salary, Subject subjectSpecialization, TeacherRole teacherRole){
+        super(name, surname, password, lang, department, salary);
+        this.subjectSpecialization = subjectSpecialization;
+        this.teacherRole = teacherRole;
+    }
 
 
     /**
@@ -104,6 +114,11 @@ public class Teacher extends Employee {
 
     public int hashCode() {
         return Objects.hash(subjectSpecialization, isResearcher, teacherRole);
+    }
+
+
+    public String toString(){
+        return super.toString() + ", Subject specialization: " + subjectSpecialization + ", Teacher role: " + teacherRole + ", Researcher: " + isResearcher;
     }
 }
 

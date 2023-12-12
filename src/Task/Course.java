@@ -3,7 +3,7 @@ package Task;
 import Actors.*;
 import Enums.*;
 import Exceptions.*;
-import Comparators.*;
+import java.util.Comparator.*;
 import Science.*;
 import java.util.*;
 import Interfaces.*;
@@ -20,24 +20,34 @@ public class Course {
     /**
      * @generated
      */
-    private Subject title;
+    public Subject title;
 
     /**
      * @generated
      */
-    private String description;
+    public String description;
 
     /**
      * @generated
      */
-    private Vector<Teacher> instructors;
+    public Vector<Teacher> instructors;
 
     /**
      * @generated
      */
-    private Vector<Student> students;
+    public Vector<Student> students;
 
-    private TreeMap<Student, Grade> grades;
+    public TreeMap<Student, Grade> grades;
+
+    public Course(){
+
+    }
+
+    public Course(int credit, Subject title, String description){
+        this.credit = credit;
+        this.title = title;
+        this.description = description;
+    }
 
     public void setMarkToStudent(Student student, Grade grade){
         grades.put(student, grade);
@@ -122,5 +132,24 @@ public class Course {
     public void removeStudent(Student student) {
         this.students.remove(student);
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Course course = (Course) o;
+        return credit == course.credit && title == course.title && Objects.equals(description, course.description) && Objects.equals(instructors, course.instructors) && Objects.equals(students, course.students) && Objects.equals(grades, course.grades);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(credit, title, description, instructors, students, grades);
+    }
+
+    @Override
+    public String toString() {
+        return "Course credits: " + credit + ", title: " + title + ", course description: " + description + ", instructors: " + instructors + ", student enrolled: " + students;
+    }
 }
+
 

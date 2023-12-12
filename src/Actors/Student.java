@@ -22,7 +22,8 @@ public class Student extends User implements Researcher {
 
     }
 
-    public Student( FACULTY faculty, DiplomaProject diplomaProject){
+    public Student(String name, String surname, String password, LANGUAGES lang, FACULTY faculty, DiplomaProject diplomaProject){
+        super(name, surname, password, lang);
         this.faculty = faculty;
         isResearcher = false;
         createDiplomaProject(diplomaProject);
@@ -166,6 +167,10 @@ public class Student extends User implements Researcher {
 
     public int hashCode() {
         return Objects.hash(getFaculty(), isResearcher());
+    }
+
+    public String toString(){
+        return super.toString() + ", faculty: " + faculty + ", researcher: " + isResearcher;
     }
 }
 

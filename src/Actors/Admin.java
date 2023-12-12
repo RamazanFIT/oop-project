@@ -3,7 +3,7 @@ package Actors;
 import Actors.*;
 import Enums.*;
 import Exceptions.*;
-import Comparators.*;
+import java.util.Comparator.*;
 import Science.*;
 import java.util.*;
 import Interfaces.*;
@@ -17,7 +17,16 @@ public class Admin extends Employee {
     /**
      * This field is used to describe the User is a researcher?
      */
-    private boolean isResearcher;
+    public boolean isResearcher;
+
+    public Admin(){
+
+    }
+
+    public Admin(String name, String surname, String password, LANGUAGES lang, String department, double salary){
+        super(name, surname, password, lang, department, salary);
+        isResearcher = false;
+    }
 
     /**
      * @generated
@@ -57,5 +66,23 @@ public class Admin extends Employee {
     @Override
     public void setResearcher(boolean isResearcher) {
         this.isResearcher = isResearcher;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Admin admin = (Admin) o;
+        return isResearcher == admin.isResearcher;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), isResearcher);
+    }
+
+    public String toString(){
+        return super.toString();
     }
 }
