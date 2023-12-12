@@ -43,6 +43,6 @@ public class GraduateStudent extends Student {
     }
 
     public String toString(){
-        return super.toString() + ", degree type: " + degreeType + ", research project: " + researchProject;
+        return super.toString() + ", Degree type: " + degreeType + ", Research project: " + researchProject;
     }
 }

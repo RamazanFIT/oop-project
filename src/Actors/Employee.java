@@ -88,7 +88,7 @@ public abstract class Employee extends User implements Researcher {
     }
 
     public String toString(){
-        return super.toString() + ", department: " + department;
+        return super.toString() + ", Department: " + department;
     }
 }
 

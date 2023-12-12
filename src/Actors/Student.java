@@ -166,7 +166,7 @@ public class Student extends User implements Researcher {
     }
 
     public int hashCode() {
-        return Objects.hash(getFaculty(), isResearcher());
+        return Objects.hash(super.hashCode(), getFaculty(), isResearcher());
     }
 
     public String toString(){

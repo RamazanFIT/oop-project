@@ -214,7 +214,11 @@ public abstract class User {
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, surname, password, isActive, logFiles, lang);
+        return Objects.hash(super.hashCode(), name, surname, password, isActive, logFiles, lang);
     }
 
+    @Override
+    public String toString() {
+        return super.toString() + ", Name: " + name + ", Surname: " + surname + ", Active: " + isActive + ", Language: " + lang + ", Password: " + getPassword();
+    }
 }

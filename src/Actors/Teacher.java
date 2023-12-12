@@ -113,9 +113,8 @@ public class Teacher extends Employee {
     }
 
     public int hashCode() {
-        return Objects.hash(subjectSpecialization, isResearcher, teacherRole);
+        return Objects.hash(super.hashCode(), subjectSpecialization, isResearcher, teacherRole);
     }
-
 
     public String toString(){
         return super.toString() + ", Subject specialization: " + subjectSpecialization + ", Teacher role: " + teacherRole + ", Researcher: " + isResearcher;
