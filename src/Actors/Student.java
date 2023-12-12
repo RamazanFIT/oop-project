@@ -170,7 +170,7 @@ public class Student extends User implements Researcher {
     }
 
     public String toString(){
-        return super.toString() + ", faculty: " + faculty + ", researcher: " + isResearcher;
+        return super.toString() + ", faculty: " + faculty + ", diploma project: " + getDiplomaProject() + ", researcher: " + isResearcher;
     }
 }
 
