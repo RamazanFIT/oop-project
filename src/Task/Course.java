@@ -14,7 +14,7 @@ import Main.*;
 /**
  * @generated
  */
-public class Course {
+public class Course implements Comparable<Course>{
 
     public int credit;
     /**
@@ -47,6 +47,9 @@ public class Course {
         this.credit = credit;
         this.title = title;
         this.description = description;
+        this.instructors = new Vector<>();
+        this.students = new Vector<>();
+        this.grades = new TreeMap<>();
     }
 
     public void setMarkToStudent(Student student, Grade grade){
@@ -148,7 +151,12 @@ public class Course {
 
     @Override
     public String toString() {
-        return "Course credits: " + credit + ", title: " + title + ", course description: " + description + ", instructors: " + instructors + ", student enrolled: " + students;
+        return "title: " + title + ", course description: " + description;
+    }
+
+    @Override
+    public int compareTo(Course o) {
+        return 0;
     }
 }
 

@@ -34,6 +34,7 @@ public class Message {
         this.sender = sender;
         this.receiver = receiver;
         this.message = message;
+        this.date = new Date();
     }
 
 
@@ -89,6 +90,11 @@ public class Message {
         return this.receiver;
     }
 
-
-
+    @Override
+    public String toString() {
+        return "Message{" +
+                "message='" + message + '\'' +
+                ", date=" + date +
+                '}';
+    }
 }
