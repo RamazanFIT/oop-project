@@ -40,8 +40,7 @@ public class ResearchProject {
 
     public ResearchProject() {};
 
-    public ResearchProject(String topic, Vector<ResearchPaper> papers,
-                           Vector<Researcher> projectParticipant, Researcher supervisor){
+    public ResearchProject(String topic, Vector<ResearchPaper> papers, Vector<Researcher> projectParticipant, Researcher supervisor){
         this.projectParticipant = projectParticipant;
         this.publishedPapers = papers;
         this.topic = topic;
