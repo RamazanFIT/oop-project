@@ -62,7 +62,10 @@ public class Manager extends Employee {
     }
 
     public void addStudentToCourse(Student student, Course course){
+        DataBase dataBase = DataBase.getInstance();
         course.addStudent(student);
+        dataBase.addCourse(course);
+//        проверено
     }
 
     public void addNews(News news){

@@ -22,11 +22,8 @@ public class Grade implements Comparable<Grade>{
     /**
      * @generated
      */
-    private String mark;
-
-    public Grade(int score, String mark) {
+    public Grade(int score) {
         this.score = score;
-        this.mark = mark;
     }
 
     /**
@@ -48,16 +45,16 @@ public class Grade implements Comparable<Grade>{
      * @generated
      */
     public String getMark() {
-        return this.mark;
+        if(score >= 90) return "A";
+        if(score >= 80) return "B";
+        if(score >= 70) return "C";
+        if(score >= 60) return "D";
+        return "F";
     }
 
-    /**
-     * @generated
-     */
-    public void setMark(String mark) {
-        this.mark = mark;
+    public String toString() {
+        return getMark();
     }
-
     @Override
     public int compareTo(Grade o) {
         return 0;

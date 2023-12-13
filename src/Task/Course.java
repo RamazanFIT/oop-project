@@ -151,7 +151,7 @@ public class Course implements Comparable<Course>{
 
     @Override
     public String toString() {
-        return "Course credits: " + credit + ", title: " + title + ", course description: " + description + ", instructors: " + instructors + ", student enrolled: " + students;
+        return "title: " + title + ", course description: " + description;
     }
 
     @Override

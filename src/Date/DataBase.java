@@ -387,6 +387,7 @@ public class DataBase {
     }
 
     public void addCourse(Course course) {
+        if(!courses.contains(course))
         this.courses.add(course);
     }
 

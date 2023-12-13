@@ -24,6 +24,10 @@ public class ResearhJournal {
      */
     private Vector<ResearchPaper> papers;
 
+    public ResearhJournal() {
+        this.members = new Vector<>();
+        this.papers = new Vector<>();
+    }
 
     /**
      * @generated

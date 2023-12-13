@@ -41,11 +41,12 @@ public abstract class User {
     public LANGUAGES lang;
 
     public User(){
-
+        logFiles = new Vector<String>();
     }
 
 
     public User(String name, String surname, String password, LANGUAGES lang){
+        this();
         this.name = name;
         this.surname = surname;
         this.password = password;
@@ -57,6 +58,7 @@ public abstract class User {
     }
 
     public String getSurname() {
+        addLogFile("getSurname");
         return surname;
     }
 
@@ -65,6 +67,7 @@ public abstract class User {
      * @generated
      */
     public String getName(){
+        addLogFile("getName");
 
         return this.name;
     }
@@ -74,6 +77,7 @@ public abstract class User {
      */
     public void setName(String name) throws NotAutorizedException {
         if(!isActive) kidaiException();
+        addLogFile("setName");
 
         this.name = name;
     }
@@ -84,6 +88,7 @@ public abstract class User {
      */
     public String getPassword() throws NotAutorizedException {
         if(!isActive) kidaiException();
+        addLogFile("getPassword");
 
         return this.password;
     }
@@ -93,11 +98,14 @@ public abstract class User {
      */
     public void setPassword(String password) throws NotAutorizedException {
         if(!isActive) kidaiException();
+        addLogFile("setPassword");
 
         this.password = password;
     }
 
     public String getWhoIs(){
+        addLogFile("getWhoIs");
+
         return this.getClass().getName();
     }
 
@@ -106,14 +114,20 @@ public abstract class User {
      * @generated
      */
     public boolean getIsActive() {
+        addLogFile("getIsActive");
+
         return this.isActive;
+//        work
     }
 
     /**
      * @generated
      */
     public void setIsActive(boolean isActive) {
+        addLogFile("setIsActive");
+
         this.isActive = isActive;
+
     }
 
 
@@ -122,8 +136,10 @@ public abstract class User {
      */
     public Vector<String> getLogFiles() throws NotAutorizedException {
         if(!isActive) kidaiException();
+        addLogFile("getLogFiles");
 
         return this.logFiles;
+        // work
     }
 
     /**
@@ -131,6 +147,7 @@ public abstract class User {
      */
     public LANGUAGES getLang() throws NotAutorizedException {
         if(!isActive) kidaiException();
+        addLogFile("getLang");
 
         return this.lang;
     }
@@ -140,6 +157,8 @@ public abstract class User {
      */
     public void setLang(LANGUAGES lang) throws NotAutorizedException {
         if(!isActive) kidaiException();
+        addLogFile("setLang");
+
         this.lang = lang;
     }
 
@@ -153,7 +172,10 @@ public abstract class User {
      * @generated
      */
     public boolean login(String password) {
+        addLogFile("login");
+
         if(this.password == password) {
+            this.isActive = true;
             return true;
         } else{
             return false;
@@ -165,6 +187,8 @@ public abstract class User {
      */
     public void logout() {
         isActive = false;
+        addLogFile("logout");
+
     }
 
     public void kidaiException() throws NotAutorizedException{
@@ -173,16 +197,22 @@ public abstract class User {
 
     public void cancelSubscriptions(ResearhJournal journal) throws NotAutorizedException{
         if(!isActive) kidaiException();
+        addLogFile("cancelSubscriptions");
+
         journal.getMembers().remove(this);
     }
     public void subcribeToJournal(ResearhJournal journal) throws NotAutorizedException{
         if(!isActive) kidaiException();
+        addLogFile("subcribeToJournal");
+
         journal.getMembers().add(this);
     }
 
     public Vector<ResearhJournal> getSubscriptions() throws NotAutorizedException{
         if(!isActive) kidaiException();
         DataBase dataBase = DataBase.getInstance();
+        addLogFile("getSubscriptions");
+
         return dataBase.getUserSubscriptions(this);
     }
 
@@ -191,6 +221,8 @@ public abstract class User {
         DataBase dataBase = DataBase.getInstance();
         Message message = new Message(this, to,  messageText);
         dataBase.addMessageToUser(message);
+        addLogFile("sendMessage");
+
     }
 
     public void changeToNewDataOfUser(User newDataUser) throws NotAutorizedException{
@@ -201,15 +233,19 @@ public abstract class User {
         this.password = newDataUser.getPassword();
         this.isActive = newDataUser.isActive;
         this.lang = newDataUser.getLang();
+        addLogFile("changeToNewDataOfUser");
+
     }
 
     @Override
     public boolean equals(Object obj) {
+
         User user = (User) obj;
         if(user == this) return true;
         if(this.name.equals(user.getName()) && this.surname.equals(user.getSurname())
                 && this.password.equals(user.password) && (this.isActive == user.getIsActive())) return true;
         return false;
+
     }
 
     @Override
@@ -217,5 +253,8 @@ public abstract class User {
         return Objects.hash(super.hashCode(), name, surname, password, isActive, logFiles, lang);
     }
 
+    public void addLogFile(String s){
+        logFiles.add(s);
+    }
 
 }
