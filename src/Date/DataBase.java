@@ -383,12 +383,17 @@ public class DataBase {
     }
 
     public void addMemberToDiplomaProject(DiplomaProject project, Student student) {
+        if(!diplomaProject.get(project).contains(student))
         diplomaProject.get(project).add(student);
     }
 
     public void addCourse(Course course) {
         if(!courses.contains(course))
         this.courses.add(course);
+    }
+    public void addResearchJournal(ResearhJournal journal) {
+        if(!journals.contains(journal))
+            this.journals.add(journal);
     }
 
 }

@@ -199,13 +199,14 @@ public abstract class User {
         if(!isActive) kidaiException();
         addLogFile("cancelSubscriptions");
 
-        journal.getMembers().remove(this);
+        journal.getMembers().remove(this); // WORK
     }
     public void subcribeToJournal(ResearhJournal journal) throws NotAutorizedException{
         if(!isActive) kidaiException();
+        DataBase dataBase = DataBase.getInstance();
+        dataBase.addResearchJournal(journal);
         addLogFile("subcribeToJournal");
-
-        journal.getMembers().add(this);
+        journal.addMember(this); // WORK
     }
 
     public Vector<ResearhJournal> getSubscriptions() throws NotAutorizedException{

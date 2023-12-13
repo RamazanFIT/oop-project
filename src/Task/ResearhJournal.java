@@ -14,6 +14,16 @@ import Date.*;
  */
 public class ResearhJournal {
 
+    String title;
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     /**
      * @generated
      */
@@ -27,6 +37,17 @@ public class ResearhJournal {
     public ResearhJournal() {
         this.members = new Vector<>();
         this.papers = new Vector<>();
+    }
+
+    @Override
+    public String toString() {
+        return
+                "title=" + title;
+    }
+
+    public ResearhJournal(String title) {
+        this();
+        this.title = title;
     }
 
     /**

@@ -24,6 +24,13 @@ public class Testing {
                 LANGUAGES.EN,
                 FACULTY.FIT,
                 diplomaProject);
+        Student student2 = new Student("dinara",
+                "syrlybayeva",
+                "12345",
+                LANGUAGES.EN,
+                FACULTY.FIT,
+                diplomaProject);
+        student2.login("12345");
         Course course = new Course(5, Subject.ALGORITHM, "work hard");
         manager.addStudentToCourse(student, course);
 
@@ -40,7 +47,20 @@ public class Testing {
 //        System.out.println(student.getIsActive());
 //        student.logout();
 //        System.out.println(student.getLogFiles());
-        ResearhJournal journal1 = new ResearhJournal();
+        ResearhJournal journal1 = new ResearhJournal("TIMES");
+        ResearhJournal journal2 = new ResearhJournal("New Cour");
+        ResearhJournal journal3 = new ResearhJournal("Fan out");
+        student.subcribeToJournal(journal1);
+        student.subcribeToJournal(journal2);
+        student.subcribeToJournal(journal3);
+        student.subcribeToJournal(journal3);
+        student.cancelSubscriptions(journal1);
+        student2.subcribeToJournal(journal3);
+        student2.cancelSubscriptions(journal3);
+
+        System.out.println(student.getSubscriptions());
+
+        System.out.println(student2.getSubscriptions());
 
     }
 
