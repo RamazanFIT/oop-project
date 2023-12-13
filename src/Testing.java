@@ -4,6 +4,7 @@ import Exceptions.*;
 
 import java.util.Comparator.*;
 
+import Main.Message;
 import Science.*;
 
 import java.util.*;
@@ -61,6 +62,13 @@ public class Testing {
         System.out.println(student.getSubscriptions());
 
         System.out.println(student2.getSubscriptions());
+        System.out.println(student.getLogFiles(3));
+        student.sendMessage(student2, "hillo");
+        student.sendMessage(student2, "how are you?");
+        System.out.println(student2.getMessage());
+
+
+
 
     }
 

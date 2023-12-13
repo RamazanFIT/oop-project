@@ -4,6 +4,8 @@ import Enums.*;
 import Exceptions.*;
 
 import java.util.*;
+import java.util.stream.Collectors;
+
 import Main.*;
 import Date.*;
 import Task.*;
@@ -141,6 +143,13 @@ public abstract class User {
         return this.logFiles;
         // work
     }
+    public List<String> getLogFiles(int limit) throws NotAutorizedException {
+        if(!isActive) kidaiException();
+        addLogFile("getLogFiles");
+
+        return this.logFiles.stream().limit(limit).collect(Collectors.toList());
+        // work
+    }
 
     /**
      * @generated
@@ -214,7 +223,7 @@ public abstract class User {
         DataBase dataBase = DataBase.getInstance();
         addLogFile("getSubscriptions");
 
-        return dataBase.getUserSubscriptions(this);
+        return dataBase.getUserSubscriptions(this); // WORK
     }
 
     public void sendMessage(User to, String messageText) throws NotAutorizedException{
@@ -224,6 +233,18 @@ public abstract class User {
         dataBase.addMessageToUser(message);
         addLogFile("sendMessage");
 
+    }
+
+    public Vector<Message> getMessage() throws NotAutorizedException{
+        if(!isActive) kidaiException();
+        DataBase dataBase = DataBase.getInstance();
+        return dataBase.getMessagesOfUser(this);
+    }
+
+    public Vector<Message> getSendMessage() throws NotAutorizedException{
+        if(!isActive) kidaiException();
+        DataBase dataBase = DataBase.getInstance();
+        return dataBase.getMessageWhichSendUser(this);
     }
 
     public void changeToNewDataOfUser(User newDataUser) throws NotAutorizedException{
