@@ -44,6 +44,24 @@ public class ResearchPaper {
      */
     private String doi;
 
+    public ResearchPaper(String title, Researcher author, int citations, int pages, Date date, String doi) {
+        this.title = title;
+        this.author = author;
+        this.citations = citations;
+        this.pages = pages;
+        this.date = date;
+        this.doi = doi;
+    }
+
+    public ResearchPaper(String title, Researcher author, int citations, int pages, String doi) {
+        this.title = title;
+        this.author = author;
+        this.citations = citations;
+        this.pages = pages;
+        this.doi = doi;
+        this.date = new Date();
+    }
+
     /**
      * @generated
      */
@@ -119,14 +137,32 @@ public class ResearchPaper {
     /**
      * @generated
      */
-    public String getCitation(Format f) {
-        //TODO
-        return "";
+    private String formatPlainText() {
+        return String.format("%s by %s, %s, DOI: %s", this.title, this.author.getName(), this.date.toString(), this.doi);
+    } // work
+
+    /**
+     * @generated
+     */
+    private String formatBibtex() {
+        return String.format("@article{%s,\nauthor = {%s},\ntitle = {%s},\nyear = {%tY},\ndoi = {%s}\n}",
+                this.author.getName().replaceAll("\\s+", "").toLowerCase() + this.date.getYear(),
+                this.author.getName(),
+                this.title,
+                this.date,
+                this.doi); // work
+    }
+
+    public String getCitation(Format f) { // work
+        if(f == Format.Bibtex){
+            return this.formatBibtex();
+        } else{
+            return this.formatPlainText();
+        }
     }
 
     public int getCitation() {
-        //TODO
-        return citations;
+        return citations; // work
     }
 
 

@@ -13,7 +13,6 @@ import Task.*;
 public class GraduateStudent extends Student {
     // Is used to determine is the student GraduateStudent
     public GRADUATE_STUDENT degreeType;
-    public ResearchProject researchProject;
     public boolean isResearcher;
 
 
@@ -21,12 +20,14 @@ public class GraduateStudent extends Student {
 
     }
 
-    public GraduateStudent(String name, String surname, String password, LANGUAGES lang, FACULTY faculty, DiplomaProject diplomaProject, GRADUATE_STUDENT degreeType, ResearchProject researchProject){
+    public GraduateStudent(String name, String surname,
+                           String password, LANGUAGES lang, FACULTY faculty,
+                           DiplomaProject diplomaProject, GRADUATE_STUDENT degreeType){
         super(name, surname, password, lang, faculty, diplomaProject);
         this.degreeType = degreeType;
-        this.researchProject = researchProject;
-        isResearcher = true;
+        this.isResearcher = true;
     }
+
 
     @Override
     public boolean equals(Object o) {
@@ -34,15 +35,20 @@ public class GraduateStudent extends Student {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         GraduateStudent that = (GraduateStudent) o;
-        return isResearcher == that.isResearcher && degreeType == that.degreeType && Objects.equals(researchProject, that.researchProject);
+        return isResearcher == that.isResearcher && degreeType == that.degreeType;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), degreeType, researchProject, isResearcher);
+        return Objects.hash(super.hashCode(), degreeType, isResearcher);
     }
 
-    public String toString(){
-        return super.toString() + ", Degree type: " + degreeType + ", Research project: " + researchProject;
+    @Override
+    public String toString() {
+        return "GraduateStudent{" +
+                "degreeType=" + degreeType +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                '}';
     }
 }

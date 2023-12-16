@@ -68,6 +68,14 @@ public class Testing {
         System.out.println(student2.getMessage());
 
         // rozi
+        teacher.setResearcher(true);
+        ResearchPaper rp1 = new ResearchPaper("some learning", teacher, 12, 13, "22bd");
+
+        System.out.println(rp1.getCitation());
+        System.out.println(rp1.getCitation(Format.Bibtex));
+        System.out.println(rp1.getCitation(Format.PlainText));
+
+
 
 
     }

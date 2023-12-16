@@ -101,5 +101,7 @@ public interface Researcher {
     public boolean isResearcher();
 
     public void setResearcher(boolean isResearcher);
+
+    public String getName();
 }
 
