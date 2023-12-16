@@ -15,7 +15,6 @@ import Date.*;
 import Task.*;
 import Main.*;
 import Task.Organization;
-import com.sun.management.GarbageCollectionNotificationInfo;
 
 public class DataBase {
     public Vector<ResearchPaper> papers;
