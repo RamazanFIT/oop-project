@@ -13,7 +13,7 @@ import Task.*;
 /**
  * The Admin class extends the Employee class
  */
-public class Admin extends Employee {
+public class Admin extends Employee{
 
     /**
      * The isResearcher field is used to determine whether the user is a researcher or not
@@ -107,4 +107,6 @@ public class Admin extends Employee {
     public String toString(){
         return super.toString();
     }
+
+
 }

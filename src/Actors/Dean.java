@@ -80,4 +80,5 @@ public class Dean extends Employee implements Researcher{
     public String toString(){
         return super.toString();
     }
+
 }

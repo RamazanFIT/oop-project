@@ -12,7 +12,7 @@ import Task.Organization;
 /**
  * @generated
  */
-public class Student extends User implements Researcher, Comparable<Student> {
+public class Student extends User implements Researcher{
     public FACULTY faculty;
 
     public boolean isResearcher;
@@ -173,9 +173,5 @@ public class Student extends User implements Researcher, Comparable<Student> {
         return super.toString() + ", faculty: " + faculty + ", diploma project: " + getDiplomaProject() + ", researcher: " + isResearcher;
     }
 
-    @Override
-    public int compareTo(Student o) {
-        return 0;
-    }
 }
 

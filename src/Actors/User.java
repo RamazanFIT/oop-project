@@ -13,7 +13,7 @@ import Task.*;
 /**
  * @generatedo
  */
-public abstract class User {
+public abstract class User implements Comparable<User>{
 
     /**
      * @generated
@@ -277,6 +277,12 @@ public abstract class User {
 
     public void addLogFile(String s){
         logFiles.add(s);
+    }
+    public int compareTo(User o) {
+        if(this.getName().compareTo(o.getName()) != 0){
+            return this.getName().compareTo(o.getName());
+        }
+        return this.getSurname().compareTo(o.getSurname());
     }
 
 }
