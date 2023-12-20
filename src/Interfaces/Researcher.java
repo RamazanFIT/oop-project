@@ -5,50 +5,69 @@ import Enums.*;
 import Exceptions.*;
 import Comparators.*;
 import Science.*;
+
+import java.io.IOException;
+import java.io.Serializable;
 import java.util.*;
 import Interfaces.*;
 import Date.*;
 import Task.*;
+
 /**
- * @generated
+ * The interface Researcher.
  */
-public interface Researcher {
+public interface Researcher extends Serializable {
 
     /**
-     * @generated
+     * Print papers vector.
+     *
+     * @param comparator the comparator
+     * @return the vector
      */
-    default public Vector<ResearchPaper> printPapers(Comparator comparator) {
+    default public Vector<ResearchPaper> printPapers(Comparator comparator) throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
 //        return dataBase.getResearchPaperOfStudent(this, comparator);
         // TODO
         return new Vector<ResearchPaper>();
     }
 
-    default public Vector<ResearchPaper> printPapers() {
+    /**
+     * Print papers vector.
+     *
+     * @return the vector
+     */
+    default public Vector<ResearchPaper> printPapers() throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
         return dataBase.getResearchPaper(this);
     }
 
 
     /**
-     * @generated
+     * Cnt h index int.
+     *
+     * @return the int
      */
-    default public int cntHIndex() {
+    default public int cntHIndex() throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
         return dataBase.calculateHIndexOfResearcher(this);
     }
 
     /**
-     * @generated
+     * Gets projects.
+     *
+     * @return the projects
      */
-    default public Vector<ResearchProject> getProjects() {
+    default public Vector<ResearchProject> getProjects() throws IOException, ClassNotFoundException {
         return this.getOwnProject();
     }
 
     /**
-     * @generated
+     * Add project.
+     *
+     * @param project the project
+     * @throws ImposterException the imposter exception
      */
-    default public void addProject(ResearchProject project) throws ImposterException {
+    default public void addProject(ResearchProject project) throws ImposterException, IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
         if(!project.getProjectParticipant().contains(project) ||
                 !project.getSuperVisor().equals(this)){
@@ -58,50 +77,78 @@ public interface Researcher {
     }
 
     /**
-     * @generated
+     * Del project.
+     *
+     * @param project the project
      */
-    default public void delProject(ResearchProject project) {
+    default public void delProject(ResearchProject project) throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
         dataBase.delResearchProject(project);
     }
+
     /**
-     * @generated
+     * Gets papers.
+     *
+     * @return the papers
      */
-    default public Vector<ResearchPaper> getPapers() {
+    default public Vector<ResearchPaper> getPapers() throws IOException, ClassNotFoundException {
         return this.printPapers();
     }
 
 
     /**
-     * @generated
+     * Add papers.
+     *
+     * @param paper the paper
+     * @throws ImposterException the imposter exception
      */
-    default public void addPapers(ResearchPaper paper) throws ImposterException {
+    default public void addPapers(ResearchPaper paper) throws ImposterException, IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
         paper.setAuthor(this);
         dataBase.addResearchPaperToStudent(paper);
     }
+
     /**
-     * @generated
+     * Del papers.
+     *
+     * @param paper the paper
+     * @throws ImposterException the imposter exception
      */
-    default public void delPapers(ResearchPaper paper) throws ImposterException {
+    default public void delPapers(ResearchPaper paper) throws ImposterException, IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
         if(!paper.getAuthor().equals(this)) throw  new ImposterException("Can't delete'");
         dataBase.removeResearchPaperFromStudent(paper);
     }
+
     /**
-     * @generated
+     * Gets own project.
+     *
+     * @return the own project
      */
-    default public Vector<ResearchProject> getOwnProject() {
+    default public Vector<ResearchProject> getOwnProject() throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
         return dataBase.getResearcherProjects(this);
     }
+
     /**
-     * @generated
+     * Is researcher boolean.
+     *
+     * @return the boolean
      */
     public boolean isResearcher();
 
+    /**
+     * Sets researcher.
+     *
+     * @param isResearcher the is researcher
+     */
     public void setResearcher(boolean isResearcher);
 
+    /**
+     * Gets name.
+     *
+     * @return the name
+     */
     public String getName();
 }
 

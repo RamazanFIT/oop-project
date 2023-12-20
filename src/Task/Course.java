@@ -3,6 +3,8 @@ package Task;
 import Actors.*;
 import Enums.*;
 import Exceptions.*;
+
+import java.io.Serializable;
 import java.util.Comparator.*;
 import Science.*;
 import java.util.*;
@@ -12,37 +14,53 @@ import Task.*;
 import Main.*;
 
 /**
- * @generated
+ * The type Course.
  */
-public class Course implements Comparable<Course>{
+public class Course implements Comparable<Course>, Serializable {
 
+    /**
+     * The Credit.
+     */
     public int credit;
     /**
-     * @generated
+     * The Title.
      */
     public Subject title;
 
     /**
-     * @generated
+     * The Description.
      */
     public String description;
 
     /**
-     * @generated
+     * The Instructors.
      */
     public Vector<Teacher> instructors;
 
     /**
-     * @generated
+     * The Students.
      */
     public Vector<Student> students;
 
+    /**
+     * The Grades.
+     */
     public TreeMap<Student, Grade> grades;
 
+    /**
+     * Instantiates a new Course.
+     */
     public Course(){
 
     }
 
+    /**
+     * Instantiates a new Course.
+     *
+     * @param credit      the credit
+     * @param title       the title
+     * @param description the description
+     */
     public Course(int credit, Subject title, String description){
         this.credit = credit;
         this.title = title;
@@ -52,47 +70,76 @@ public class Course implements Comparable<Course>{
         this.grades = new TreeMap<>();
     }
 
+    /**
+     * Set mark to student.
+     *
+     * @param student the student
+     * @param grade   the grade
+     */
     public void setMarkToStudent(Student student, Grade grade){
         grades.put(student, grade);
     }
 
+    /**
+     * Get grades tree map.
+     *
+     * @return the tree map
+     */
     public TreeMap<Student, Grade> getGrades(){
         return grades;
     }
 
 
     /**
-     * @generated
+     * Gets title.
+     *
+     * @return the title
      */
     public Subject getTitle() {
         return this.title;
     }
 
     /**
-     * @generated
+     * Sets title.
+     *
+     * @param title the title
      */
     public void setTitle(Subject title) {
         this.title = title;
     }
 
 
+    /**
+     * Set credit.
+     *
+     * @param credit the credit
+     */
     public void setCredit(int credit){
         this.credit = credit;
     }
 
+    /**
+     * Get credit int.
+     *
+     * @return the int
+     */
     public int getCredit(){
         return credit;
     }
 
     /**
-     * @generated
+     * Gets description.
+     *
+     * @return the description
      */
     public String getDescription() {
         return this.description;
     }
 
     /**
-     * @generated
+     * Sets description.
+     *
+     * @param description the description
      */
     public void setDescription(String description) {
         this.description = description;
@@ -100,38 +147,56 @@ public class Course implements Comparable<Course>{
 
 
     /**
-     * @generated
+     * Gets instructors.
+     *
+     * @return the instructors
      */
     public Vector<Teacher> getInstructors() {
         return this.instructors;
     }
 
     /**
-     * @generated
+     * Add instructor.
+     *
+     * @param instructor the instructor
      */
     public void addInstructor(Teacher instructor) {
         this.instructors.add(instructor);
     }
 
+    /**
+     * Remove instructor.
+     *
+     * @param instructor the instructor
+     */
     public void removeInstructor(Teacher instructor) {
         this.instructors.remove(instructor);
     }
 
 
     /**
-     * @generated
+     * Gets students.
+     *
+     * @return the students
      */
     public Vector<Student> getStudents() {
         return this.students;
     }
 
     /**
-     * @generated
+     * Add student.
+     *
+     * @param student the student
      */
     public void addStudent(Student student) {
         this.students.add(student);
     }
 
+    /**
+     * Remove student.
+     *
+     * @param student the student
+     */
     public void removeStudent(Student student) {
         this.students.remove(student);
     }

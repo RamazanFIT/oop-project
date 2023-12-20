@@ -4,37 +4,42 @@ import Enums.*;
 import Exceptions.*;
 import Comparators.*;
 import Science.*;
+
+import java.io.Serializable;
 import java.util.*;
 import Interfaces.*;
 import Date.*;
 import Task.*;
 
 /**
- * @generated
+ * The type Grade.
  */
-public class Grade implements Comparable<Grade>{
+public class Grade implements Comparable<Grade>, Serializable {
 
-    /**
-     * @generated
-     */
     private int score;
 
     /**
-     * @generated
+     * Instantiates a new Grade.
+     *
+     * @param score the score
      */
     public Grade(int score) {
         this.score = score;
     }
 
     /**
-     * @generated
+     * Gets score.
+     *
+     * @return the score
      */
     public int getScore() {
         return this.score;
     }
 
     /**
-     * @generated
+     * Sets score.
+     *
+     * @param score the score
      */
     public void setScore(Integer score) {
         this.score = score;
@@ -42,7 +47,9 @@ public class Grade implements Comparable<Grade>{
 
 
     /**
-     * @generated
+     * Gets mark.
+     *
+     * @return the mark
      */
     public String getMark() {
         if(score >= 90) return "A";

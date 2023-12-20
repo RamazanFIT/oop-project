@@ -3,6 +3,8 @@ package Task;
 import Actors.*;
 import Enums.*;
 import Exceptions.*;
+
+import java.io.Serializable;
 import java.util.Comparator.*;
 import Science.*;
 import java.util.*;
@@ -13,26 +15,22 @@ import Task.Organization;
 import com.sun.source.tree.Tree;
 
 /**
- * @generated
+ * The type Transcript.
  */
-public class Transcript {
+public class Transcript implements Serializable {
+    /**
+     * The Grades.
+     */
     TreeMap<String, Integer> grades = new TreeMap<>();
 
-    /**
-     * @generated
-     */
     private TreeMap<Course, Grade> courseGrades;
 
 
-    /**
-     * @generated
-     */
     private Student student;
 
 
-
     /**
-     * @generated
+     * Instantiates a new Transcript.
      */
     public Transcript(){
         grades.put("A", 4);
@@ -41,17 +39,30 @@ public class Transcript {
         grades.put("D", 1);
         grades.put("F", 0);
     }
+
+    /**
+     * Gets course grades.
+     *
+     * @return the course grades
+     */
     public TreeMap<Course, Grade> getCourseGrades() {
         return this.courseGrades;
     }
 
+    /**
+     * Set course grades.
+     *
+     * @param courseGrades the course grades
+     */
     public void setCourseGrades(TreeMap<Course, Grade> courseGrades){
         this.courseGrades = courseGrades;
     }
 
 
     /**
-     * @generated
+     * Gets gpa.
+     *
+     * @return the gpa
      */
     public double getGpa() {
         double gpa = 0.000;
@@ -64,14 +75,18 @@ public class Transcript {
     }
 
     /**
-     * @generated
+     * Gets student.
+     *
+     * @return the student
      */
     public Student getStudent() {
         return this.student;
     }
 
     /**
-     * @generated
+     * Sets student.
+     *
+     * @param student the student
      */
     public void setStudent(Student student) {
         this.student = student;

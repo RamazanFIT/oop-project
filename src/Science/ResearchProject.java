@@ -8,38 +8,39 @@ import Enums.*;
 import Exceptions.*;
 import Comparators.*;
 import Science.*;
+
+import java.io.Serializable;
 import java.util.*;
 import Interfaces.*;
 import Date.*;
 import Task.*;
 
 /**
- * @generated
+ * The type Research project.
  */
-public class ResearchProject {
+public class ResearchProject implements Serializable {
 
-    /**
-     * @generated
-     */
     private String topic;
 
-    /**
-     * @generated
-     */
     private Vector<ResearchPaper> publishedPapers;
 
-    /**
-     * @generated
-     */
     private Vector<Researcher> projectParticipant;
 
-    /**
-     * @generated
-     */
     private Researcher superVisor;
 
+    /**
+     * Instantiates a new Research project.
+     */
     public ResearchProject() {};
 
+    /**
+     * Instantiates a new Research project.
+     *
+     * @param topic              the topic
+     * @param papers             the papers
+     * @param projectParticipant the project participant
+     * @param supervisor         the supervisor
+     */
     public ResearchProject(String topic, Vector<ResearchPaper> papers, Vector<Researcher> projectParticipant, Researcher supervisor){
         this.projectParticipant = projectParticipant;
         this.publishedPapers = papers;
@@ -49,14 +50,18 @@ public class ResearchProject {
 
 
     /**
-     * @generated
+     * Gets topic.
+     *
+     * @return the topic
      */
     public String getTopic() {
         return this.topic;
     }
 
     /**
-     * @generated
+     * Sets topic.
+     *
+     * @param topic the topic
      */
     public void setTopic(String topic) {
         this.topic = topic;
@@ -64,14 +69,18 @@ public class ResearchProject {
 
 
     /**
-     * @generated
+     * Gets published papers.
+     *
+     * @return the published papers
      */
     public Vector<ResearchPaper> getPublishedPapers() {
         return this.publishedPapers;
     }
 
     /**
-     * @generated
+     * Add paper.
+     *
+     * @param paper the paper
      */
     public void addPaper(ResearchPaper paper) {
         this.publishedPapers.add(paper);
@@ -79,14 +88,19 @@ public class ResearchProject {
 
 
     /**
-     * @generated
+     * Gets project participant.
+     *
+     * @return the project participant
      */
     public Vector<Researcher> getProjectParticipant() {
         return this.projectParticipant;
     }
 
     /**
-     * @generated
+     * Add project participant.
+     *
+     * @param projectParticipant the project participant
+     * @throws ImposterException the imposter exception
      */
     public void addProjectParticipant(Researcher projectParticipant) throws ImposterException {
         if(!projectParticipant.isResearcher()){
@@ -97,14 +111,19 @@ public class ResearchProject {
 
 
     /**
-     * @generated
+     * Gets super visor.
+     *
+     * @return the super visor
      */
     public Researcher getSuperVisor() {
         return this.superVisor;
     }
 
     /**
-     * @generated
+     * Sets super visor.
+     *
+     * @param superVisor the super visor
+     * @throws ImposterException the imposter exception
      */
     public void setSuperVisor(Researcher superVisor) throws ImposterException {
         if(!superVisor.isResearcher()){

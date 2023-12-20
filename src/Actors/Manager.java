@@ -3,6 +3,8 @@ package Actors;
 import Actors.*;
 import Enums.*;
 import Exceptions.*;
+
+import java.io.IOException;
 import java.util.Comparator.*;
 import Main.MessageToDean;
 import Science.*;
@@ -13,21 +15,37 @@ import Task.*;
 
 
 /**
- * @generated
+ * The type Manager.
  */
 public class Manager extends Employee {
 
     /**
-     * @generated
+     * The Is researcher.
      */
-
     public boolean isResearcher;
+    /**
+     * The Manager type.
+     */
     public ManagerType managerType;
 
+    /**
+     * Instantiates a new Manager.
+     */
     public Manager(){
 
     }
 
+    /**
+     * Instantiates a new Manager.
+     *
+     * @param name        the name
+     * @param surname     the surname
+     * @param password    the password
+     * @param lang        the lang
+     * @param department  the department
+     * @param salary      the salary
+     * @param managerType the manager type
+     */
     public Manager(String name, String surname, String password, LANGUAGES lang, String department, double salary, ManagerType managerType){
         super(name, surname, password, lang, department, salary);
         this.managerType = managerType;
@@ -35,19 +53,30 @@ public class Manager extends Employee {
     }
 
     /**
-     * @generated
+     * Gets manager type.
+     *
+     * @return the manager type
      */
     public ManagerType getManagerType() {
         return this.managerType;
     }
 
     /**
-     * @generated
+     * Sets manager type.
+     *
+     * @param managerType the manager type
      */
     public void setManagerType(ManagerType managerType) {
         this.managerType = managerType;
     }
 
+    /**
+     * Gets info students.
+     *
+     * @param course  the course
+     * @param compare the compare
+     * @return the info students
+     */
     public Vector<Student> getInfoStudents(Course course, Comparator compare) {
         Vector<Student> students = course.getStudents();
         Collections.sort(students, compare);
@@ -55,25 +84,48 @@ public class Manager extends Employee {
     }
 
 
+    /**
+     * Gets info teachers.
+     *
+     * @param course  the course
+     * @param compare the compare
+     * @return the info teachers
+     */
     public Vector<Teacher> getInfoTeachers(Course course, Comparator compare) {
         Vector<Teacher> teachers = course.getInstructors();
         Collections.sort(teachers, compare);
         return teachers;
     }
 
-    public void addStudentToCourse(Student student, Course course){
+    /**
+     * Add student to course.
+     *
+     * @param student the student
+     * @param course  the course
+     */
+    public void addStudentToCourse(Student student, Course course) throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
         course.addStudent(student);
         dataBase.addCourse(course);
 //        проверено
     }
 
-    public void addNews(News news){
+    /**
+     * Add news.
+     *
+     * @param news the news
+     */
+    public void addNews(News news) throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
         dataBase.addNews(news);
     }
 
-    public void removeNews(News news){
+    /**
+     * Remove news.
+     *
+     * @param news the news
+     */
+    public void removeNews(News news) throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
         dataBase.removeNews(news);
     }
@@ -87,7 +139,13 @@ public class Manager extends Employee {
     public void setResearcher(boolean isResearcher) {
         this.isResearcher = isResearcher;
     }
-    public void sendMessageToDean(MessageToDean messageToDean){
+
+    /**
+     * Send message to dean.
+     *
+     * @param messageToDean the message to dean
+     */
+    public void sendMessageToDean(MessageToDean messageToDean) throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
         dataBase.sendMessageToDean(messageToDean);
     }

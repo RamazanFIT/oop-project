@@ -5,38 +5,36 @@ import Enums.*;
 import Exceptions.*;
 import Comparators.*;
 import Science.*;
+
+import java.io.Serializable;
 import java.util.*;
 import Interfaces.*;
 import Date.*;
 import Task.*;
 
 /**
- * @generated
+ * The type Message to dean.
  */
-public class MessageToDean {
+public class MessageToDean implements Serializable {
 
-    /**
-     * @generated
-     */
     private UrgencyLevel level;
 
-    /**
-     * @generated
-     */
     private String message;
 
 
-
-
     /**
-     * @generated
+     * Gets level.
+     *
+     * @return the level
      */
     public UrgencyLevel getLevel() {
         return this.level;
     }
 
     /**
-     * @generated
+     * Sets level.
+     *
+     * @param level the level
      */
     public void setLevel(UrgencyLevel level) {
         this.level = level;
@@ -44,7 +42,9 @@ public class MessageToDean {
 
 
     /**
-     * @generated
+     * Gets message.
+     *
+     * @return the message
      */
     public String getMessage() {
         return this.message;

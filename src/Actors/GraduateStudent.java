@@ -3,6 +3,8 @@ package Actors;
 import Actors.*;
 import Enums.*;
 import Exceptions.*;
+
+import java.io.IOException;
 import java.util.Comparator.*;
 import Science.*;
 import java.util.*;
@@ -10,19 +12,42 @@ import Interfaces.*;
 import Date.*;
 import Task.*;
 
+/**
+ * The type Graduate student.
+ */
 public class GraduateStudent extends Student {
-    // Is used to determine is the student GraduateStudent
+    /**
+     * The Degree type.
+     */
+// Is used to determine is the student GraduateStudent
     public GRADUATE_STUDENT degreeType;
+    /**
+     * The Is researcher.
+     */
     public boolean isResearcher;
 
 
+    /**
+     * Instantiates a new Graduate student.
+     */
     public GraduateStudent(){
 
     }
 
+    /**
+     * Instantiates a new Graduate student.
+     *
+     * @param name           the name
+     * @param surname        the surname
+     * @param password       the password
+     * @param lang           the lang
+     * @param faculty        the faculty
+     * @param diplomaProject the diploma project
+     * @param degreeType     the degree type
+     */
     public GraduateStudent(String name, String surname,
                            String password, LANGUAGES lang, FACULTY faculty,
-                           DiplomaProject diplomaProject, GRADUATE_STUDENT degreeType){
+                           DiplomaProject diplomaProject, GRADUATE_STUDENT degreeType) throws IOException, ClassNotFoundException {
         super(name, surname, password, lang, faculty, diplomaProject);
         this.degreeType = degreeType;
         this.isResearcher = true;

@@ -3,6 +3,9 @@ package Actors;
 import Enums.*;
 import Exceptions.*;
 
+import java.io.IOException;
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -11,42 +14,50 @@ import Date.*;
 import Task.*;
 
 /**
- * @generatedo
+ * The type User.
  */
-public abstract class User implements Comparable<User>{
+public abstract class User implements Comparable<User>, Serializable {
 
     /**
-     * @generated
+     * The Name.
      */
     public String name;
+    /**
+     * The Surname.
+     */
     public String surname;
 
 
-    /**
-     * @generated
-     */
     private String password;
 
     /**
-     * @generated
+     * The Is active.
      */
     public boolean isActive;
 
-    /**
-     * @generated
-     */
     private Vector<String> logFiles;
 
     /**
-     * @generated
+     * The Lang.
      */
     public LANGUAGES lang;
 
+    /**
+     * Instantiates a new User.
+     */
     public User(){
         logFiles = new Vector<String>();
     }
 
 
+    /**
+     * Instantiates a new User.
+     *
+     * @param name     the name
+     * @param surname  the surname
+     * @param password the password
+     * @param lang     the lang
+     */
     public User(String name, String surname, String password, LANGUAGES lang){
         this();
         this.name = name;
@@ -55,10 +66,20 @@ public abstract class User implements Comparable<User>{
         this.lang = lang;
     }
 
+    /**
+     * Sets surname.
+     *
+     * @param surname the surname
+     */
     public void setSurname(String surname) {
         this.surname = surname;
     }
 
+    /**
+     * Gets surname.
+     *
+     * @return the surname
+     */
     public String getSurname() {
         addLogFile("getSurname");
         return surname;
@@ -66,7 +87,9 @@ public abstract class User implements Comparable<User>{
 
 
     /**
-     * @generated
+     * Get name string.
+     *
+     * @return the string
      */
     public String getName(){
         addLogFile("getName");
@@ -75,7 +98,10 @@ public abstract class User implements Comparable<User>{
     }
 
     /**
-     * @generated
+     * Sets name.
+     *
+     * @param name the name
+     * @throws NotAutorizedException the not autorized exception
      */
     public void setName(String name) throws NotAutorizedException {
         if(!isActive) kidaiException();
@@ -86,7 +112,10 @@ public abstract class User implements Comparable<User>{
 
 
     /**
-     * @generated
+     * Gets password.
+     *
+     * @return the password
+     * @throws NotAutorizedException the not autorized exception
      */
     public String getPassword() throws NotAutorizedException {
         if(!isActive) kidaiException();
@@ -96,7 +125,10 @@ public abstract class User implements Comparable<User>{
     }
 
     /**
-     * @generated
+     * Sets password.
+     *
+     * @param password the password
+     * @throws NotAutorizedException the not autorized exception
      */
     public void setPassword(String password) throws NotAutorizedException {
         if(!isActive) kidaiException();
@@ -105,6 +137,11 @@ public abstract class User implements Comparable<User>{
         this.password = password;
     }
 
+    /**
+     * Get who is string.
+     *
+     * @return the string
+     */
     public String getWhoIs(){
         addLogFile("getWhoIs");
 
@@ -113,7 +150,9 @@ public abstract class User implements Comparable<User>{
 
 
     /**
-     * @generated
+     * Gets is active.
+     *
+     * @return the is active
      */
     public boolean getIsActive() {
         addLogFile("getIsActive");
@@ -123,7 +162,9 @@ public abstract class User implements Comparable<User>{
     }
 
     /**
-     * @generated
+     * Sets is active.
+     *
+     * @param isActive the is active
      */
     public void setIsActive(boolean isActive) {
         addLogFile("setIsActive");
@@ -134,7 +175,10 @@ public abstract class User implements Comparable<User>{
 
 
     /**
-     * @generated
+     * Gets log files.
+     *
+     * @return the log files
+     * @throws NotAutorizedException the not autorized exception
      */
     public Vector<String> getLogFiles() throws NotAutorizedException {
         if(!isActive) kidaiException();
@@ -143,6 +187,14 @@ public abstract class User implements Comparable<User>{
         return this.logFiles;
         // work
     }
+
+    /**
+     * Gets log files.
+     *
+     * @param limit the limit
+     * @return the log files
+     * @throws NotAutorizedException the not autorized exception
+     */
     public List<String> getLogFiles(int limit) throws NotAutorizedException {
         if(!isActive) kidaiException();
         addLogFile("getLogFiles");
@@ -152,7 +204,10 @@ public abstract class User implements Comparable<User>{
     }
 
     /**
-     * @generated
+     * Gets lang.
+     *
+     * @return the lang
+     * @throws NotAutorizedException the not autorized exception
      */
     public LANGUAGES getLang() throws NotAutorizedException {
         if(!isActive) kidaiException();
@@ -162,7 +217,10 @@ public abstract class User implements Comparable<User>{
     }
 
     /**
-     * @generated
+     * Sets lang.
+     *
+     * @param lang the lang
+     * @throws NotAutorizedException the not autorized exception
      */
     public void setLang(LANGUAGES lang) throws NotAutorizedException {
         if(!isActive) kidaiException();
@@ -178,7 +236,10 @@ public abstract class User implements Comparable<User>{
     }
 
     /**
-     * @generated
+     * Login boolean.
+     *
+     * @param password the password
+     * @return the boolean
      */
     public boolean login(String password) {
         addLogFile("login");
@@ -192,7 +253,7 @@ public abstract class User implements Comparable<User>{
     }
 
     /**
-     * @generated
+     * Logout.
      */
     public void logout() {
         isActive = false;
@@ -200,17 +261,35 @@ public abstract class User implements Comparable<User>{
 
     }
 
+    /**
+     * Kidai exception.
+     *
+     * @throws NotAutorizedException the not autorized exception
+     */
     public void kidaiException() throws NotAutorizedException{
         throw new NotAutorizedException("Autorize");
     }
 
+    /**
+     * Cancel subscriptions.
+     *
+     * @param journal the journal
+     * @throws NotAutorizedException the not autorized exception
+     */
     public void cancelSubscriptions(ResearhJournal journal) throws NotAutorizedException{
         if(!isActive) kidaiException();
         addLogFile("cancelSubscriptions");
 
         journal.getMembers().remove(this); // WORK
     }
-    public void subcribeToJournal(ResearhJournal journal) throws NotAutorizedException{
+
+    /**
+     * Subcribe to journal.
+     *
+     * @param journal the journal
+     * @throws NotAutorizedException the not autorized exception
+     */
+    public void subcribeToJournal(ResearhJournal journal) throws NotAutorizedException, IOException, ClassNotFoundException {
         if(!isActive) kidaiException();
         DataBase dataBase = DataBase.getInstance();
         dataBase.addResearchJournal(journal);
@@ -218,7 +297,13 @@ public abstract class User implements Comparable<User>{
         journal.addMember(this); // WORK
     }
 
-    public Vector<ResearhJournal> getSubscriptions() throws NotAutorizedException{
+    /**
+     * Gets subscriptions.
+     *
+     * @return the subscriptions
+     * @throws NotAutorizedException the not autorized exception
+     */
+    public Vector<ResearhJournal> getSubscriptions() throws NotAutorizedException, IOException, ClassNotFoundException {
         if(!isActive) kidaiException();
         DataBase dataBase = DataBase.getInstance();
         addLogFile("getSubscriptions");
@@ -226,7 +311,14 @@ public abstract class User implements Comparable<User>{
         return dataBase.getUserSubscriptions(this); // WORK
     }
 
-    public void sendMessage(User to, String messageText) throws NotAutorizedException{
+    /**
+     * Send message.
+     *
+     * @param to          the to
+     * @param messageText the message text
+     * @throws NotAutorizedException the not autorized exception
+     */
+    public void sendMessage(User to, String messageText) throws NotAutorizedException, IOException, ClassNotFoundException {
         if(!isActive) kidaiException();
         DataBase dataBase = DataBase.getInstance();
         Message message = new Message(this, to,  messageText);
@@ -235,18 +327,36 @@ public abstract class User implements Comparable<User>{
 
     }
 
-    public Vector<Message> getMessage() throws NotAutorizedException{
+    /**
+     * Gets message.
+     *
+     * @return the message
+     * @throws NotAutorizedException the not autorized exception
+     */
+    public Vector<Message> getMessage() throws NotAutorizedException, IOException, ClassNotFoundException {
         if(!isActive) kidaiException();
         DataBase dataBase = DataBase.getInstance();
         return dataBase.getMessagesOfUser(this);
     }
 
-    public Vector<Message> getSendMessage() throws NotAutorizedException{
+    /**
+     * Gets send message.
+     *
+     * @return the send message
+     * @throws NotAutorizedException the not autorized exception
+     */
+    public Vector<Message> getSendMessage() throws NotAutorizedException, IOException, ClassNotFoundException {
         if(!isActive) kidaiException();
         DataBase dataBase = DataBase.getInstance();
         return dataBase.getMessageWhichSendUser(this);
     }
 
+    /**
+     * Change to new data of user.
+     *
+     * @param newDataUser the new data user
+     * @throws NotAutorizedException the not autorized exception
+     */
     public void changeToNewDataOfUser(User newDataUser) throws NotAutorizedException{
         if(!isActive) kidaiException();
 
@@ -275,6 +385,11 @@ public abstract class User implements Comparable<User>{
         return Objects.hash(super.hashCode(), name, surname, password, isActive, logFiles, lang);
     }
 
+    /**
+     * Add log file.
+     *
+     * @param s the s
+     */
     public void addLogFile(String s){
         logFiles.add(s);
     }

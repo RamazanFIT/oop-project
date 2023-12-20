@@ -1,4 +1,5 @@
 package Task;
+import java.io.Serializable;
 import java.util.Date;
 import Actors.*;
 import Enums.*;
@@ -9,41 +10,34 @@ import java.util.*;
 import Interfaces.*;
 import Date.*;
 import Task.*;
-/**
- * @generated
- */
-public class ResearchPaper {
 
-    /**
-     * @generated
-     */
+/**
+ * The type Research paper.
+ */
+public class ResearchPaper implements Serializable {
+
     private String title;
 
-    /**
-     * @generated
-     */
     private Researcher author;
 
-    /**
-     * @generated
-     */
     private int citations;
 
-    /**
-     * @generated
-     */
     private int pages;
 
-    /**
-     * @generated
-     */
     private Date date;
 
-    /**
-     * @generated
-     */
     private String doi;
 
+    /**
+     * Instantiates a new Research paper.
+     *
+     * @param title     the title
+     * @param author    the author
+     * @param citations the citations
+     * @param pages     the pages
+     * @param date      the date
+     * @param doi       the doi
+     */
     public ResearchPaper(String title, Researcher author, int citations, int pages, Date date, String doi) {
         this.title = title;
         this.author = author;
@@ -53,6 +47,15 @@ public class ResearchPaper {
         this.doi = doi;
     }
 
+    /**
+     * Instantiates a new Research paper.
+     *
+     * @param title     the title
+     * @param author    the author
+     * @param citations the citations
+     * @param pages     the pages
+     * @param doi       the doi
+     */
     public ResearchPaper(String title, Researcher author, int citations, int pages, String doi) {
         this.title = title;
         this.author = author;
@@ -63,27 +66,37 @@ public class ResearchPaper {
     }
 
     /**
-     * @generated
+     * Gets title.
+     *
+     * @return the title
      */
     public String getTitle() {
         return this.title;
     }
 
     /**
-     * @generated
+     * Sets title.
+     *
+     * @param title the title
      */
     public void setTitle(String title) {
         this.title = title;
     }
+
     /**
-     * @generated
+     * Gets author.
+     *
+     * @return the author
      */
     public Researcher getAuthor() {
         return this.author;
     }
 
     /**
-     * @generated
+     * Sets author.
+     *
+     * @param author the author
+     * @throws ImposterException the imposter exception
      */
     public void setAuthor(Researcher author) throws ImposterException {
         if(!author.isResearcher()){
@@ -93,25 +106,29 @@ public class ResearchPaper {
     }
 
 
-
     /**
-     * @generated
+     * Sets citations.
+     *
+     * @param citations the citations
      */
     public void setCitations(int citations) {
         this.citations = citations;
     }
 
 
-
     /**
-     * @generated
+     * Gets date.
+     *
+     * @return the date
      */
     public Date getDate() {
         return this.date;
     }
 
     /**
-     * @generated
+     * Sets date.
+     *
+     * @param date the date
      */
     public void setDate(Date date) {
         this.date = date;
@@ -119,14 +136,18 @@ public class ResearchPaper {
 
 
     /**
-     * @generated
+     * Gets doi.
+     *
+     * @return the doi
      */
     public String getDoi() {
         return this.doi;
     }
 
     /**
-     * @generated
+     * Sets doi.
+     *
+     * @param doi the doi
      */
     public void setDoi(String doi) {
         this.doi = doi;
@@ -134,16 +155,10 @@ public class ResearchPaper {
 
 
 
-    /**
-     * @generated
-     */
     private String formatPlainText() {
         return String.format("%s by %s, %s, DOI: %s", this.title, this.author.getName(), this.date.toString(), this.doi);
     } // work
 
-    /**
-     * @generated
-     */
     private String formatBibtex() {
         return String.format("@article{%s,\nauthor = {%s},\ntitle = {%s},\nyear = {%tY},\ndoi = {%s}\n}",
                 this.author.getName().replaceAll("\\s+", "").toLowerCase() + this.date.getYear(),
@@ -153,6 +168,12 @@ public class ResearchPaper {
                 this.doi); // work
     }
 
+    /**
+     * Gets citation.
+     *
+     * @param f the f
+     * @return the citation
+     */
     public String getCitation(Format f) { // work
         if(f == Format.Bibtex){
             return this.formatBibtex();
@@ -161,6 +182,11 @@ public class ResearchPaper {
         }
     }
 
+    /**
+     * Gets citation.
+     *
+     * @return the citation
+     */
     public int getCitation() {
         return citations; // work
     }

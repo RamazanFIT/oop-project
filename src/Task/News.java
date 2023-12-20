@@ -5,42 +5,38 @@ import Enums.*;
 import Exceptions.*;
 import Comparators.*;
 import Science.*;
+
+import java.io.Serializable;
 import java.util.*;
 import Interfaces.*;
 import Date.*;
 import Task.*;
 
 /**
- * @generated
+ * The type News.
  */
-public class News {
+public class News implements Serializable {
 
-    /**
-     * @generated
-     */
     private String title;
 
-    /**
-     * @generated
-     */
     private String content;
 
-    /**
-     * @generated
-     */
     private Vector<String> comments;
 
 
-
     /**
-     * @generated
+     * Gets title.
+     *
+     * @return the title
      */
     public String getTitle() {
         return this.title;
     }
 
     /**
-     * @generated
+     * Sets title.
+     *
+     * @param title the title
      */
     public void setTitle(String title) {
         this.title = title;
@@ -48,14 +44,18 @@ public class News {
 
 
     /**
-     * @generated
+     * Gets content.
+     *
+     * @return the content
      */
     public String getContent() {
         return this.content;
     }
 
     /**
-     * @generated
+     * Sets content.
+     *
+     * @param content the content
      */
     public void setContent(String content) {
         this.content = content;
@@ -63,19 +63,28 @@ public class News {
 
 
     /**
-     * @generated
+     * Gets comments.
+     *
+     * @return the comments
      */
     public Vector<String> getComments() {
         return this.comments;
     }
 
     /**
-     * @generated
+     * Add comment.
+     *
+     * @param comment the comment
      */
     public void addComment(String comment) {
         this.comments.add(comment);
     }
 
+    /**
+     * Del comment.
+     *
+     * @param comment the comment
+     */
     public void delComment(String comment) {
         this.comments.remove(comment);
     }

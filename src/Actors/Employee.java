@@ -8,27 +8,45 @@ import java.util.*;
 import Interfaces.*;
 import Date.*;
 import Task.*;
+
 /**
- * @generated1
+ * The type Employee.
  */
 public abstract class Employee extends User implements Researcher {
 
 
     /**
-     * @generated
+     * The Department.
      */
     public String department;
+    /**
+     * The Salary.
+     */
     public double salary;
 
     /**
-     * @generated
+     * The Is researcher.
      */
     public boolean isResearcher;
 
 
+    /**
+     * Instantiates a new Employee.
+     */
     public Employee(){
 
     }
+
+    /**
+     * Instantiates a new Employee.
+     *
+     * @param name       the name
+     * @param surname    the surname
+     * @param password   the password
+     * @param lang       the lang
+     * @param department the department
+     * @param salary     the salary
+     */
     public Employee(String name, String surname, String password, LANGUAGES lang, String department, double salary){
         super(name, surname, password, lang);
         this.department = department;
@@ -37,28 +55,36 @@ public abstract class Employee extends User implements Researcher {
     }
 
     /**
-     * @generated
+     * Gets department.
+     *
+     * @return the department
      */
     public String getDepartment() {
         return this.department;
     }
 
     /**
-     * @generated
+     * Sets department.
+     *
+     * @param department the department
      */
     public void setDepartment(String department) {
         this.department = department;
     }
 
     /**
-     * @generated
+     * Is researcher boolean.
+     *
+     * @return the boolean
      */
     public boolean IsResearcher() {
         return this.isResearcher;
     }
 
     /**
-     * @generated
+     * Sets is researcher.
+     *
+     * @param isResearcher the is researcher
      */
     public void setIsResearcher(Boolean isResearcher) {
         this.isResearcher = isResearcher;
@@ -66,7 +92,9 @@ public abstract class Employee extends User implements Researcher {
 
 
     /**
-     * @generated
+     * Calculate salary double.
+     *
+     * @return the double
      */
     public double calculateSalary() {
         //TODO

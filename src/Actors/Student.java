@@ -3,6 +3,8 @@ package Actors;
 import Enums.*;
 import Exceptions.*;
 import Science.*;
+
+import java.io.IOException;
 import java.util.*;
 import Interfaces.*;
 import Date.*;
@@ -10,19 +12,38 @@ import Task.*;
 import Task.Organization;
 
 /**
- * @generated
+ * The type Student.
  */
 public class Student extends User implements Researcher{
+    /**
+     * The Faculty.
+     */
     public FACULTY faculty;
 
+    /**
+     * The Is researcher.
+     */
     public boolean isResearcher;
     //Anuar
 
+    /**
+     * Instantiates a new Student.
+     */
     public Student(){
 
     }
 
-    public Student(String name, String surname, String password, LANGUAGES lang, FACULTY faculty, DiplomaProject diplomaProject){
+    /**
+     * Instantiates a new Student.
+     *
+     * @param name           the name
+     * @param surname        the surname
+     * @param password       the password
+     * @param lang           the lang
+     * @param faculty        the faculty
+     * @param diplomaProject the diploma project
+     */
+    public Student(String name, String surname, String password, LANGUAGES lang, FACULTY faculty, DiplomaProject diplomaProject) throws IOException, ClassNotFoundException {
         super(name, surname, password, lang);
         this.faculty = faculty;
         isResearcher = false;
@@ -31,17 +52,21 @@ public class Student extends User implements Researcher{
     //Anuar
 
     /**
-     * @generated
+     * Gets enrolled courses.
+     *
+     * @return the enrolled courses
      */
-    public Vector<Course> getEnrolledCourses() {
+    public Vector<Course> getEnrolledCourses() throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
         return dataBase.getUserCourses(this);
     }
 
     /**
-     * @generated
+     * Gets transcript.
+     *
+     * @return the transcript
      */
-    public Transcript getTranscript() {
+    public Transcript getTranscript() throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
         Transcript transcript = new Transcript();
         transcript.setCourseGrades(dataBase.getMarkOfStudent(this));
@@ -50,44 +75,60 @@ public class Student extends User implements Researcher{
     }
 
     /**
-     * @generated
+     * Gets credits.
+     *
+     * @return the credits
      */
-    public int getCredits() {
+    public int getCredits() throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
         return dataBase.getCntOfCreditStudent(this);
     }
 
 
     /**
-     * @generated
+     * Gets organization.
+     *
+     * @return the organization
      */
-    public Vector<Task.Organization> getOrganization() {
+    public Vector<Task.Organization> getOrganization() throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
         return dataBase.getStudentOrganizations(this);
     }
 
     /**
-     * @generated
+     * Sets organization.
+     *
+     * @param organization the organization
+     * @param role         the role
      */
-    public void setOrganization(Enums.Organization organization, RoleOfOrganisation role) {
+    public void setOrganization(Enums.Organization organization, RoleOfOrganisation role) throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
         dataBase.setOrganizationToStudent(this, organization, role);
     }
 
-    public void setOrganization(Enums.Organization organization) {
+    /**
+     * Sets organization.
+     *
+     * @param organization the organization
+     */
+    public void setOrganization(Enums.Organization organization) throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
         dataBase.setOrganizationToStudent(this, organization);
     }
 
     /**
-     * @generated
+     * Gets faculty.
+     *
+     * @return the faculty
      */
     public FACULTY getFaculty() {
         return this.faculty;
     }
 
     /**
-     * @generated
+     * Sets faculty.
+     *
+     * @param faculty the faculty
      */
     public void setFaculty(FACULTY faculty) {
         this.faculty = faculty;
@@ -95,14 +136,21 @@ public class Student extends User implements Researcher{
 
 
     /**
-     * @generated
+     * Gets diploma project.
+     *
+     * @return the diploma project
      */
-    public DiplomaProject getDiplomaProject() {
+    public DiplomaProject getDiplomaProject() throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
         return dataBase.getDiplomaProject(this);
     }
 
-    public void createDiplomaProject(DiplomaProject project) {
+    /**
+     * Create diploma project.
+     *
+     * @param project the project
+     */
+    public void createDiplomaProject(DiplomaProject project) throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
         if(!dataBase.existsDiplomaProject(this)){
             dataBase.addDiplomaProject(project, this);
@@ -110,49 +158,53 @@ public class Student extends User implements Researcher{
     }
 
     /**
-     * @generated
+     * Gets info about teacher.
+     *
+     * @param course the course
+     * @return the info about teacher
      */
-    public Vector<Teacher> getInfoAboutTeacher(Course course) {
+    public Vector<Teacher> getInfoAboutTeacher(Course course) throws IOException, ClassNotFoundException {
        DataBase dataBase = DataBase.getInstance();
         return dataBase.getTeacherInfo(course);
     }
 
     /**
-     * @generated
+     * Gets major.
+     *
+     * @return the major
      */
-    public Vector<Course> getMajor() {
+    public Vector<Course> getMajor() throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
         return dataBase.getMajorCoursesOfStudent(this);
     }
 
     /**
-     * @generated
+     * Gets minor.
+     *
+     * @return the minor
      */
-    public Vector<Course> getMinor() {
+    public Vector<Course> getMinor() throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
         return dataBase.getMinorCoursesOfStudent(this);
     }
 
-    /**
-     * @generated
-     */
     @Override
     public boolean isResearcher() {
         return isResearcher;
     }
 
-    /**
-     * @generated
-     */
     @Override
     public void setResearcher(boolean isResearcher) {
         this.isResearcher = isResearcher;
     }
 
     /**
-     * @generated
+     * Register for course.
+     *
+     * @param course the course
+     * @throws ExceededCreditException the exceeded credit exception
      */
-    public void registerForCourse(Course course) throws ExceededCreditException {
+    public void registerForCourse(Course course) throws ExceededCreditException, IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
         dataBase.registerStudentForCourse(course, this);
     }
@@ -170,7 +222,13 @@ public class Student extends User implements Researcher{
     }
 
     public String toString(){
-        return super.toString() + ", faculty: " + faculty + ", diploma project: " + getDiplomaProject() + ", researcher: " + isResearcher;
+        try {
+            return super.toString() + ", faculty: " + faculty + ", diploma project: " + getDiplomaProject() + ", researcher: " + isResearcher;
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }

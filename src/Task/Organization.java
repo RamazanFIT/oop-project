@@ -5,38 +5,44 @@ import Enums.*;
 import Exceptions.*;
 import Comparators.*;
 import Science.*;
+
+import java.io.Serializable;
 import java.util.*;
 import Interfaces.*;
 import Date.*;
 import Task.*;
 
 /**
- * @generated
+ * The type Organization.
  */
-public class Organization {
+public class Organization implements Serializable {
 
-    /**
-     * @generated
-     */
     private Enums.Organization name;
 
-    /**
-     * @generated
-     */
     private RoleOfOrganisation role;
 
 
-    /**
-     * @generated
-     */
     private Student student;
 
+    /**
+     * Instantiates a new Organization.
+     *
+     * @param name    the name
+     * @param role    the role
+     * @param student the student
+     */
     public Organization(Enums.Organization name, RoleOfOrganisation role, Student student) {
         this.name = name;
         this.role = role;
         this.student = student;
     }
 
+    /**
+     * Instantiates a new Organization.
+     *
+     * @param name    the name
+     * @param student the student
+     */
     public Organization(Enums.Organization name, Student student){
         this.name = name;
         this.student = student;
@@ -44,16 +50,19 @@ public class Organization {
     }
 
 
-
     /**
-     * @generated
+     * Gets name.
+     *
+     * @return the name
      */
     public Enums.Organization getName() {
         return this.name;
     }
 
     /**
-     * @generated
+     * Sets name.
+     *
+     * @param name the name
      */
     public void setName(Enums.Organization name) {
         this.name = name;
@@ -61,30 +70,37 @@ public class Organization {
 
 
     /**
-     * @generated
+     * Gets role.
+     *
+     * @return the role
      */
     public RoleOfOrganisation getRole() {
         return this.role;
     }
 
     /**
-     * @generated
+     * Sets role.
+     *
+     * @param role the role
      */
     public void setRole(RoleOfOrganisation role) {
         this.role = role;
     }
 
 
-
     /**
-     * @generated
+     * Gets student.
+     *
+     * @return the student
      */
     public Student getStudent() {
         return this.student;
     }
 
     /**
-     * @generated
+     * Sets student.
+     *
+     * @param student the student
      */
     public void setStudent(Student student) {
         this.student = student;

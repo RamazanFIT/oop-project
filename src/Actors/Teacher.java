@@ -3,6 +3,8 @@ package Actors;
 import Actors.*;
 import Enums.*;
 import Exceptions.*;
+
+import java.io.IOException;
 import java.util.Comparator.*;
 import Science.*;
 import java.util.*;
@@ -11,30 +13,45 @@ import Date.*;
 import Task.*;
 
 /**
- * @generated
+ * The type Teacher.
  */
 public class Teacher extends Employee {
 
     /**
-     * @generated
+     * The Subject specialization.
      */
     public Subject subjectSpecialization;
 
     /**
-     * @generated
+     * The Is researcher.
      */
     public boolean isResearcher;
 
 
     /**
-     * @generated
+     * The Teacher role.
      */
     public TeacherRole teacherRole;
 
+    /**
+     * Instantiates a new Teacher.
+     */
     public Teacher(){
 
     }
 
+    /**
+     * Instantiates a new Teacher.
+     *
+     * @param name                  the name
+     * @param surname               the surname
+     * @param password              the password
+     * @param lang                  the lang
+     * @param department            the department
+     * @param salary                the salary
+     * @param subjectSpecialization the subject specialization
+     * @param teacherRole           the teacher role
+     */
     public Teacher(String name, String surname, String password, LANGUAGES lang, String department, double salary, Subject subjectSpecialization, TeacherRole teacherRole){
         super(name, surname, password, lang, department, salary);
         this.subjectSpecialization = subjectSpecialization;
@@ -43,14 +60,18 @@ public class Teacher extends Employee {
 
 
     /**
-     * @generated
+     * Gets subject specialization.
+     *
+     * @return the subject specialization
      */
     public Subject getSubjectSpecialization() {
         return this.subjectSpecialization;
     }
 
     /**
-     * @generated
+     * Sets subject specialization.
+     *
+     * @param subjectSpecialization the subject specialization
      */
     public void setSubjectSpecialization(Subject subjectSpecialization) {
         this.subjectSpecialization = subjectSpecialization;
@@ -58,31 +79,39 @@ public class Teacher extends Employee {
 
 
     /**
-     * @generated
+     * Gets list courses.
+     *
+     * @return the list courses
      */
-    public List<Course> getListCourses() {
+    public List<Course> getListCourses() throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
         return dataBase.getTeachCourseList(this);
     }
 
     /**
-     * @generated
+     * Add teach course.
+     *
+     * @param course the course
      */
-    public void addTeachCourse(Course course) {
+    public void addTeachCourse(Course course) throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
         dataBase.addTeacherToTeachCourse(this, course);
     }
 
 
     /**
-     * @generated
+     * Gets teacher role.
+     *
+     * @return the teacher role
      */
     public TeacherRole getTeacherRole() {
         return this.teacherRole;
     }
 
     /**
-     * @generated
+     * Sets teacher role.
+     *
+     * @param teacherRole the teacher role
      */
     public void setTeacherRole(TeacherRole teacherRole) {
         this.teacherRole = teacherRole;
@@ -99,6 +128,13 @@ public class Teacher extends Employee {
         this.isResearcher = isResearcher;
     }
 
+    /**
+     * Put mark.
+     *
+     * @param student the student
+     * @param grade   the grade
+     * @param course  the course
+     */
     public void putMark(Student student, Grade grade, Course course){
 //        DataBase dataBase = DataBase.getInstance();
             course.setMarkToStudent(student, grade);

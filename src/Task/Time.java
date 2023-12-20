@@ -5,39 +5,36 @@ import Enums.*;
 import Exceptions.*;
 import Comparators.*;
 import Science.*;
+
+import java.io.Serializable;
 import java.util.*;
 import Interfaces.*;
 import Date.*;
 import Task.*;
 
 /**
- * @generated
+ * The type Time.
  */
-public class Time {
+public class Time implements Serializable {
 
-    /**
-     * @generated
-     */
     private int hour;
 
-    /**
-     * @generated
-     */
     private int minute;
 
 
-
-
-
     /**
-     * @generated
+     * Gets hour.
+     *
+     * @return the hour
      */
     public int getHour() {
         return this.hour;
     }
 
     /**
-     * @generated
+     * Sets hour.
+     *
+     * @param hour the hour
      */
     public void setHour(Integer hour) {
         this.hour = hour;
@@ -45,14 +42,18 @@ public class Time {
 
 
     /**
-     * @generated
+     * Gets minute.
+     *
+     * @return the minute
      */
     public int getMinute() {
         return this.minute;
     }
 
     /**
-     * @generated
+     * Sets minute.
+     *
+     * @param minute the minute
      */
     public void setMinute(Integer minute) {
         this.minute = minute;

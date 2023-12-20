@@ -5,6 +5,8 @@ import Enums.*;
 import Exceptions.*;
 import Comparators.*;
 import Science.*;
+
+import java.io.IOException;
 import java.util.*;
 import Interfaces.*;
 import Date.*;
@@ -12,42 +14,84 @@ import Task.*;
 import Main.*;
 
 /**
- * @generated
+ * The type Dean.
  */
 public class Dean extends Employee implements Researcher{
 
+    /**
+     * The Is researcher.
+     */
     public boolean isResearcher;
 
+    /**
+     * Instantiates a new Dean.
+     */
     public Dean(){
 
     }
 
+    /**
+     * Instantiates a new Dean.
+     *
+     * @param name       the name
+     * @param surname    the surname
+     * @param password   the password
+     * @param lang       the lang
+     * @param department the department
+     * @param salary     the salary
+     */
     public Dean(String name, String surname, String password, LANGUAGES lang, String department, double salary){
         super(name, surname, password, lang, department, salary);
         isResearcher = false;
     }
-    public void sendMessageToSupport(MessageSupport messageSupport){
+
+    /**
+     * Send message to support.
+     *
+     * @param messageSupport the message support
+     */
+    public void sendMessageToSupport(MessageSupport messageSupport) throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
         dataBase.addMessageToSupport(messageSupport);
     }
 
+    /**
+     * Check student string.
+     *
+     * @param student the student
+     * @return the string
+     */
     public String checkStudent(Student student){
         return student.toString();
     }
 
-    public MessageToDean getMessageToDean(){
+    /**
+     * Get message to dean message to dean.
+     *
+     * @return the message to dean
+     */
+    public MessageToDean getMessageToDean() throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
         return dataBase.getMessageToDean();
     }
 
 
-
-    public void kickStudent(Student student){
+    /**
+     * Kick student.
+     *
+     * @param student the student
+     */
+    public void kickStudent(Student student) throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
         dataBase.kickUser(student);
     }
 
-    public void addStudent(Student student){
+    /**
+     * Add student.
+     *
+     * @param student the student
+     */
+    public void addStudent(Student student) throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
         dataBase.addUser(student);
     }

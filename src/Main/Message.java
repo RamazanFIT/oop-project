@@ -4,32 +4,32 @@ import Enums.*;
 import Exceptions.*;
 import Comparators.*;
 import Science.*;
+
+import java.io.Serializable;
 import java.util.*;
 import Interfaces.*;
 import Date.*;
 import Task.*;
 
 /**
- * @generated
+ * The type Message.
  */
-public class Message {
+public class Message implements Serializable {
 
-    /**
-     * @generated
-     */
     private String message;
 
-    /**
-     * @generated
-     */
     private Date date;
 
-    /**
-     * @generated
-     */
     private User sender;
     private User receiver;
 
+    /**
+     * Instantiates a new Message.
+     *
+     * @param sender   the sender
+     * @param receiver the receiver
+     * @param message  the message
+     */
     public Message(User sender, User receiver, String message){
         this.sender = sender;
         this.receiver = receiver;
@@ -39,14 +39,18 @@ public class Message {
 
 
     /**
-     * @generated
+     * Gets message.
+     *
+     * @return the message
      */
     public String getMessage() {
         return this.message;
     }
 
     /**
-     * @generated
+     * Sets message.
+     *
+     * @param message the message
      */
     public void setMessage(String message) {
         this.message = message;
@@ -54,14 +58,18 @@ public class Message {
 
 
     /**
-     * @generated
+     * Gets date.
+     *
+     * @return the date
      */
     public Date getDate() {
         return this.date;
     }
 
     /**
-     * @generated
+     * Sets date.
+     *
+     * @param date the date
      */
     public void setDate(Date date) {
         this.date = date;
@@ -69,23 +77,37 @@ public class Message {
 
 
     /**
-     * @generated
+     * Gets sender.
+     *
+     * @return the sender
      */
     public User getSender() {
         return this.sender;
     }
 
     /**
-     * @generated
+     * Sets sender.
+     *
+     * @param sender the sender
      */
     public void setSender(User sender) {
         this.sender = sender;
     }
 
+    /**
+     * Set receiver.
+     *
+     * @param user the user
+     */
     public void setReceiver(User user){
         this.receiver = user;
     }
 
+    /**
+     * Gets receiver.
+     *
+     * @return the receiver
+     */
     public User getReceiver() {
         return this.receiver;
     }

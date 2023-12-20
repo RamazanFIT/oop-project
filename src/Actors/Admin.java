@@ -3,6 +3,8 @@ package Actors;
 import Actors.*;
 import Enums.*;
 import Exceptions.*;
+
+import java.io.IOException;
 import java.util.Comparator.*;
 import Science.*;
 import java.util.*;
@@ -11,24 +13,31 @@ import Date.*;
 import Task.*;
 
 /**
- * The Admin class extends the Employee class
+ * The type Admin.
  */
 public class Admin extends Employee{
 
     /**
-     * The isResearcher field is used to determine whether the user is a researcher or not
+     * The Is researcher.
      */
     public boolean isResearcher;
 
     /**
-     * Default constructor for Admin
+     * Instantiates a new Admin.
      */
     public Admin(){
 
     }
 
     /**
-     * Parameterized constructor for Admin
+     * Instantiates a new Admin.
+     *
+     * @param name       the name
+     * @param surname    the surname
+     * @param password   the password
+     * @param lang       the lang
+     * @param department the department
+     * @param salary     the salary
      */
     public Admin(String name, String surname, String password, LANGUAGES lang, String department, double salary){
         super(name, surname, password, lang, department, salary);
@@ -36,54 +45,57 @@ public class Admin extends Employee{
     }
 
     /**
-     * The seeLogAboutUser method allows viewing the user's log
+     * See log about user vector.
+     *
+     * @param user the user
+     * @return the vector
+     * @throws NotAutorizedException the not autorized exception
      */
     public Vector<String> seeLogAboutUser(User user) throws NotAutorizedException {
         return user.getLogFiles();
     }
 
     /**
-     * The removeUser method removes a user
+     * Remove user.
+     *
+     * @param user the user
      */
-    public void removeUser(User user){
+    public void removeUser(User user) throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
         dataBase.kickUser(user);
     }
 
     /**
-     * The UpdateUser method updates a user's data
+     * Update user.
+     *
+     * @param oldUser the old user
+     * @param newUser the new user
+     * @throws NotAutorizedException the not autorized exception
      */
     public void UpdateUser(User oldUser, User newUser) throws NotAutorizedException {
         oldUser.changeToNewDataOfUser(newUser);
     }
 
     /**
-     * The addUser method adds a user
+     * Add user.
+     *
+     * @param user the user
      */
-    public void addUser(User user){
+    public void addUser(User user) throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
         dataBase.addUser(user);
     }
 
-    /**
-     * The isResearcher method checks if the user is a researcher
-     */
     @Override
     public boolean isResearcher() {
         return false;
     }
 
-    /**
-     * The setResearcher method sets the isResearcher field
-     */
     @Override
     public void setResearcher(boolean isResearcher) {
         this.isResearcher = isResearcher;
     }
 
-    /**
-     * The equals method checks if two Admin objects are equal
-     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -93,17 +105,11 @@ public class Admin extends Employee{
         return isResearcher == admin.isResearcher;
     }
 
-    /**
-     * The hashCode method returns the hash code of the Admin object
-     */
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), isResearcher);
     }
 
-    /**
-     * The toString method returns the string representation of the Admin object
-     */
     public String toString(){
         return super.toString();
     }

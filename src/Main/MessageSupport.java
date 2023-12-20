@@ -5,39 +5,36 @@ import Enums.*;
 import Exceptions.*;
 import Comparators.*;
 import Science.*;
+
+import java.io.Serializable;
 import java.util.*;
 import Interfaces.*;
 import Date.*;
 import Task.*;
 
 /**
- * @generated
+ * The type Message support.
  */
-public class MessageSupport {
+public class MessageSupport implements Serializable {
 
-    /**
-     * @generated
-     */
     private String message;
 
-    /**
-     * @generated
-     */
     private OrderStatus status;
 
 
-
-
-
     /**
-     * @generated
+     * Gets message.
+     *
+     * @return the message
      */
     public String getMessage() {
         return this.message;
     }
 
     /**
-     * @generated
+     * Sets message.
+     *
+     * @param message the message
      */
     public void setMessage(String message) {
         this.message = message;
@@ -45,14 +42,18 @@ public class MessageSupport {
 
 
     /**
-     * @generated
+     * Gets status.
+     *
+     * @return the status
      */
     public OrderStatus getStatus() {
         return this.status;
     }
 
     /**
-     * @generated
+     * Sets status.
+     *
+     * @param status the status
      */
     public void setStatus(OrderStatus status) {
         this.status = status;

@@ -4,47 +4,40 @@ import Enums.*;
 import Exceptions.*;
 import Comparators.*;
 import Science.*;
+
+import java.io.Serializable;
 import java.util.*;
 import Interfaces.*;
 import Date.*;
 import Task.*;
 
 /**
- * @generated
+ * The type Lesson.
  */
-public class Lesson {
+public class Lesson implements Serializable {
 
-    /**
-     * @generated
-     */
     private LessonType type;
 
-    /**
-     * @generated
-     */
     private Time duration;
 
-    /**
-     * @generated
-     */
     private Subject subject;
 
-    /**
-     * @generated
-     */
     private Teacher teacher;
 
 
-
     /**
-     * @generated
+     * Gets type.
+     *
+     * @return the type
      */
     public LessonType getType() {
         return this.type;
     }
 
     /**
-     * @generated
+     * Sets type.
+     *
+     * @param type the type
      */
     public void setType(LessonType type) {
         this.type = type;
@@ -52,14 +45,18 @@ public class Lesson {
 
 
     /**
-     * @generated
+     * Gets duration.
+     *
+     * @return the duration
      */
     public Time getDuration() {
         return this.duration;
     }
 
     /**
-     * @generated
+     * Sets duration.
+     *
+     * @param duration the duration
      */
     public void setDuration(Time duration) {
         this.duration = duration;
@@ -67,14 +64,18 @@ public class Lesson {
 
 
     /**
-     * @generated
+     * Gets subject.
+     *
+     * @return the subject
      */
     public Subject getSubject() {
         return this.subject;
     }
 
     /**
-     * @generated
+     * Sets subject.
+     *
+     * @param subject the subject
      */
     public void setSubject(Subject subject) {
         this.subject = subject;
@@ -82,14 +83,18 @@ public class Lesson {
 
 
     /**
-     * @generated
+     * Gets teacher.
+     *
+     * @return the teacher
      */
     public Teacher getTeacher() {
         return this.teacher;
     }
 
     /**
-     * @generated
+     * Sets teacher.
+     *
+     * @param teacher the teacher
      */
     public void setTeacher(Teacher teacher) {
         this.teacher = teacher;

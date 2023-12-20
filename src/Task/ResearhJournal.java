@@ -5,35 +5,47 @@ import Enums.*;
 import Exceptions.*;
 import Comparators.*;
 import Science.*;
+
+import java.io.Serializable;
 import java.util.*;
 import Interfaces.*;
 import Date.*;
 
 /**
- * @generated
+ * The type Researh journal.
  */
-public class ResearhJournal {
+public class ResearhJournal implements Serializable {
 
+    /**
+     * The Title.
+     */
     String title;
 
+    /**
+     * Gets title.
+     *
+     * @return the title
+     */
     public String getTitle() {
         return title;
     }
 
+    /**
+     * Sets title.
+     *
+     * @param title the title
+     */
     public void setTitle(String title) {
         this.title = title;
     }
 
-    /**
-     * @generated
-     */
     private Vector<User> members;
 
-    /**
-     * @generated
-     */
     private Vector<ResearchPaper> papers;
 
+    /**
+     * Instantiates a new Researh journal.
+     */
     public ResearhJournal() {
         this.members = new Vector<>();
         this.papers = new Vector<>();
@@ -45,27 +57,38 @@ public class ResearhJournal {
                 "title=" + title;
     }
 
+    /**
+     * Instantiates a new Researh journal.
+     *
+     * @param title the title
+     */
     public ResearhJournal(String title) {
         this();
         this.title = title;
     }
 
     /**
-     * @generated
+     * Gets members.
+     *
+     * @return the members
      */
     public Vector<User> getMembers() {
         return this.members;
     }
 
     /**
-     * @generated
+     * Add member.
+     *
+     * @param member the member
      */
     public void addMember(User member) {
         this.members.add(member);
     }
 
     /**
-     * @generated
+     * Del member.
+     *
+     * @param member the member
      */
     public void delMember(User member) {
         this.members.remove(member);
@@ -73,21 +96,27 @@ public class ResearhJournal {
 
 
     /**
-     * @generated
+     * Gets papers.
+     *
+     * @return the papers
      */
     public Vector<ResearchPaper> getPapers() {
         return this.papers;
     }
 
     /**
-     * @generated
+     * Add paper.
+     *
+     * @param pape the pape
      */
     public void addPaper(ResearchPaper pape) {
         this.papers.add(pape);
     }
 
     /**
-     * @generated
+     * Del paper.
+     *
+     * @param pape the pape
      */
     public void delPaper(ResearchPaper pape) {
         this.papers.remove(pape);

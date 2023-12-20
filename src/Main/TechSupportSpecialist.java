@@ -7,36 +7,41 @@ import Enums.*;
 import Exceptions.*;
 import Comparators.*;
 import Science.*;
+
+import java.io.IOException;
 import java.util.*;
 import Interfaces.*;
 import Date.*;
 import Task.*;
+
 /**
- * @generated
+ * The type Tech support specialist.
  */
 public class TechSupportSpecialist extends Employee {
 
     private boolean isResearcher;
 
     /**
-     * @generated
+     * Gets task.
+     *
+     * @return the task
      */
-    public MessageSupport getTask() {
+    public MessageSupport getTask() throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
         return dataBase.getMessageSupport();
     }
 
     /**
-     * @generated
+     * Change to done.
      */
-    public void ChangeToDone(){
+    public void ChangeToDone() throws IOException, ClassNotFoundException {
         this.getTask().setStatus(OrderStatus.DONE);
     }
 
     /**
-     * @generated
+     * Change to accepted.
      */
-    public void ChangeToAccepted(){
+    public void ChangeToAccepted() throws IOException, ClassNotFoundException {
         this.getTask().setStatus(OrderStatus.ACCEPTED);
     }
 
