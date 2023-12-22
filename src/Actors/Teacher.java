@@ -135,9 +135,12 @@ public class Teacher extends Employee {
      * @param grade   the grade
      * @param course  the course
      */
-    public void putMark(Student student, Grade grade, Course course){
-//        DataBase dataBase = DataBase.getInstance();
-            course.setMarkToStudent(student, grade);
+//    public void putMark(Student student, Grade grade, Course course, Attestation){
+////            course.setMarkToStudent(student, grade);
+//
+//    }
+    public void putMark(Student student, int score, Course course, Attestation att){
+        course.setMarkToStudent(student, score, att);
     }
 
     public boolean equals(Object object) {
@@ -145,15 +148,20 @@ public class Teacher extends Employee {
         if (object == null || getClass() != object.getClass()) return false;
         if (!super.equals(object)) return false;
         Teacher teacher = (Teacher) object;
-        return isResearcher == teacher.isResearcher && java.util.Objects.equals(subjectSpecialization, teacher.subjectSpecialization) && java.util.Objects.equals(teacherRole, teacher.teacherRole);
+        return isResearcher == teacher.isResearcher
+                && java.util.Objects.equals(subjectSpecialization, teacher.subjectSpecialization)
+                && java.util.Objects.equals(teacherRole, teacher.teacherRole);
     }
 
     public int hashCode() {
-        return Objects.hash(super.hashCode(), subjectSpecialization, isResearcher, teacherRole);
+        return Objects.hash(super.hashCode(),
+                subjectSpecialization, isResearcher, teacherRole);
     }
 
     public String toString(){
-        return super.toString() + ", Subject specialization: " + subjectSpecialization + ", Teacher role: " + teacherRole + ", Researcher: " + isResearcher;
+        return super.toString() + ", Subject specialization: " +
+                subjectSpecialization + ", Teacher role: " +
+                teacherRole + ", Researcher: " + isResearcher;
     }
 }
 

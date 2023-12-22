@@ -43,7 +43,10 @@ public class Student extends User implements Researcher{
      * @param faculty        the faculty
      * @param diplomaProject the diploma project
      */
-    public Student(String name, String surname, String password, LANGUAGES lang, FACULTY faculty, DiplomaProject diplomaProject) throws IOException, ClassNotFoundException {
+    public Student(String name, String surname, String password,
+                   LANGUAGES lang, FACULTY faculty,
+                   DiplomaProject diplomaProject)
+                    throws IOException, ClassNotFoundException {
         super(name, surname, password, lang);
         this.faculty = faculty;
         isResearcher = false;

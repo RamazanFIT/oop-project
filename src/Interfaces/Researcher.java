@@ -25,10 +25,9 @@ public interface Researcher extends Serializable {
      * @return the vector
      */
     default public Vector<ResearchPaper> printPapers(Comparator comparator) throws IOException, ClassNotFoundException {
-        DataBase dataBase = DataBase.getInstance();
-//        return dataBase.getResearchPaperOfStudent(this, comparator);
-        // TODO
-        return new Vector<ResearchPaper>();
+        Vector<ResearchPaper> result = this.printPapers();
+        Collections.sort(result, comparator);
+        return result;
     }
 
     /**

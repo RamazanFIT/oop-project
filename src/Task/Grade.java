@@ -16,15 +16,36 @@ import Task.*;
  */
 public class Grade implements Comparable<Grade>, Serializable {
 
-    private int score;
+//    private int score;
+    private int firstAttScore;
+    private int secondAttScore;
+    private int finalScore;
+
+    public Grade() {
+        firstAttScore = 0;
+        secondAttScore = 0;
+        finalScore = 0;
+    }
 
     /**
      * Instantiates a new Grade.
      *
      * @param score the score
      */
-    public Grade(int score) {
-        this.score = score;
+    public Grade(int firstAttScore, int secondAttScore, int finalScore) {
+        this.firstAttScore = firstAttScore;
+        this.secondAttScore = secondAttScore;
+        this.finalScore = finalScore;
+    }
+
+    public void setScore(Attestation att, int score){
+        if(att == Attestation.FINAL){
+            this.finalScore = score;
+        } else if(att == Attestation.FIRST){
+            this.firstAttScore = score;
+        } else{
+            this.secondAttScore = score;
+        }
     }
 
     /**
@@ -33,18 +54,18 @@ public class Grade implements Comparable<Grade>, Serializable {
      * @return the score
      */
     public int getScore() {
-        return this.score;
+        return finalScore + firstAttScore + secondAttScore;
     }
 
-    /**
-     * Sets score.
-     *
-     * @param score the score
-     */
-    public void setScore(Integer score) {
-        this.score = score;
+    public int getScore(Attestation att){
+        if(att == Attestation.FINAL){
+            return finalScore;
+        } else if(att == Attestation.FIRST){
+            return firstAttScore;
+        } else{
+            return secondAttScore;
+        }
     }
-
 
     /**
      * Gets mark.
@@ -52,10 +73,10 @@ public class Grade implements Comparable<Grade>, Serializable {
      * @return the mark
      */
     public String getMark() {
-        if(score >= 90) return "A";
-        if(score >= 80) return "B";
-        if(score >= 70) return "C";
-        if(score >= 60) return "D";
+        if(getScore() >= 90) return "A";
+        if(getScore() >= 80) return "B";
+        if(getScore() >= 70) return "C";
+        if(getScore() >= 60) return "D";
         return "F";
     }
 
@@ -64,7 +85,11 @@ public class Grade implements Comparable<Grade>, Serializable {
     }
     @Override
     public int compareTo(Grade o) {
-        return 0;
+        if(this.getScore() < o.getScore()){
+            return 1;
+        } else{
+            return -1;
+        }
     }
 }
 

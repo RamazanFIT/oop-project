@@ -14,7 +14,7 @@ import Task.*;
 /**
  * The type Research paper.
  */
-public class ResearchPaper implements Serializable {
+public class ResearchPaper implements Serializable, Comparable<ResearchPaper> {
 
     private String title;
 
@@ -192,5 +192,9 @@ public class ResearchPaper implements Serializable {
     }
 
 
+    @Override
+    public int compareTo(ResearchPaper o) {
+        return this.getTitle().compareTo(o.getTitle());
+    }
 }
 

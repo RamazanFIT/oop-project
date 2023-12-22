@@ -76,8 +76,18 @@ public class Course implements Comparable<Course>, Serializable {
      * @param student the student
      * @param grade   the grade
      */
-    public void setMarkToStudent(Student student, Grade grade){
-        grades.put(student, grade);
+//    public void setMarkToStudent(Student student, Grade grade){
+//        grades.put(student, grade);
+//    }
+    public void setMarkToStudent(Student student, int score, Attestation att){
+        Grade someGrade;
+        if(!grades.containsKey(student)){
+            someGrade = new Grade();
+        } else{
+            someGrade = grades.get(student);
+        }
+        someGrade.setScore(att, score);
+        grades.put(student, someGrade);
     }
 
     /**
