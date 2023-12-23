@@ -15,7 +15,7 @@ import Task.*;
 /**
  * The type News.
  */
-public class News implements Serializable {
+public class News implements Serializable, Comparable<News> {
 
     private String title;
 
@@ -89,4 +89,11 @@ public class News implements Serializable {
         this.comments.remove(comment);
     }
 
+    @Override
+    public int compareTo(News o) {
+        if(this.title.compareTo(o.getTitle()) != 0){
+            return this.title.compareTo(o.getTitle());
+        }
+        return this.content.compareTo(o.getContent());
+    }
 }

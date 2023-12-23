@@ -14,12 +14,12 @@ import Date.*;
 /**
  * The type Researh journal.
  */
-public class ResearhJournal implements Serializable {
+public class ResearhJournal implements Serializable, Comparable<ResearhJournal> {
 
     /**
      * The Title.
      */
-    String title;
+    private String title;
 
     /**
      * Gets title.
@@ -122,5 +122,9 @@ public class ResearhJournal implements Serializable {
         this.papers.remove(pape);
     }
 
+    @Override
+    public int compareTo(ResearhJournal o) {
+        return this.title.compareTo(o.getTitle());
+    }
 }
 

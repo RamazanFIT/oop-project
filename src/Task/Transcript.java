@@ -17,7 +17,7 @@ import com.sun.source.tree.Tree;
 /**
  * The type Transcript.
  */
-public class Transcript implements Serializable {
+public class Transcript implements Serializable, Comparable<Transcript> {
     /**
      * The Grades.
      */
@@ -93,5 +93,13 @@ public class Transcript implements Serializable {
     }
 
 
-
+    @Override
+    public int compareTo(Transcript o) {
+        if(this.getGpa() > o.getGpa()){
+            return 1;
+        } else if(this.getGpa() < o.getGpa()){
+            return -1;
+        }
+        return 0;
+    }
 }

@@ -93,7 +93,10 @@ public class DiplomaProject implements Comparable<DiplomaProject>, Serializable 
 
     @Override
     public int compareTo(DiplomaProject o) {
-        return 0;
+        if(this.topic.compareTo(o.getTopic()) != 0){
+            return this.topic.compareTo(o.getTopic());
+        }
+        return this.title.compareTo(o.getTitle());
     }
 }
 

@@ -18,7 +18,7 @@ import Task.*;
 /**
  * The type Research project.
  */
-public class ResearchProject implements Serializable {
+public class ResearchProject implements Serializable, Comparable<ResearchProject> {
 
     private String topic;
 
@@ -133,4 +133,15 @@ public class ResearchProject implements Serializable {
     }
 
 
+    @Override
+    public int compareTo(ResearchProject o) {
+        if(this.topic.compareTo(o.getTopic()) != 0){
+            return this.topic.compareTo(o.getTopic());
+        }
+        if(this.publishedPapers.size() >= o.getPublishedPapers().size()){
+            return 1;
+        } else{
+            return -1;
+        }
+    }
 }

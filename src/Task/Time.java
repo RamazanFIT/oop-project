@@ -15,7 +15,7 @@ import Task.*;
 /**
  * The type Time.
  */
-public class Time implements Serializable {
+public class Time implements Serializable, Comparable<Time> {
 
     private int hour;
 
@@ -60,4 +60,18 @@ public class Time implements Serializable {
     }
 
 
+    @Override
+    public int compareTo(Time o) {
+        if(this.getHour() > o.getHour()){
+            return 1;
+        } else if(this.getHour() < o.getHour()){
+            return -1;
+        }
+        if(this.getMinute() > o.getMinute()){
+            return 1;
+        } else if(this.getMinute() < o.getMinute()){
+            return -1;
+        }
+        return 0;
+    }
 }

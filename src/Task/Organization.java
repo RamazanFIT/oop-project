@@ -15,7 +15,7 @@ import Task.*;
 /**
  * The type Organization.
  */
-public class Organization implements Serializable {
+public class Organization implements Serializable, Comparable<Organization> {
 
     private Enums.Organization name;
 
@@ -106,4 +106,8 @@ public class Organization implements Serializable {
         this.student = student;
     }
 
+    @Override
+    public int compareTo(Organization o) {
+        return this.name.compareTo(o.getName());
+    }
 }
