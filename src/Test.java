@@ -1,7 +1,9 @@
 import Actors.User;
 import Enums.LANGUAGES;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.*;
 
 /**
@@ -16,7 +18,7 @@ public class Test {
      * @throws ClassNotFoundException the class not found exception
      */
     public static void main(String[] args) throws IOException, ClassNotFoundException {
-        StringDataHolder dataHolder = StringDataHolder.getInstance();
+//        StringDataHolder dataHolder = StringDataHolder.getInstance();
 //
 //        // Add some strings
 //        dataHolder.addString("Hello");
@@ -42,5 +44,8 @@ public class Test {
 
 //        System.out.println(some_data.getStrings());
 //        System.out.println(((StringDataHolder)StringDataHolder.deserialize("data.ser")).getStrings());
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        String s = reader.readLine();
+        System.out.println(s);
     }
 }

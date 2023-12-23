@@ -118,9 +118,7 @@ public abstract class User implements Comparable<User>, Serializable {
      * @throws NotAutorizedException the not autorized exception
      */
     public String getPassword() throws NotAutorizedException {
-        if(!isActive) kidaiException();
         addLogFile("getPassword");
-
         return this.password;
     }
 
@@ -244,7 +242,7 @@ public abstract class User implements Comparable<User>, Serializable {
     public boolean login(String password) {
         addLogFile("login");
 
-        if(this.password == password) {
+        if(this.password.equals(password)) {
             this.isActive = true;
             return true;
         } else{

@@ -692,4 +692,25 @@ public class DataBase implements Serializable{
             this.journals.add(journal);
     }
 
+    public User getUser(String name, String surname){
+        for(User user : this.users){
+            if(user.getName().equals(name) && user.getSurname().equals(surname)){
+                return user;
+            }
+        }
+        return null;
+    }
+
+    public boolean checkPasswordOfUser(String password, User user) throws NotAutorizedException {
+        return user.login(password);
+    }
+
+    public ResearhJournal getResearchJournalByTitle(String title) throws NotAutorizedException{
+        for(ResearhJournal journal : this.journals){
+            if(journal.getTitle().equals(journal)){
+                return journal;
+            }
+        }
+        return null;
+    }
 }

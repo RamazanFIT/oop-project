@@ -61,7 +61,7 @@ public class Student extends User implements Researcher{
      */
     public Vector<Course> getEnrolledCourses() throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
-        return dataBase.getUserCourses(this);
+        return dataBase.getUserCourses(this); // добавлено
     }
 
     /**
@@ -74,7 +74,7 @@ public class Student extends User implements Researcher{
         Transcript transcript = new Transcript();
         transcript.setCourseGrades(dataBase.getMarkOfStudent(this));
         transcript.setStudent(this);
-        return transcript;
+        return transcript; // добавлено
     }
 
     /**
@@ -145,7 +145,7 @@ public class Student extends User implements Researcher{
      */
     public DiplomaProject getDiplomaProject() throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
-        return dataBase.getDiplomaProject(this);
+        return dataBase.getDiplomaProject(this); // добавлено
     }
 
     /**
@@ -168,7 +168,7 @@ public class Student extends User implements Researcher{
      */
     public Vector<Teacher> getInfoAboutTeacher(Course course) throws IOException, ClassNotFoundException {
        DataBase dataBase = DataBase.getInstance();
-        return dataBase.getTeacherInfo(course);
+        return dataBase.getTeacherInfo(course); // добавлено
     }
 
     /**
@@ -209,7 +209,7 @@ public class Student extends User implements Researcher{
      */
     public void registerForCourse(Course course) throws ExceededCreditException, IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
-        dataBase.registerStudentForCourse(course, this);
+        dataBase.registerStudentForCourse(course, this); // добавлено
     }
 
     public boolean equals(Object object) {
