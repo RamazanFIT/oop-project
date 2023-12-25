@@ -5,14 +5,12 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import Actors.Student;
 import Date.DataBase;
-import Enums.Organization;
-import Exceptions.ExceededCreditException;
-import Science.*;
-import Interfaces.*;
 import Actors.*;
 import Enums.*;
 import Exceptions.*;
+
 import java.io.IOException;
+import java.lang.System;
 import java.util.Comparator.*;
 import Science.*;
 import java.util.*;
@@ -67,9 +65,6 @@ public class DeanMenu {
                 case "d6":
                     addStudent();
                     break;
-                case "d7":
-                    changeAllData();
-                    break;
                 case "0":
                     isRunning = false;
                     System.out.println("Logged out successfully.");
@@ -95,8 +90,7 @@ public class DeanMenu {
         String name = reader.readLine();
         System.out.println("Enter the student surname: ");
         String surname = reader.readLine();
-        // Assuming checkStudent returns a string representation of the student's information
-        String studentInfo = dean.checkStudent(dataBase.getUser(name, surname));
+        String studentInfo = dean.checkStudent((Student)dataBase.getUser(name, surname));
         System.out.println(studentInfo);
     }
 
@@ -115,8 +109,7 @@ public class DeanMenu {
         String name = reader.readLine();
         System.out.println("Enter the student surname: ");
         String surname = reader.readLine();
-        // Assuming kickStudent removes the student from the database
-        dean.kickStudent(dataBase.getUser(name, surname));
+        dean.kickStudent((Student)dataBase.getUser(name, surname));
         System.out.println("Successfully kicked student.");
     }
 
@@ -125,10 +118,12 @@ public class DeanMenu {
         String name = reader.readLine();
         System.out.println("Enter the student surname: ");
         String surname = reader.readLine();
-
-
-        // Assuming addStudent adds the student to the database
-        dean.addStudent(new Student(name, surname);
+        System.out.println("Enter the student password: ");
+        String password = reader.readLine();
+        Student student = new Student(name, surname, password, LANGUAGES.EN);
+        StudentMenu sm = new StudentMenu(student);
+        sm.setF();
+        dean.addStudent(student);
         System.out.println("Successfully added student.");
     }
 }

@@ -33,6 +33,10 @@ public class Student extends User implements Researcher{
 
     }
 
+    public Student(String name, String surname, String password, LANGUAGES lang){
+        super(name, surname, password, lang);
+    }
+
     /**
      * Instantiates a new Student.
      *

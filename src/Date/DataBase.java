@@ -585,8 +585,10 @@ public class DataBase implements Serializable{
      * @return the message to dean
      */
     public MessageToDean getMessageToDean() {
-//        Collection.sort(messagesOfDean, comparatorOfUrgency);
-        return messagesOfDean.get(0);
+        Collections.sort(messagesOfDean);
+        MessageToDean toReturn = messagesOfDean.get(0);
+        messagesOfDean.remove(0);
+        return toReturn;
     }
 
     /**

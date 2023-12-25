@@ -15,7 +15,7 @@ import Task.*;
 /**
  * The type Message to dean.
  */
-public class MessageToDean implements Serializable {
+public class MessageToDean implements Serializable, Comparable<MessageToDean> {
 
     private UrgencyLevel level;
 
@@ -50,4 +50,29 @@ public class MessageToDean implements Serializable {
         return this.message;
     }
 
+    @Override
+    public int compareTo(MessageToDean o) {
+        int x, y;
+        if(this.getLevel() == UrgencyLevel.LOW){
+            x = 0;
+        } else if(this.getLevel() == UrgencyLevel.MEDIUM){
+            x = 1;
+        } else {
+            x = 2;
+        }
+        if(o.getLevel() == UrgencyLevel.LOW){
+            y = 0;
+        } else if(o.getLevel() == UrgencyLevel.MEDIUM){
+            y = 1;
+        } else {
+            y = 2;
+        }
+        if(x > y){
+            return 1;
+        } else if(x < y){
+            return -1;
+        } else {
+            return 0;
+        }
+    }
 }
