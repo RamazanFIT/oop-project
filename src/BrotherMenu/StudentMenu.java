@@ -78,6 +78,9 @@ public class StudentMenu {
                 case "10":
                     setF();
                     break;
+                case "11":
+                    getCreditsOfCourse();
+                    break;
                 case "0":
                     isRunning = false;
                     dataBase.saveToFile("data.ser");
@@ -185,6 +188,11 @@ public class StudentMenu {
                 " to "
                 +
                 f);
+    }
+
+    public void getCreditsOfCourse() throws IOException, ClassNotFoundException {
+        System.out.println("Count of courses credits: " + student.getCredits());
+
     }
 
 

@@ -52,7 +52,7 @@ public class Student extends User implements Researcher{
         isResearcher = false;
         createDiplomaProject(diplomaProject);
     }
-    //Anuar
+
 
     /**
      * Gets enrolled courses.
@@ -84,7 +84,7 @@ public class Student extends User implements Researcher{
      */
     public int getCredits() throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
-        return dataBase.getCntOfCreditStudent(this);
+        return dataBase.getCntOfCreditStudent(this); // done
     }
 
 
