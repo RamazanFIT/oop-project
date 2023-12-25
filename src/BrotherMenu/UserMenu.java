@@ -45,6 +45,7 @@ public class UserMenu {
                 u10. get message
                 u11. get sent message
                 u12. change all data of user
+                u13. next command
                 """;
         boolean isRunning = true;
         while (isRunning) {
@@ -90,6 +91,7 @@ public class UserMenu {
                 case "0":
                     isRunning = false;
                     System.out.println("Logged out successfully.");
+                    DataBase.getInstance().saveToFile("data.ser");
                     break;
                 default:
                     System.out.println("Invalid option. Please try again.");

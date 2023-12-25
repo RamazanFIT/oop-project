@@ -29,11 +29,13 @@ public class GeneralMenu {
     private static void showMainMenu(BufferedReader reader) throws IOException, NotAutorizedException, ClassNotFoundException {
         System.out.println("""
                 Welcome to the System
+                2. Create a new account
                 1. Login
                 0. Exit""");
 
         String input = reader.readLine();
         while (!input.equals("0")) {
+
             if (input.equals("1")) {
                 showLoginMenu(reader);
             } else {
@@ -43,6 +45,7 @@ public class GeneralMenu {
         }
 
         System.out.println("Exiting the system. Have a nice day!");
+        DataBase.getInstance().saveToFile("data.ser");
     }
 
     private static void showLoginMenu(BufferedReader reader) throws IOException, NotAutorizedException, ClassNotFoundException {

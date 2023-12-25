@@ -25,10 +25,7 @@ import java.io.File;
  * The type Data base.
  */
 public class DataBase implements Serializable{
-    /**
-     * The Papers.
-     */
-//    private transient Timer timer;
+
     public  Vector<ResearchPaper> papers;
     /**
      * The Projects.
@@ -97,7 +94,7 @@ public class DataBase implements Serializable{
         organizations = new Vector<>();
         journals = new Vector<>();
         news = new Vector<>();
-//        scheduleSerialization();
+
     }
 
     /**
@@ -709,6 +706,16 @@ public class DataBase implements Serializable{
         for(ResearhJournal journal : this.journals){
             if(journal.getTitle().equals(journal)){
                 return journal;
+            }
+        }
+        return null;
+    }
+
+    public Course getCourseByTitle(String title) throws NotAutorizedException{
+
+        for(Course course : this.courses){
+            if(course.getTitle().equals(title)){
+                return course;
             }
         }
         return null;

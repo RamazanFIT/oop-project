@@ -95,7 +95,7 @@ public class Student extends User implements Researcher{
      */
     public Vector<Task.Organization> getOrganization() throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
-        return dataBase.getStudentOrganizations(this);
+        return dataBase.getStudentOrganizations(this); // done
     }
 
     /**
@@ -126,7 +126,7 @@ public class Student extends User implements Researcher{
      */
     public FACULTY getFaculty() {
         return this.faculty;
-    }
+    } // done
 
     /**
      * Sets faculty.
@@ -135,7 +135,7 @@ public class Student extends User implements Researcher{
      */
     public void setFaculty(FACULTY faculty) {
         this.faculty = faculty;
-    }
+    } // done
 
 
     /**
@@ -178,7 +178,7 @@ public class Student extends User implements Researcher{
      */
     public Vector<Course> getMajor() throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
-        return dataBase.getMajorCoursesOfStudent(this);
+        return dataBase.getMajorCoursesOfStudent(this);  // done
     }
 
     /**
@@ -188,7 +188,7 @@ public class Student extends User implements Researcher{
      */
     public Vector<Course> getMinor() throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
-        return dataBase.getMinorCoursesOfStudent(this);
+        return dataBase.getMinorCoursesOfStudent(this);// done
     }
 
     @Override
