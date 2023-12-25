@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import Actors.Student;
 import Date.DataBase;
+import Enums.Organization;
 import Exceptions.ExceededCreditException;
 import Science.*;
 import Interfaces.*;
@@ -80,6 +81,12 @@ public class StudentMenu {
                     break;
                 case "11":
                     getCreditsOfCourse();
+                    break;
+                case "12":
+                    setOrganizationToStudent();
+                    break;
+                case "13":
+                    createDiplomaProjectOfStudent();
                     break;
                 case "0":
                     isRunning = false;
@@ -192,6 +199,60 @@ public class StudentMenu {
 
     public void getCreditsOfCourse() throws IOException, ClassNotFoundException {
         System.out.println("Count of courses credits: " + student.getCredits());
+
+    }
+
+    public void setOrganizationToStudent() throws IOException, ClassNotFoundException {
+        System.out.println("setting the organization of student");
+        Enums.Organization org;
+        Enums.RoleOfOrganisation role;
+        System.out.println("""
+                    1. OSIT
+                   
+                    2. GOOGLE
+                   
+                    3. BIGCITYLIFE
+                    
+                    4. NONE
+                """);
+        String param1 = reader.readLine();
+
+        System.out.println("Inter the role of student");
+        System.out.println("""
+                 1. MEMBER
+                   
+                 2. HEAD
+                """);
+        String param2 = reader.readLine();
+
+        if(param1.equals("1")){
+            org = Organization.OSIT;
+        } else if(param1.equals("1")){
+            org = Organization.GOOGLE;
+        } else if(param1.equals("1")){
+            org = Organization.BIGCITYLIFE;
+        } else {
+            org = Organization.NONE;
+        }
+
+        if(param2.equals("2")){
+            role = RoleOfOrganisation.HEAD;
+        } else{
+            role = RoleOfOrganisation.MEMBER;
+        }
+        student.setOrganization(org, role);
+        System.out.println("Successfully added organization");
+    }
+
+    public void createDiplomaProjectOfStudent() throws IOException, ClassNotFoundException {
+        System.out.println("Create Diploma Project of Student");
+        System.out.println("Enter the topic of the project");
+        String param1 = reader.readLine();
+        System.out.println("Enter the title of the project");
+        String param2 = reader.readLine();
+        DiplomaProject dp = new DiplomaProject(param1, param2);
+        student.createDiplomaProject(dp);
+        System.out.println("Successfully created Diploma Project");
 
     }
 

@@ -19,7 +19,6 @@ import Task.*;
 public class DiplomaProject implements Comparable<DiplomaProject>, Serializable {
 
     private String topic;
-
     private String title;
 
     /**

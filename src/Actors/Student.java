@@ -106,7 +106,7 @@ public class Student extends User implements Researcher{
      */
     public void setOrganization(Enums.Organization organization, RoleOfOrganisation role) throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
-        dataBase.setOrganizationToStudent(this, organization, role);
+        dataBase.setOrganizationToStudent(this, organization, role); // done
     }
 
     /**
@@ -156,7 +156,7 @@ public class Student extends User implements Researcher{
     public void createDiplomaProject(DiplomaProject project) throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
         if(!dataBase.existsDiplomaProject(this)){
-            dataBase.addDiplomaProject(project, this);
+            dataBase.addDiplomaProject(project, this); // done
         }
     }
 
