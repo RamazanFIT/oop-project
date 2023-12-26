@@ -39,7 +39,8 @@ public class Admin extends Employee{
      * @param department the department
      * @param salary     the salary
      */
-    public Admin(String name, String surname, String password, LANGUAGES lang, String department, double salary){
+    public Admin(String name, String surname, String password,
+                 LANGUAGES lang, String department, double salary){
         super(name, surname, password, lang, department, salary);
         isResearcher = false;
     }

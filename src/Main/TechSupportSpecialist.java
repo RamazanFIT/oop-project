@@ -21,6 +21,11 @@ public class TechSupportSpecialist extends Employee {
 
     private boolean isResearcher;
 
+    public TechSupportSpecialist(String name, String surname, String password, LANGUAGES lang, String department, double salary) {
+        super(name, surname, password, lang, department, salary);
+        this.isResearcher = false;
+    }
+
     /**
      * Gets task.
      *

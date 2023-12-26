@@ -52,7 +52,9 @@ public class Teacher extends Employee {
      * @param subjectSpecialization the subject specialization
      * @param teacherRole           the teacher role
      */
-    public Teacher(String name, String surname, String password, LANGUAGES lang, String department, double salary, Subject subjectSpecialization, TeacherRole teacherRole){
+    public Teacher(String name, String surname, String password,
+                   LANGUAGES lang, String department,
+                   double salary, Subject subjectSpecialization, TeacherRole teacherRole){
         super(name, surname, password, lang, department, salary);
         this.subjectSpecialization = subjectSpecialization;
         this.teacherRole = teacherRole;

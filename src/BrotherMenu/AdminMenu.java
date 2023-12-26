@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import Actors.Student;
 import Date.DataBase;
 import Exceptions.ExceededCreditException;
+import Main.TechSupportSpecialist;
 import Science.*;
 import Interfaces.*;
 import Actors.*;
@@ -98,28 +99,12 @@ public class AdminMenu {
     }
 
     private void addUser() throws IOException, ClassNotFoundException {
-//        System.out.println("Enter the user name: ");
-//        String name = reader.readLine();
-//        System.out.println("Enter the user surname: ");
-//        String surname = reader.readLine();
-//        System.out.println("Enter the user password: ");
-//        String password = reader.readLine();
-//        System.out.println("Enter the user language (EN/KZ/RU): ");
-//        LANGUAGES language = LANGUAGES.valueOf(reader.readLine().toUpperCase());
-//        System.out.println("Enter the user department: ");
-//        String department = reader.readLine();
-//        System.out.println("Enter the user salary: ");
-//        double salary = Double.parseDouble(reader.readLine());
-//
-//        User newUser = new User(name, surname, password, language, department, salary);
-//        admin.addUser(newUser);
-//        System.out.println("User added successfully.");
         System.out.println("Enter the type of  user: ");
         System.out.println("""
                 1. Student
                 2. Dean
-                3. Manager 
-                4. Teacher 
+                3. Manager
+                4. Teacher
                 5. TechSupport
                 6. Admin
                 """);
@@ -128,24 +113,24 @@ public class AdminMenu {
         String name = reader.readLine();
         System.out.println("Enter the user surname: ");
         String surname = reader.readLine();
-        System.out.println("Please enter password: "); //  LANGUAGES lang, FACULTY faculty
+        System.out.println("Please enter password: ");
         String password = reader.readLine();
-        if(option.equals("1")){
-            System.out.println("Enter the language: ");
-            System.out.println("""
+        System.out.println("Enter the language: ");
+        System.out.println("""
                     1. English
                     2. Russian
                     3. Kazakh
                     """);
-            String opt = reader.readLine();
-            LANGUAGES lang;
-            if(opt.equals("1")){
-                lang = LANGUAGES.EN;
-            } else if(opt.equals("2")){
-                lang = LANGUAGES.RU;
-            } else{
-                lang = LANGUAGES.KZ;
-            }
+        String opt = reader.readLine();
+        LANGUAGES lang;
+        if(opt.equals("1")){
+            lang = LANGUAGES.EN;
+        } else if(opt.equals("2")){
+            lang = LANGUAGES.RU;
+        } else{
+            lang = LANGUAGES.KZ;
+        }
+        if(option.equals("1")){
             System.out.println("""
                 
                 setting Faculty information
@@ -172,14 +157,115 @@ public class AdminMenu {
             } else {
                 f = FACULTY.NGD;
             }
+            Student st = new Student(name, surname, password, lang, f, null);
+            DataBase.getInstance().addUser(st);
         } else if(option.equals("2")){
+            System.out.println("enter department");
+            String depart = reader.readLine();
 
+            System.out.println("enter salary");
+            String toParse = reader.readLine();
+            double salary = Double.parseDouble(toParse);
+            Dean dean = new Dean(name, surname, password, lang, depart, salary);
+            DataBase.getInstance().addUser(dean);
         } else if(option.equals("3")){
-
+            System.out.println("enter department");
+            String depart = reader.readLine();
+            System.out.println("enter salary");
+            String toParse = reader.readLine();
+            double salary = Double.parseDouble(toParse);
+            System.out.println("""
+                    Enter the manager type:
+                    1. FINANCE
+                    2. HR
+                    3. OR
+                    4. DEPARTMENTS
+                    """);
+            ManagerType type;
+            String check = reader.readLine();
+            if(check.equals("1")){
+                type = ManagerType.FINANCE;
+            } else if(check.equals("2")){
+                type = ManagerType.HR;
+            } else if(check.equals("3")){
+                type = ManagerType.OR;
+            } else{
+                type = ManagerType.DEPARTMENTS;
+            }
+            Manager manager = new Manager(name, surname, password, lang, depart, salary, type);
+            DataBase.getInstance().addUser(manager);
         } else if(option.equals("4")){
+            System.out.println("enter department");
+            String depart = reader.readLine();
+            System.out.println("enter salary");
+            String toParse = reader.readLine();
+            double salary = Double.parseDouble(toParse);
+            Subject subject;
+            System.out.println("""
+                    Enter subject
+                    1. CALCULUS1,
+                        
+                    2. CALCULUS2,
+                        
+                    3. OOP
+                       
+                    4. ALGORITHM
+                        
+                    5.  ENGLISH
+                        
+                    6. JAPANESE
+                    """);
+
+
+            String check = reader.readLine();
+            if(check.equals("1")){
+                subject = Subject.CALCULUS1;
+            } else if(check.equals("2")){
+                subject = Subject.CALCULUS2;
+            } else if(check.equals("3")){
+                subject = Subject.OOP;
+            } else if(check.equals("4")){
+                subject = Subject.ALGORITHM;
+            } else if(check.equals("5")){
+                subject = Subject.ENGLISH;
+            } else{
+                subject = Subject.JAPANESE;
+            }
+            TeacherRole teacherRole;
+            System.out.println("""
+                    Type 
+                    1. LECTOR,
+                       
+                    2. PROCESSOR
+                    """);
+            check = reader.readLine();
+            if(check.equals("1")){
+                teacherRole = TeacherRole.LECTOR;
+            } else{
+                teacherRole = TeacherRole.PROCESSOR;
+            }
+            Teacher teacher = new Teacher(name, surname, password, lang, depart, salary, subject, teacherRole);
+            DataBase.getInstance().addUser(teacher);
 
         } else if(option.equals("5")){
+            System.out.println("enter department");
+            String depart = reader.readLine();
 
+            System.out.println("enter salary");
+            String toParse = reader.readLine();
+            double salary = Double.parseDouble(toParse);
+            TechSupportSpecialist tech = new TechSupportSpecialist(name, surname, password, lang, depart, salary);
+            DataBase.getInstance().addUser(tech);
+
+        } else{
+            System.out.println("enter department");
+            String depart = reader.readLine();
+
+            System.out.println("enter salary");
+            String toParse = reader.readLine();
+            double salary = Double.parseDouble(toParse);
+            Admin admin = new Admin(name, surname, password, lang, depart, salary);
+            DataBase.getInstance().addUser(admin);
         }
 
     }
