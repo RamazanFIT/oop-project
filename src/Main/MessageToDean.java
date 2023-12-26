@@ -21,6 +21,10 @@ public class MessageToDean implements Serializable, Comparable<MessageToDean> {
 
     private String message;
 
+    public MessageToDean(UrgencyLevel level, String message) {
+        this.level = level;
+        this.message = message;
+    }
 
     /**
      * Gets level.
