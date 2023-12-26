@@ -33,6 +33,14 @@ public class ResearchProject implements Serializable, Comparable<ResearchProject
      */
     public ResearchProject() {};
 
+    public ResearchProject(String topic) {
+        this.topic = topic;
+        this.publishedPapers = new Vector<ResearchPaper>();
+        this.projectParticipant = new Vector<Researcher>();
+
+    };
+
+
     /**
      * Instantiates a new Research project.
      *
