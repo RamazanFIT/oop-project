@@ -722,4 +722,14 @@ public class DataBase implements Serializable{
         }
         return null;
     }
+
+    public News getNewsByTitle(String title){
+        for(News n : news){
+            if(n.getTitle().equals(title)){
+                return n;
+            }
+        }
+        return null;
+    }
+
 }
