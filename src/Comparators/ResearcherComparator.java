@@ -4,6 +4,9 @@ import Interfaces.Researcher;
 
 import java.util.*;
 
+/**
+ * The type Researcher comparator.
+ */
 public class ResearcherComparator implements Comparator<Researcher>{
     @Override
     public int compare(Researcher o1, Researcher o2) {

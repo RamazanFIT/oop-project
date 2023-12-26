@@ -19,18 +19,36 @@ import java.util.*;
 import Interfaces.*;
 import Date.*;
 import Task.*;
+
+/**
+ * The type Admin menu.
+ */
 public class AdminMenu {
 
     private Admin admin;
     private DataBase dataBase;
     private BufferedReader reader;
 
+    /**
+     * Instantiates a new Admin menu.
+     *
+     * @param admin the admin
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
+     */
     public AdminMenu(Admin admin) throws IOException, ClassNotFoundException {
         this.admin = admin;
         this.dataBase = DataBase.getInstance();
         this.reader = new BufferedReader(new InputStreamReader(System.in));
     }
 
+    /**
+     * Show menu.
+     *
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
+     * @throws NotAutorizedException  the not autorized exception
+     */
     public void showMenu() throws IOException, ClassNotFoundException, NotAutorizedException {
         String menuOptions = "\nWelcome, " + """
                 \n a1. View information about Admin
@@ -104,6 +122,12 @@ public class AdminMenu {
         System.out.println("User updated successfully.");
     }
 
+    /**
+     * Add user.
+     *
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
+     */
     public void addUser() throws IOException, ClassNotFoundException {
         System.out.println("Enter the type of  user: ");
         System.out.println("""

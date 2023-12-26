@@ -74,6 +74,8 @@ public class DiplomaProject implements Comparable<DiplomaProject>, Serializable 
      * Gets members.
      *
      * @return the members
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
      */
     public Vector<Student> getMembers() throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
@@ -84,6 +86,8 @@ public class DiplomaProject implements Comparable<DiplomaProject>, Serializable 
      * Add member.
      *
      * @param member the member
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
      */
     public void addMember(Student member) throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();

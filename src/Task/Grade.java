@@ -21,6 +21,9 @@ public class Grade implements Comparable<Grade>, Serializable {
     private int secondAttScore;
     private int finalScore;
 
+    /**
+     * Instantiates a new Grade.
+     */
     public Grade() {
         firstAttScore = 0;
         secondAttScore = 0;
@@ -30,7 +33,9 @@ public class Grade implements Comparable<Grade>, Serializable {
     /**
      * Instantiates a new Grade.
      *
-     * @param score the score
+     * @param firstAttScore  the first att score
+     * @param secondAttScore the second att score
+     * @param finalScore     the final score
      */
     public Grade(int firstAttScore, int secondAttScore, int finalScore) {
         this.firstAttScore = firstAttScore;
@@ -38,6 +43,12 @@ public class Grade implements Comparable<Grade>, Serializable {
         this.finalScore = finalScore;
     }
 
+    /**
+     * Set score.
+     *
+     * @param att   the att
+     * @param score the score
+     */
     public void setScore(Attestation att, int score){
         if(att == Attestation.FINAL){
             this.finalScore = score;
@@ -57,6 +68,12 @@ public class Grade implements Comparable<Grade>, Serializable {
         return finalScore + firstAttScore + secondAttScore;
     }
 
+    /**
+     * Get score int.
+     *
+     * @param att the att
+     * @return the int
+     */
     public int getScore(Attestation att){
         if(att == Attestation.FINAL){
             return finalScore;

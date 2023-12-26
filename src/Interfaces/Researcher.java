@@ -23,6 +23,8 @@ public interface Researcher extends Serializable {
      *
      * @param comparator the comparator
      * @return the vector
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
      */
     default public Vector<ResearchPaper> printPapers(Comparator comparator) throws IOException, ClassNotFoundException {
         Vector<ResearchPaper> result = this.printPapers();
@@ -34,6 +36,8 @@ public interface Researcher extends Serializable {
      * Print papers vector.
      *
      * @return the vector
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
      */
     default public Vector<ResearchPaper> printPapers() throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
@@ -45,6 +49,8 @@ public interface Researcher extends Serializable {
      * Cnt h index int.
      *
      * @return the int
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
      */
     default public int cntHIndex() throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
@@ -55,6 +61,8 @@ public interface Researcher extends Serializable {
      * Gets projects.
      *
      * @return the projects
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
      */
     default public Vector<ResearchProject> getProjects() throws IOException, ClassNotFoundException {
         return this.getOwnProject();
@@ -64,7 +72,9 @@ public interface Researcher extends Serializable {
      * Add project.
      *
      * @param project the project
-     * @throws ImposterException the imposter exception
+     * @throws ImposterException      the imposter exception
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
      */
     default public void addProject(ResearchProject project) throws ImposterException, IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
@@ -79,6 +89,8 @@ public interface Researcher extends Serializable {
      * Del project.
      *
      * @param project the project
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
      */
     default public void delProject(ResearchProject project) throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
@@ -89,6 +101,8 @@ public interface Researcher extends Serializable {
      * Gets papers.
      *
      * @return the papers
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
      */
     default public Vector<ResearchPaper> getPapers() throws IOException, ClassNotFoundException {
         return this.printPapers();
@@ -99,7 +113,9 @@ public interface Researcher extends Serializable {
      * Add papers.
      *
      * @param paper the paper
-     * @throws ImposterException the imposter exception
+     * @throws ImposterException      the imposter exception
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
      */
     default public void addPapers(ResearchPaper paper) throws ImposterException, IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
@@ -111,7 +127,9 @@ public interface Researcher extends Serializable {
      * Del papers.
      *
      * @param paper the paper
-     * @throws ImposterException the imposter exception
+     * @throws ImposterException      the imposter exception
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
      */
     default public void delPapers(ResearchPaper paper) throws ImposterException, IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
@@ -123,6 +141,8 @@ public interface Researcher extends Serializable {
      * Gets own project.
      *
      * @return the own project
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
      */
     default public Vector<ResearchProject> getOwnProject() throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();

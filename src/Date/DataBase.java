@@ -26,6 +26,9 @@ import java.io.File;
  */
 public class DataBase implements Serializable{
 
+    /**
+     * The Papers.
+     */
     public  Vector<ResearchPaper> papers;
     /**
      * The Projects.
@@ -101,6 +104,8 @@ public class DataBase implements Serializable{
      * Gets instance.
      *
      * @return the instance
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
      */
     public static synchronized DataBase getInstance() throws IOException, ClassNotFoundException {
         if (instance == null) {
@@ -110,6 +115,12 @@ public class DataBase implements Serializable{
     }
 
 
+    /**
+     * Save to file.
+     *
+     * @param filename the filename
+     * @throws IOException the io exception
+     */
     public void saveToFile(String filename) throws IOException {
         try (FileOutputStream fileOut = new FileOutputStream(filename);
              ObjectOutputStream out = new ObjectOutputStream(fileOut)) {
@@ -117,13 +128,19 @@ public class DataBase implements Serializable{
         }
     }
 
+    /**
+     * Load from file.
+     *
+     * @param filename the filename
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
+     */
     public static void loadFromFile(String filename) throws IOException, ClassNotFoundException {
         try (FileInputStream fileIn = new FileInputStream(filename);
              ObjectInputStream in = new ObjectInputStream(fileIn)) {
             instance = (DataBase) in.readObject();
         }
     }
-
 
 
     /**
@@ -696,6 +713,13 @@ public class DataBase implements Serializable{
             this.journals.add(journal);
     }
 
+    /**
+     * Get user user.
+     *
+     * @param name    the name
+     * @param surname the surname
+     * @return the user
+     */
     public User getUser(String name, String surname){
         for(User user : this.users){
             if(user.getName().equals(name) && user.getSurname().equals(surname)){
@@ -705,10 +729,25 @@ public class DataBase implements Serializable{
         return null;
     }
 
+    /**
+     * Check password of user boolean.
+     *
+     * @param password the password
+     * @param user     the user
+     * @return the boolean
+     * @throws NotAutorizedException the not autorized exception
+     */
     public boolean checkPasswordOfUser(String password, User user) throws NotAutorizedException {
         return user.login(password);
     }
 
+    /**
+     * Gets research journal by title.
+     *
+     * @param title the title
+     * @return the research journal by title
+     * @throws NotAutorizedException the not autorized exception
+     */
     public ResearhJournal getResearchJournalByTitle(String title) throws NotAutorizedException{
         for(ResearhJournal journal : this.journals){
             if(journal.getTitle().equals(journal)){
@@ -718,6 +757,13 @@ public class DataBase implements Serializable{
         return null;
     }
 
+    /**
+     * Gets course by title.
+     *
+     * @param title the title
+     * @return the course by title
+     * @throws NotAutorizedException the not autorized exception
+     */
     public Course getCourseByTitle(Subject title) throws NotAutorizedException{
 
         for(Course course : this.courses){
@@ -728,6 +774,12 @@ public class DataBase implements Serializable{
         return null;
     }
 
+    /**
+     * Get news by title news.
+     *
+     * @param title the title
+     * @return the news
+     */
     public News getNewsByTitle(String title){
         for(News n : news){
             if(n.getTitle().equals(title)){
@@ -737,6 +789,12 @@ public class DataBase implements Serializable{
         return null;
     }
 
+    /**
+     * Get research project by topic research project.
+     *
+     * @param topic the topic
+     * @return the research project
+     */
     public ResearchProject getResearchProjectByTopic(String topic){
         for(ResearchProject rp : projects){
             if(rp.getTopic().equals(topic)){
@@ -746,6 +804,12 @@ public class DataBase implements Serializable{
         return null;
     }
 
+    /**
+     * Get research paper by title research paper.
+     *
+     * @param title the title
+     * @return the research paper
+     */
     public ResearchPaper getResearchPaperByTitle(String title){
         for(ResearchPaper rp : papers){
             if(rp.getTitle().equals(title)){

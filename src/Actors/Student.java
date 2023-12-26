@@ -33,10 +33,27 @@ public class Student extends User implements Researcher{
 
     }
 
+    /**
+     * Instantiates a new Student.
+     *
+     * @param name     the name
+     * @param surname  the surname
+     * @param password the password
+     * @param lang     the lang
+     */
     public Student(String name, String surname, String password, LANGUAGES lang){
         super(name, surname, password, lang);
     }
 
+    /**
+     * Instantiates a new Student.
+     *
+     * @param name     the name
+     * @param surname  the surname
+     * @param password the password
+     * @param lang     the lang
+     * @param f        the f
+     */
     public Student(String name, String surname, String password, LANGUAGES lang, FACULTY f){
         super(name, surname, password, lang);
         faculty = f;
@@ -55,11 +72,12 @@ public class Student extends User implements Researcher{
      */
 
 
-
     /**
      * Gets enrolled courses.
      *
      * @return the enrolled courses
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
      */
     public Vector<Course> getEnrolledCourses() throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
@@ -70,6 +88,8 @@ public class Student extends User implements Researcher{
      * Gets transcript.
      *
      * @return the transcript
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
      */
     public Transcript getTranscript() throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
@@ -83,6 +103,8 @@ public class Student extends User implements Researcher{
      * Gets credits.
      *
      * @return the credits
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
      */
     public int getCredits() throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
@@ -94,6 +116,8 @@ public class Student extends User implements Researcher{
      * Gets organization.
      *
      * @return the organization
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
      */
     public Vector<Task.Organization> getOrganization() throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
@@ -105,6 +129,8 @@ public class Student extends User implements Researcher{
      *
      * @param organization the organization
      * @param role         the role
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
      */
     public void setOrganization(Enums.Organization organization, RoleOfOrganisation role) throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
@@ -115,6 +141,8 @@ public class Student extends User implements Researcher{
      * Sets organization.
      *
      * @param organization the organization
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
      */
     public void setOrganization(Enums.Organization organization) throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
@@ -144,6 +172,8 @@ public class Student extends User implements Researcher{
      * Gets diploma project.
      *
      * @return the diploma project
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
      */
     public DiplomaProject getDiplomaProject() throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
@@ -154,6 +184,8 @@ public class Student extends User implements Researcher{
      * Create diploma project.
      *
      * @param project the project
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
      */
     public void createDiplomaProject(DiplomaProject project) throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
@@ -167,6 +199,8 @@ public class Student extends User implements Researcher{
      *
      * @param course the course
      * @return the info about teacher
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
      */
     public Vector<Teacher> getInfoAboutTeacher(Course course) throws IOException, ClassNotFoundException {
        DataBase dataBase = DataBase.getInstance();
@@ -177,6 +211,8 @@ public class Student extends User implements Researcher{
      * Gets major.
      *
      * @return the major
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
      */
     public Vector<Course> getMajor() throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
@@ -187,6 +223,8 @@ public class Student extends User implements Researcher{
      * Gets minor.
      *
      * @return the minor
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
      */
     public Vector<Course> getMinor() throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
@@ -208,6 +246,8 @@ public class Student extends User implements Researcher{
      *
      * @param course the course
      * @throws ExceededCreditException the exceeded credit exception
+     * @throws IOException             the io exception
+     * @throws ClassNotFoundException  the class not found exception
      */
     public void registerForCourse(Course course) throws ExceededCreditException, IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();

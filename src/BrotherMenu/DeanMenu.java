@@ -20,17 +20,34 @@ import Task.*;
 import Main.*;
 
 
+/**
+ * The type Dean menu.
+ */
 public class DeanMenu {
     private Dean dean;
     private DataBase dataBase;
     private BufferedReader reader;
 
+    /**
+     * Instantiates a new Dean menu.
+     *
+     * @param dean the dean
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
+     */
     public DeanMenu(Dean dean) throws IOException, ClassNotFoundException {
         this.dean = dean;
         this.dataBase = DataBase.getInstance();
         this.reader = new BufferedReader(new InputStreamReader(System.in));
     }
 
+    /**
+     * Show menu.
+     *
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
+     * @throws NotAutorizedException  the not autorized exception
+     */
     public void showMenu() throws IOException, ClassNotFoundException, NotAutorizedException {
         String menuOptions = "\nWelcome, Dean! " + """
                 \n d1. View information about Dean
@@ -81,6 +98,12 @@ public class DeanMenu {
         }
     }
 
+    /**
+     * Send message to support.
+     *
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
+     */
     public void sendMessageToSupport() throws IOException, ClassNotFoundException {
         System.out.println("Enter the message to support: ");
         String messageText = reader.readLine();
@@ -90,6 +113,12 @@ public class DeanMenu {
         System.out.println("Successfully sent message to support.");
     }
 
+    /**
+     * Check student.
+     *
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
+     */
     public void checkStudent() throws IOException, ClassNotFoundException {
         System.out.println("Enter the student name: ");
         String name = reader.readLine();
@@ -99,6 +128,12 @@ public class DeanMenu {
         System.out.println(studentInfo);
     }
 
+    /**
+     * Gets message to dean.
+     *
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
+     */
     public void getMessageToDean() throws IOException, ClassNotFoundException {
         MessageToDean messageToDean = dean.getMessageToDean();
         if (messageToDean != null) {
@@ -109,6 +144,12 @@ public class DeanMenu {
         }
     }
 
+    /**
+     * Kick student.
+     *
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
+     */
     public void kickStudent() throws IOException, ClassNotFoundException {
         System.out.println("Enter the student name: ");
         String name = reader.readLine();
@@ -118,6 +159,12 @@ public class DeanMenu {
         System.out.println("Successfully kicked student.");
     }
 
+    /**
+     * Add student.
+     *
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
+     */
     public void addStudent() throws IOException, ClassNotFoundException {
         System.out.println("Enter the student name: ");
         String name = reader.readLine();

@@ -22,6 +22,9 @@ import Interfaces.*;
 import Date.*;
 import Task.*;
 
+/**
+ * The type Manager menu.
+ */
 public class ManagerMenu {
     private Manager manager;
 
@@ -29,12 +32,26 @@ public class ManagerMenu {
 
     private BufferedReader reader;
 
+    /**
+     * Instantiates a new Manager menu.
+     *
+     * @param manager the manager
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
+     */
     public ManagerMenu(Manager manager) throws IOException, ClassNotFoundException{
         this.manager = manager;
         this.dataBase = DataBase.getInstance();
         this.reader = new BufferedReader(new InputStreamReader(System.in));
     }
 
+    /**
+     * Show menu.
+     *
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
+     * @throws NotAutorizedException  the not autorized exception
+     */
     public void showMenu() throws IOException, ClassNotFoundException, NotAutorizedException {
         String menuOptions = "\nWelcome, Manager: " + manager.getName() + """
                 \n1. Get info about students on a course.
@@ -235,6 +252,13 @@ public class ManagerMenu {
         MessageToDean messageToDean = new MessageToDean(level, message);
         manager.sendMessageToDean(messageToDean);
     }
+
+    /**
+     * Add course.
+     *
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
+     */
     public void addCourse() throws IOException, ClassNotFoundException {
         System.out.println("Enter course Subject: ");
         Subject subject;

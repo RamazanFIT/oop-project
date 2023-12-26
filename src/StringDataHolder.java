@@ -7,6 +7,9 @@ import java.util.Vector;
  * The type String data holder.
  */
 public class StringDataHolder implements Serializable {
+    /**
+     * The Strings.
+     */
     public static Vector<String> strings;
     private static StringDataHolder instance = new StringDataHolder();
 

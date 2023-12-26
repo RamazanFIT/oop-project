@@ -44,6 +44,8 @@ public class GraduateStudent extends Student {
      * @param faculty        the faculty
      * @param diplomaProject the diploma project
      * @param degreeType     the degree type
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
      */
     public GraduateStudent(String name, String surname,
                            String password, LANGUAGES lang, FACULTY faculty,

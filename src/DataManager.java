@@ -1,6 +1,9 @@
 import java.io.*;
 import java.util.Vector;
 
+/**
+ * The type Data manager.
+ */
 public class DataManager implements Serializable {
     private static final long serialVersionUID = 1L;
     private static DataManager instance;
@@ -11,7 +14,12 @@ public class DataManager implements Serializable {
         data = new Vector<>();
     }
 
-    // Synchronized method to control simultaneous access
+    /**
+     * Gets instance.
+     *
+     * @return the instance
+     */
+// Synchronized method to control simultaneous access
     public static synchronized DataManager getInstance() {
         if (instance == null) {
             instance = new DataManager();
@@ -19,14 +27,30 @@ public class DataManager implements Serializable {
         return instance;
     }
 
+    /**
+     * Add data.
+     *
+     * @param element the element
+     */
     public void addData(String element) {
         data.add(element);
     }
 
+    /**
+     * Gets data.
+     *
+     * @return the data
+     */
     public Vector<String> getData() {
         return data;
     }
 
+    /**
+     * Save to file.
+     *
+     * @param filename the filename
+     * @throws IOException the io exception
+     */
     public void saveToFile(String filename) throws IOException {
         try (FileOutputStream fileOut = new FileOutputStream(filename);
              ObjectOutputStream out = new ObjectOutputStream(fileOut)) {
@@ -34,6 +58,13 @@ public class DataManager implements Serializable {
         }
     }
 
+    /**
+     * Load from file.
+     *
+     * @param filename the filename
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
+     */
     public static void loadFromFile(String filename) throws IOException, ClassNotFoundException {
         try (FileInputStream fileIn = new FileInputStream(filename);
              ObjectInputStream in = new ObjectInputStream(fileIn)) {

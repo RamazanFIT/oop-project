@@ -18,18 +18,37 @@ import java.util.*;
 import Interfaces.*;
 import Date.*;
 import Task.*;
+
+/**
+ * The type Researcher menu.
+ */
 public class ResearcherMenu {
 
     private Researcher researcher;
     private DataBase dataBase;
     private BufferedReader reader;
 
+    /**
+     * Instantiates a new Researcher menu.
+     *
+     * @param researcher the researcher
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
+     */
     public ResearcherMenu(Researcher researcher) throws IOException, ClassNotFoundException {
         this.researcher = researcher;
         this.dataBase = DataBase.getInstance();
         this.reader = new BufferedReader(new InputStreamReader(System.in));
     }
 
+    /**
+     * Show menu.
+     *
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
+     * @throws NotAutorizedException  the not autorized exception
+     * @throws ImposterException      the imposter exception
+     */
     public void showMenu() throws IOException, ClassNotFoundException, NotAutorizedException, ImposterException {
         String menuOptions = "\nWelcome, Student: " + researcher.getName() + """
                 \n1. Print the papers.
@@ -85,18 +104,43 @@ public class ResearcherMenu {
         }
     }
 
+    /**
+     * Print papers.
+     *
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
+     */
     public void printPapers() throws IOException, ClassNotFoundException {
         System.out.println("The papers: " + researcher.getPapers());
     }
 
+    /**
+     * Cnt h index.
+     *
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
+     */
     public void cntHIndex() throws IOException, ClassNotFoundException {
         System.out.println("The H index of Researcher: " + researcher.cntHIndex());
     }
 
+    /**
+     * Gets projects.
+     *
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
+     */
     public void getProjects() throws IOException, ClassNotFoundException {
         System.out.println("The projects: " + researcher.getProjects());
     }
 
+    /**
+     * Add project.
+     *
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
+     * @throws ImposterException      the imposter exception
+     */
     public void addProject() throws IOException, ClassNotFoundException, ImposterException {
         System.out.println("Enter the topic of project: ");
         String topic = reader.readLine();
@@ -107,6 +151,12 @@ public class ResearcherMenu {
         System.out.println("Success");
     }
 
+    /**
+     * Del project.
+     *
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
+     */
     public void delProject() throws IOException, ClassNotFoundException {
         System.out.println("Enter the topic of project: ");
         String topic = reader.readLine();
@@ -117,6 +167,13 @@ public class ResearcherMenu {
 
     }
 
+    /**
+     * Add papers.
+     *
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
+     * @throws ImposterException      the imposter exception
+     */
     public void addPapers() throws IOException, ClassNotFoundException, ImposterException {
         System.out.println("Enter the title of paper");
         String title = reader.readLine();
@@ -132,6 +189,13 @@ public class ResearcherMenu {
 
     }
 
+    /**
+     * Del papers.
+     *
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
+     * @throws ImposterException      the imposter exception
+     */
     public void delPapers() throws IOException, ClassNotFoundException, ImposterException {
         System.out.println("Enter the title of paper");
         String title = reader.readLine();
@@ -140,11 +204,22 @@ public class ResearcherMenu {
 
     }
 
+    /**
+     * Gets own project.
+     *
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
+     */
     public void getOwnProject() throws IOException, ClassNotFoundException {
         System.out.println("The own projects: " + researcher.getOwnProject());
         System.out.println("Success");
     }
 
+    /**
+     * Sets to researcher.
+     *
+     * @throws IOException the io exception
+     */
     public void setToResearcher() throws IOException {
         System.out.println("Do you want to make to Researcher");
         System.out.println("""

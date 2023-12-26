@@ -12,6 +12,9 @@ import Date.*;
 import Task.*;
 import Main.*;
 
+/**
+ * The type Gpa student compare.
+ */
 public class GpaStudentCompare implements Comparator<Student>{
     @Override
     public int compare(Student o1, Student o2) {

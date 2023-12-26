@@ -18,18 +18,36 @@ import java.util.*;
 import Interfaces.*;
 import Date.*;
 import Task.*;
+
+/**
+ * The type Teacher menu.
+ */
 public class TeacherMenu {
 
     private Teacher teacher;
     private DataBase dataBase;
     private BufferedReader reader;
 
+    /**
+     * Instantiates a new Teacher menu.
+     *
+     * @param teacher the teacher
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
+     */
     public TeacherMenu(Teacher teacher) throws IOException, ClassNotFoundException {
         this.teacher = teacher;
         this.dataBase = DataBase.getInstance();
         this.reader = new BufferedReader(new InputStreamReader(System.in));
     }
 
+    /**
+     * Show menu.
+     *
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
+     * @throws NotAutorizedException  the not autorized exception
+     */
     public void showMenu() throws IOException, ClassNotFoundException, NotAutorizedException {
         String menuOptions = "\nWelcome, Student: " + teacher.getName() + """
                 \n1. Get Subject Specialization.
@@ -82,11 +100,20 @@ public class TeacherMenu {
             }
         }
     }
+
+    /**
+     * Get subject spec.
+     */
     public void getSubjectSpec(){
         System.out.println("Subject specialization" + teacher.getSubjectSpecialization());
 
     }
 
+    /**
+     * Sets subject spec.
+     *
+     * @throws IOException the io exception
+     */
     public void setSubjectSpec() throws IOException {
         System.out.println("setting specialization to teacher");
         Subject subject;
@@ -123,12 +150,26 @@ public class TeacherMenu {
         teacher.setSubjectSpecialization(subject);
         System.out.println("Success");
     }
+
+    /**
+     * Gets list of courses.
+     *
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
+     */
     public void getListOfCourses() throws IOException, ClassNotFoundException {
         System.out.println("The courses of teacher" + teacher.getListCourses());
         System.out.println("Success");
 
     }
 
+    /**
+     * Add course to teacher.
+     *
+     * @throws IOException            the io exception
+     * @throws NotAutorizedException  the not autorized exception
+     * @throws ClassNotFoundException the class not found exception
+     */
     public void addCourseToTeacher() throws IOException, NotAutorizedException, ClassNotFoundException {
         System.out.println("Enter course Subject: ");
         Subject subject;
@@ -166,12 +207,20 @@ public class TeacherMenu {
         System.out.println("Success");
     }
 
+    /**
+     * Get teacher role.
+     */
     public void getTeacherRole(){
         System.out.println("Teacher role is: " + teacher.getTeacherRole());
         System.out.println("Success");
 
     }
 
+    /**
+     * Sets teacher role.
+     *
+     * @throws IOException the io exception
+     */
     public void setTeacherRole() throws IOException {
         System.out.println("""
                 Which one: 
@@ -190,6 +239,13 @@ public class TeacherMenu {
         System.out.println("Success");
 
     }
+
+    /**
+     * Put mark to student.
+     *
+     * @throws IOException           the io exception
+     * @throws NotAutorizedException the not autorized exception
+     */
     public void putMarkToStudent() throws IOException, NotAutorizedException {
         System.out.println("Enter course Subject: ");
         Subject subject;

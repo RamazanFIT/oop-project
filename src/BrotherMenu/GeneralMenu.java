@@ -21,7 +21,19 @@ import Task.*;
 
 import javax.xml.crypto.Data;
 
+/**
+ * The type General menu.
+ */
 public class GeneralMenu {
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
+     * @throws NotAutorizedException  the not autorized exception
+     * @throws ImposterException      the imposter exception
+     */
     public static void main(String[] args) throws IOException, ClassNotFoundException, NotAutorizedException, ImposterException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         DataBase.loadFromFile("data.ser");
@@ -151,6 +163,13 @@ public class GeneralMenu {
         }
     }
 
+    /**
+     * Register.
+     *
+     * @param reader the reader
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
+     */
     public static void register(BufferedReader reader) throws IOException, ClassNotFoundException {
         AdminMenu adminMenu = new AdminMenu(new Admin());
         adminMenu.addUser();

@@ -20,18 +20,36 @@ import java.util.*;
 import Interfaces.*;
 import Date.*;
 import Task.*;
+
+/**
+ * The type Tech support menu.
+ */
 public class TechSupportMenu {
 
     private TechSupportSpecialist techSupportSpecialist;
     private DataBase dataBase;
     private BufferedReader reader;
 
+    /**
+     * Instantiates a new Tech support menu.
+     *
+     * @param techSupportSpecialist the tech support specialist
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
+     */
     public TechSupportMenu(TechSupportSpecialist techSupportSpecialist) throws IOException, ClassNotFoundException {
         this.techSupportSpecialist = techSupportSpecialist;
         this.dataBase = DataBase.getInstance();
         this.reader = new BufferedReader(new InputStreamReader(System.in));
     }
 
+    /**
+     * Show menu.
+     *
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
+     * @throws NotAutorizedException  the not autorized exception
+     */
     public void showMenu() throws IOException, ClassNotFoundException, NotAutorizedException {
         String menuOptions = "\nWelcome, Student: " + techSupportSpecialist.getName() + """
                 \n1. Get Task message.
@@ -69,15 +87,33 @@ public class TechSupportMenu {
         }
     }
 
+    /**
+     * Gets task mess.
+     *
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
+     */
     public void getTaskMess() throws IOException, ClassNotFoundException {
         System.out.println("Message task: " + techSupportSpecialist.getTask());
     }
 
+    /**
+     * Change task mess.
+     *
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
+     */
     public void changeTaskMess() throws IOException, ClassNotFoundException {
         System.out.println("Successfully changed to Done task.");
         techSupportSpecialist.ChangeToDone();
     }
 
+    /**
+     * Change to accepted mess.
+     *
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
+     */
     public void changeToAcceptedMess() throws IOException, ClassNotFoundException {
         System.out.println("Successfully changed to Accepted task.");
         techSupportSpecialist.ChangeToAccepted();

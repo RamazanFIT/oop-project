@@ -19,18 +19,35 @@ import java.util.*;
 import Interfaces.*;
 import Date.*;
 import Task.*;
+
+/**
+ * The type Student menu.
+ */
 public class StudentMenu {
 
     private Student student;
     private DataBase dataBase;
     private BufferedReader reader;
 
+    /**
+     * Instantiates a new Student menu.
+     *
+     * @param student the student
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
+     */
     public StudentMenu(Student student) throws IOException, ClassNotFoundException {
         this.student = student;
         this.dataBase = DataBase.getInstance();
         this.reader = new BufferedReader(new InputStreamReader(System.in));
     }
 
+    /**
+     * Show menu.
+     *
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
+     */
     public void showMenu() throws IOException, ClassNotFoundException {
         String menuOptions = "\nWelcome, Student: " + student.getName() + """
                 \n1. View enrolled courses.
@@ -190,6 +207,11 @@ public class StudentMenu {
         System.out.println("Organizations: " + student.getOrganization());
     }
 
+    /**
+     * View teacher info.
+     *
+     * @throws IOException the io exception
+     */
     public void viewTeacherInfo() throws IOException {
         System.out.println("Enter course Subject: ");
         Subject subject;
@@ -233,6 +255,11 @@ public class StudentMenu {
         }
     }
 
+    /**
+     * Sets f.
+     *
+     * @throws IOException the io exception
+     */
     public void setF() throws IOException {
         System.out.println("""
                 setting Faculty information
@@ -266,11 +293,23 @@ public class StudentMenu {
                 f);
     }
 
+    /**
+     * Gets credits of course.
+     *
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
+     */
     public void getCreditsOfCourse() throws IOException, ClassNotFoundException {
         System.out.println("Count of courses credits: " + student.getCredits());
 
     }
 
+    /**
+     * Sets organization to student.
+     *
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
+     */
     public void setOrganizationToStudent() throws IOException, ClassNotFoundException {
         System.out.println("setting the organization of student");
         Enums.Organization org;
@@ -313,6 +352,12 @@ public class StudentMenu {
         System.out.println("Successfully added organization");
     }
 
+    /**
+     * Create diploma project of student.
+     *
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
+     */
     public void createDiplomaProjectOfStudent() throws IOException, ClassNotFoundException {
         System.out.println("Create Diploma Project of Student");
         System.out.println("Enter the topic of the project");
@@ -325,6 +370,12 @@ public class StudentMenu {
 
     }
 
+    /**
+     * Gets gpa.
+     *
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
+     */
     public void getGPA() throws IOException, ClassNotFoundException {
         System.out.println("Your GPA is: " + student.getTranscript().getGpa());
     }

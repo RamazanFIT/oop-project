@@ -3,6 +3,9 @@ import Actors.*;
 
 import java.util.*;
 
+/**
+ * The type Z to a comparator.
+ */
 public class ZToAComparator implements Comparator<User>{
     @Override
     public int compare(User o1, User o2) {

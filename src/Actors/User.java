@@ -285,7 +285,9 @@ public abstract class User implements Comparable<User>, Serializable {
      * Subcribe to journal.
      *
      * @param journal the journal
-     * @throws NotAutorizedException the not autorized exception
+     * @throws NotAutorizedException  the not autorized exception
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
      */
     public void subcribeToJournal(ResearhJournal journal) throws NotAutorizedException, IOException, ClassNotFoundException {
         if(!isActive) kidaiException();
@@ -299,7 +301,9 @@ public abstract class User implements Comparable<User>, Serializable {
      * Gets subscriptions.
      *
      * @return the subscriptions
-     * @throws NotAutorizedException the not autorized exception
+     * @throws NotAutorizedException  the not autorized exception
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
      */
     public Vector<ResearhJournal> getSubscriptions() throws NotAutorizedException, IOException, ClassNotFoundException {
         if(!isActive) kidaiException();
@@ -314,7 +318,9 @@ public abstract class User implements Comparable<User>, Serializable {
      *
      * @param to          the to
      * @param messageText the message text
-     * @throws NotAutorizedException the not autorized exception
+     * @throws NotAutorizedException  the not autorized exception
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
      */
     public void sendMessage(User to, String messageText) throws NotAutorizedException, IOException, ClassNotFoundException {
         if(!isActive) kidaiException();
@@ -329,7 +335,9 @@ public abstract class User implements Comparable<User>, Serializable {
      * Gets message.
      *
      * @return the message
-     * @throws NotAutorizedException the not autorized exception
+     * @throws NotAutorizedException  the not autorized exception
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
      */
     public Vector<Message> getMessage() throws NotAutorizedException, IOException, ClassNotFoundException {
         if(!isActive) kidaiException();
@@ -341,7 +349,9 @@ public abstract class User implements Comparable<User>, Serializable {
      * Gets send message.
      *
      * @return the send message
-     * @throws NotAutorizedException the not autorized exception
+     * @throws NotAutorizedException  the not autorized exception
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
      */
     public Vector<Message> getSendMessage() throws NotAutorizedException, IOException, ClassNotFoundException {
         if(!isActive) kidaiException();

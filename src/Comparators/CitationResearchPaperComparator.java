@@ -11,6 +11,10 @@ import Interfaces.*;
 import Date.*;
 import Task.*;
 import Main.*;
+
+/**
+ * The type Citation research paper comparator.
+ */
 public class CitationResearchPaperComparator implements Comparator<ResearchPaper>{
     @Override
     public int compare(ResearchPaper o1, ResearchPaper o2) {

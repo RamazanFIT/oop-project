@@ -21,6 +21,9 @@ public class MessageSupport implements Serializable {
 
     private OrderStatus status;
 
+    /**
+     * Instantiates a new Message support.
+     */
     public MessageSupport(){
         status = OrderStatus.NEW;
         message = "";

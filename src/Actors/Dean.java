@@ -49,6 +49,8 @@ public class Dean extends Employee implements Researcher{
      * Send message to support.
      *
      * @param messageSupport the message support
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
      */
     public void sendMessageToSupport(MessageSupport messageSupport) throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
@@ -69,6 +71,8 @@ public class Dean extends Employee implements Researcher{
      * Get message to dean message to dean.
      *
      * @return the message to dean
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
      */
     public MessageToDean getMessageToDean() throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
@@ -80,6 +84,8 @@ public class Dean extends Employee implements Researcher{
      * Kick student.
      *
      * @param student the student
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
      */
     public void kickStudent(Student student) throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
@@ -90,6 +96,8 @@ public class Dean extends Employee implements Researcher{
      * Add student.
      *
      * @param student the student
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
      */
     public void addStudent(Student student) throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();

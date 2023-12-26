@@ -84,6 +84,8 @@ public class Teacher extends Employee {
      * Gets list courses.
      *
      * @return the list courses
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
      */
     public List<Course> getListCourses() throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
@@ -94,6 +96,8 @@ public class Teacher extends Employee {
      * Add teach course.
      *
      * @param course the course
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
      */
     public void addTeachCourse(Course course) throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
@@ -134,8 +138,9 @@ public class Teacher extends Employee {
      * Put mark.
      *
      * @param student the student
-     * @param grade   the grade
+     * @param score   the score
      * @param course  the course
+     * @param att     the att
      */
 //    public void putMark(Student student, Grade grade, Course course, Attestation){
 ////            course.setMarkToStudent(student, grade);

@@ -21,6 +21,16 @@ public class TechSupportSpecialist extends Employee {
 
     private boolean isResearcher;
 
+    /**
+     * Instantiates a new Tech support specialist.
+     *
+     * @param name       the name
+     * @param surname    the surname
+     * @param password   the password
+     * @param lang       the lang
+     * @param department the department
+     * @param salary     the salary
+     */
     public TechSupportSpecialist(String name, String surname, String password, LANGUAGES lang, String department, double salary) {
         super(name, surname, password, lang, department, salary);
         this.isResearcher = false;
@@ -30,6 +40,8 @@ public class TechSupportSpecialist extends Employee {
      * Gets task.
      *
      * @return the task
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
      */
     public MessageSupport getTask() throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
@@ -38,6 +50,9 @@ public class TechSupportSpecialist extends Employee {
 
     /**
      * Change to done.
+     *
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
      */
     public void ChangeToDone() throws IOException, ClassNotFoundException {
         this.getTask().setStatus(OrderStatus.DONE);
@@ -45,6 +60,9 @@ public class TechSupportSpecialist extends Employee {
 
     /**
      * Change to accepted.
+     *
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
      */
     public void ChangeToAccepted() throws IOException, ClassNotFoundException {
         this.getTask().setStatus(OrderStatus.ACCEPTED);

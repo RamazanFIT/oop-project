@@ -102,6 +102,8 @@ public class Manager extends Employee {
      *
      * @param student the student
      * @param course  the course
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
      */
     public void addStudentToCourse(Student student, Course course) throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
@@ -114,6 +116,8 @@ public class Manager extends Employee {
      * Add news.
      *
      * @param news the news
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
      */
     public void addNews(News news) throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
@@ -124,12 +128,21 @@ public class Manager extends Employee {
      * Remove news.
      *
      * @param news the news
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
      */
     public void removeNews(News news) throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
         dataBase.removeNews(news);
     }
 
+    /**
+     * Add course.
+     *
+     * @param course the course
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
+     */
     public void addCourse(Course course) throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
         dataBase.addCourse(course);
@@ -149,6 +162,8 @@ public class Manager extends Employee {
      * Send message to dean.
      *
      * @param messageToDean the message to dean
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
      */
     public void sendMessageToDean(MessageToDean messageToDean) throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();

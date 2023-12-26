@@ -60,6 +60,8 @@ public class Admin extends Employee{
      * Remove user.
      *
      * @param user the user
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
      */
     public void removeUser(User user) throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
@@ -81,6 +83,8 @@ public class Admin extends Employee{
      * Add user.
      *
      * @param user the user
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
      */
     public void addUser(User user) throws IOException, ClassNotFoundException {
         DataBase dataBase = DataBase.getInstance();
