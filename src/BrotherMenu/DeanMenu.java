@@ -39,8 +39,8 @@ public class DeanMenu {
                 d4. Get message to Dean
                 d5. Kick student
                 d6. Add student
-                d7. Change all data of Dean
-                d8. Next command
+                d7. Next command
+                0. exit
                 """;
         boolean isRunning = true;
         while (isRunning) {
@@ -64,6 +64,11 @@ public class DeanMenu {
                     break;
                 case "d6":
                     addStudent();
+                    break;
+                case "d7":
+                    isRunning = false;
+                    System.out.println("Logged out successfully.");
+                    DataBase.getInstance().saveToFile("data.ser");
                     break;
                 case "0":
                     isRunning = false;

@@ -43,6 +43,10 @@ public class StudentMenu {
                 8. View organizations.
                 9. View teacher info.
                 10. Set Faculty.
+                11. Get sum of credits
+                12. Join to organizations
+                13. Create Diploma Project
+                14. Go to Research Option
                 0. Logout.""";
         boolean isRunning = true;
         while (isRunning) {
@@ -87,6 +91,11 @@ public class StudentMenu {
                     break;
                 case "13":
                     createDiplomaProjectOfStudent();
+                    break;
+                case "14":
+                    isRunning = false;
+                    dataBase.saveToFile("data.ser");
+                    System.out.println("Logged out successfully.");
                     break;
                 case "0":
                     isRunning = false;

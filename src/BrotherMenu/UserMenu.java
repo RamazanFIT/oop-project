@@ -46,6 +46,7 @@ public class UserMenu {
                 u11. get sent message
                 u12. change all data of user
                 u13. next command
+                0. exit program
                 """;
         boolean isRunning = true;
         while (isRunning) {
@@ -87,6 +88,11 @@ public class UserMenu {
                     break;
                 case "u12":
                     changeAllData();
+                    break;
+                case "u13":
+                    isRunning = false;
+                    System.out.println("Logged out successfully.");
+                    DataBase.getInstance().saveToFile("data.ser");
                     break;
                 case "0":
                     isRunning = false;

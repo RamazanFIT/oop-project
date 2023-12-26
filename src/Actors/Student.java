@@ -37,6 +37,12 @@ public class Student extends User implements Researcher{
         super(name, surname, password, lang);
     }
 
+    public Student(String name, String surname, String password, LANGUAGES lang, FACULTY f){
+        super(name, surname, password, lang);
+        faculty = f;
+    }
+
+
     /**
      * Instantiates a new Student.
      *
@@ -47,15 +53,7 @@ public class Student extends User implements Researcher{
      * @param faculty        the faculty
      * @param diplomaProject the diploma project
      */
-    public Student(String name, String surname, String password,
-                   LANGUAGES lang, FACULTY faculty,
-                   DiplomaProject diplomaProject)
-                    throws IOException, ClassNotFoundException {
-        super(name, surname, password, lang);
-        this.faculty = faculty;
-        isResearcher = false;
-        createDiplomaProject(diplomaProject);
-    }
+
 
 
     /**

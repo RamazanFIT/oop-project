@@ -48,7 +48,7 @@ public class GraduateStudent extends Student {
     public GraduateStudent(String name, String surname,
                            String password, LANGUAGES lang, FACULTY faculty,
                            DiplomaProject diplomaProject, GRADUATE_STUDENT degreeType) throws IOException, ClassNotFoundException {
-        super(name, surname, password, lang, faculty, diplomaProject);
+        super(name, surname, password, lang, faculty);
         this.degreeType = degreeType;
         this.isResearcher = true;
     }

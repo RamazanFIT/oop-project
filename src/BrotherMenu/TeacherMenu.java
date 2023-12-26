@@ -39,6 +39,7 @@ public class TeacherMenu {
                 5. Get Teacher Role.
                 6. Set Teacher Role.
                 7. Put Mark to student.
+                8. next command
                 0. Logout.""";
         boolean isRunning = true;
         while (isRunning) {
@@ -59,6 +60,17 @@ public class TeacherMenu {
                     break;
                 case "5":
                     getTeacherRole();
+                    break;
+                case "6":
+                    setTeacherRole();
+                    break;
+                case "7":
+                    putMarkToStudent();
+                    break;
+                case "8":
+                    isRunning = false;
+                    dataBase.saveToFile("data.ser");
+                    System.out.println("Logged out successfully.");
                     break;
                 case "0":
                     isRunning = false;
@@ -129,5 +141,53 @@ public class TeacherMenu {
         System.out.println("Teacher role is: " + teacher.getTeacherRole());
         System.out.println("Success");
 
+    }
+
+    public void setTeacherRole() throws IOException {
+        System.out.println("""
+                Which one: 
+                1. LECTOR,
+                       
+                2.PROCESSOR
+                """);
+        String opt = reader.readLine();
+        TeacherRole role;
+        if(opt.equals("1")){
+            role = TeacherRole.LECTOR;
+        } else{
+            role = TeacherRole.PROCESSOR;
+        }
+        teacher.setTeacherRole(role);
+        System.out.println("Success");
+
+    }
+    public void putMarkToStudent() throws IOException, NotAutorizedException {
+        System.out.println("Enter the Course name");
+        String courseName = reader.readLine();
+        System.out.println("Enter the name of student");
+        String name = reader.readLine();
+        System.out.println("Enter the surname of student");
+        String surname = reader.readLine();
+        System.out.println("Score: ");
+        int score = Integer.parseInt(reader.readLine());
+        System.out.println("Which attestation:");
+        System.out.println("""
+                1.  FIRST
+                2.  SECOND
+                3.  FINAL
+                """);
+        String opt = reader.readLine();
+        Attestation att;
+        if(opt.equals("1")){
+            att = Attestation.FIRST;
+        } else if(opt.equals("2")){
+            att = Attestation.SECOND;
+        } else{
+            att = Attestation.FINAL;
+        }
+        Course course = dataBase.getCourseByTitle(courseName);
+        Student student = (Student) dataBase.getUser(name, surname);
+        teacher.putMark(student, score, course, att);
+        System.out.println("Success");
     }
 }

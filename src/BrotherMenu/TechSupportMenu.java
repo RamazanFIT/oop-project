@@ -37,6 +37,7 @@ public class TechSupportMenu {
                 \n1. Get Task message.
                 2. Change To Done message.
                 3. Change To Accepted message.
+                4. next command
                 0. Logout.""";
         boolean isRunning = true;
         while (isRunning) {
@@ -53,10 +54,9 @@ public class TechSupportMenu {
                     changeToAcceptedMess();
                     break;
                 case "4":
-//                    addCourseToTeacher();
-                    break;
-                case "5":
-//                    getTeacherRole();
+                    isRunning = false;
+                    dataBase.saveToFile("data.ser");
+                    System.out.println("Logged out successfully.");
                     break;
                 case "0":
                     isRunning = false;

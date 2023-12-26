@@ -39,6 +39,7 @@ public class AdminMenu {
                 a4. Add user
                 a5. See log about user
                 a6. next command
+                0. exit
                 """;
         boolean isRunning = true;
         while (isRunning) {
@@ -55,10 +56,15 @@ public class AdminMenu {
                     updateUser();
                     break;
                 case "a4":
-//                    addUser();
+                    addUser();
                     break;
                 case "a5":
                     seeLogAboutUser();
+                    break;
+                case "a6":
+                    isRunning = false;
+                    System.out.println("Logged out successfully.");
+                    DataBase.getInstance().saveToFile("data.ser");
                     break;
                 case "0":
                     isRunning = false;
@@ -93,12 +99,12 @@ public class AdminMenu {
         String newSurname = reader.readLine();
         System.out.println("Enter the new user password: ");
         String newPassword = reader.readLine();
-        User newUser = new Student(newName, newSurname, newPassword, LANGUAGES.EN, null, null);
+        User newUser = new Student(newName, newSurname, newPassword, LANGUAGES.EN);
         admin.UpdateUser(oldUser, newUser);
         System.out.println("User updated successfully.");
     }
 
-    private void addUser() throws IOException, ClassNotFoundException {
+    public void addUser() throws IOException, ClassNotFoundException {
         System.out.println("Enter the type of  user: ");
         System.out.println("""
                 1. Student
@@ -106,7 +112,8 @@ public class AdminMenu {
                 3. Manager
                 4. Teacher
                 5. TechSupport
-                6. Admin
+                6. MasterStudent
+                7. Admin
                 """);
         String option = reader.readLine();
         System.out.println("Enter the user name: ");
@@ -157,7 +164,7 @@ public class AdminMenu {
             } else {
                 f = FACULTY.NGD;
             }
-            Student st = new Student(name, surname, password, lang, f, null);
+            Student st = new Student(name, surname, password, lang, f);
             DataBase.getInstance().addUser(st);
         } else if(option.equals("2")){
             System.out.println("enter department");
@@ -257,6 +264,48 @@ public class AdminMenu {
             TechSupportSpecialist tech = new TechSupportSpecialist(name, surname, password, lang, depart, salary);
             DataBase.getInstance().addUser(tech);
 
+        } else if(option.equals("6")){
+            System.out.println("""
+                
+                setting Faculty information
+                1.  FIT
+                      
+                2.  SHENGI
+                       
+                3.  WXI
+                        
+                4.  MWE
+                       
+                5.  NGD
+                """);
+            String p = reader.readLine();
+            FACULTY f;
+            if(p.equals("1")){
+                f = FACULTY.FIT;
+            } else if(p.equals("2")){
+                f = FACULTY.SHENGI;
+            } else if(p.equals("3")){
+                f = FACULTY.WXI;
+            } else if(p.equals("4")){
+                f = FACULTY.MWE;
+            } else {
+                f = FACULTY.NGD;
+            }
+            System.out.println("Enter degree type");
+            System.out.println("""
+                    1. MASTER
+                       
+                    2. PHD
+                    """);
+            String degreeOption = reader.readLine();
+            GRADUATE_STUDENT gs;
+            if(degreeOption.equals("1")){
+                gs = GRADUATE_STUDENT.MASTER;
+            } else{
+                gs = GRADUATE_STUDENT.PHD;
+            }
+            GraduateStudent st = new GraduateStudent(name, surname, password, lang, f, null, gs);
+            DataBase.getInstance().addUser(st);
         } else{
             System.out.println("enter department");
             String depart = reader.readLine();

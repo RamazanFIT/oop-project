@@ -43,6 +43,7 @@ public class ManagerMenu {
                 4. Add news.
                 5. Delete news.
                 6. Send message to Dean. 
+                7. next command
                 0. Logout. """;
         boolean isRunning = true;
         while(isRunning){
@@ -66,6 +67,11 @@ public class ManagerMenu {
                     break;
                 case "6":
                     sendMessageToDean();
+                    break;
+                case "7":
+                    isRunning = false;
+                    dataBase.saveToFile("data.ser");
+                    System.out.println("Logged out successfully");
                     break;
                 case "0":
                     isRunning = false;
