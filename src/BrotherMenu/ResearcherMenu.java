@@ -30,15 +30,17 @@ public class ResearcherMenu {
         this.reader = new BufferedReader(new InputStreamReader(System.in));
     }
 
-    public void showMenu() throws IOException, ClassNotFoundException, NotAutorizedException {
+    public void showMenu() throws IOException, ClassNotFoundException, NotAutorizedException, ImposterException {
         String menuOptions = "\nWelcome, Student: " + researcher.getName() + """
-                \n1. Get Subject Specialization.
-                2. Set Subject Specialization.
-                3. Get List of Courses.
-                4. Add Course to teacher.
-                5. Get Teacher Role.
-                6. Set Teacher Role.
-                7. Put Mark to student.
+                \n1. Print the papers.
+                2. Count the H index.
+                3. Get list of Projects.
+                4. Add Project.
+                5. Delete the project by topic.
+                6. Add paper.
+                7. Delete paper.
+                8. Get Projects.
+                9. Set the Researcher Status.
                 0. Logout.""";
         boolean isRunning = true;
         while (isRunning) {
@@ -68,6 +70,9 @@ public class ResearcherMenu {
                     break;
                 case "8":
                     getOwnProject();
+                    break;
+                case "9":
+                    setToResearcher();
                     break;
                 case "0":
                     isRunning = false;
@@ -101,4 +106,59 @@ public class ResearcherMenu {
         researcher.addProject(rp);
         System.out.println("Success");
     }
+
+    public void delProject() throws IOException, ClassNotFoundException {
+        System.out.println("Enter the topic of project: ");
+        String topic = reader.readLine();
+
+        ResearchProject rp = dataBase.getResearchProjectByTopic(topic);
+        researcher.delProject(rp);
+        System.out.println("Success");
+
+    }
+
+    public void addPapers() throws IOException, ClassNotFoundException, ImposterException {
+        System.out.println("Enter the title of paper");
+        String title = reader.readLine();
+        System.out.println("Enter the citation of paper");
+        String number = reader.readLine();
+        int citation = Integer.parseInt(number);
+        int pages = Integer.parseInt(reader.readLine());
+        Date date = new Date();
+        String doi = "121";
+        ResearchPaper rp = new ResearchPaper(title, researcher, citation, pages, date, doi);
+        researcher.addPapers(rp);
+        System.out.println("Success");
+
+    }
+
+    public void delPapers() throws IOException, ClassNotFoundException, ImposterException {
+        System.out.println("Enter the title of paper");
+        String title = reader.readLine();
+        researcher.delPapers(dataBase.getResearchPaperByTitle(title));
+        System.out.println("Success");
+
+    }
+
+    public void getOwnProject() throws IOException, ClassNotFoundException {
+        System.out.println("The own projects: " + researcher.getOwnProject());
+        System.out.println("Success");
+    }
+
+    public void setToResearcher() throws IOException {
+        System.out.println("Do you want to make to Researcher");
+        System.out.println("""
+                1. YES 
+                2. NO
+                """);
+        String opt = reader.readLine();
+        if(opt.equals("1")){
+            researcher.setResearcher(true);
+        } else{
+            researcher.setResearcher(false);
+        }
+        System.out.println("Success");
+        
+    }
+
 }
