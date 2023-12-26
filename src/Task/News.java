@@ -23,6 +23,11 @@ public class News implements Serializable, Comparable<News> {
 
     private Vector<String> comments;
 
+    public News(String title, String content) {
+        this.title = title;
+        this.content = content;
+        this.comments = new Vector<>();
+    }
 
     /**
      * Gets title.
