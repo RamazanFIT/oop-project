@@ -91,5 +91,5 @@ public class ManagerMenu {
     private void removeNews() throws IOException, ClassNotFoundException, NotAutorizedException {
         System.out.println("Enter news title: ");
         String title = reader.readLine();
-    }
+    }//
 }
