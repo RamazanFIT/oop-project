@@ -96,8 +96,9 @@ public class ManagerMenu {
     private void addStudentToCourse() throws IOException, ClassNotFoundException, NotAutorizedException{
         System.out.println("Enter course title; ");
         String courseName = reader.readLine();
-        System.out.println("Enter students name: ");
+        System.out.println("Enter student's name: ");
         String studName = reader.readLine();
+        System.out.println("Enter student's surname: ");
         String studSurname = reader.readLine();
         Course course = dataBase.getCourseByTitle(courseName);
         Student student = (Student) dataBase.getUser(studName, studSurname);
