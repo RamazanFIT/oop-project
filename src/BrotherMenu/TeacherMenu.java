@@ -31,7 +31,7 @@ public class TeacherMenu {
     }
 
     public void showMenu() throws IOException, ClassNotFoundException, NotAutorizedException {
-        String menuOptions = "\nWelcome, Student: " + student.getName() + """
+        String menuOptions = "\nWelcome, Student: " + teacher.getName() + """
                 \n1. Get Subject Specialization.
                 2. Set Subject Specialization.
                 3. Get List of Courses.
