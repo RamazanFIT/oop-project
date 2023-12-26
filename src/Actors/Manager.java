@@ -130,6 +130,11 @@ public class Manager extends Employee {
         dataBase.removeNews(news);
     }
 
+    public void addCourse(Course course) throws IOException, ClassNotFoundException {
+        DataBase dataBase = DataBase.getInstance();
+        dataBase.addCourse(course);
+    }
+
     @Override
     public boolean isResearcher() {
         return false;

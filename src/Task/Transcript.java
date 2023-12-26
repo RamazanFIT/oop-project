@@ -102,4 +102,12 @@ public class Transcript implements Serializable, Comparable<Transcript> {
         }
         return 0;
     }
+
+    @Override
+    public String toString() {
+        return "Transcript{" +
+                "grades=" + grades +
+                ", courseGrades=" + courseGrades +
+                '}';
+    }
 }

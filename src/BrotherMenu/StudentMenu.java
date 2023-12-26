@@ -46,7 +46,8 @@ public class StudentMenu {
                 11. Get sum of credits
                 12. Join to organizations
                 13. Create Diploma Project
-                14. Go to Research Option
+                14. Get gpa
+                15. Go to Research Option
                 0. Logout.""";
         boolean isRunning = true;
         while (isRunning) {
@@ -93,6 +94,9 @@ public class StudentMenu {
                     createDiplomaProjectOfStudent();
                     break;
                 case "14":
+                    getGPA();
+                    break;
+                case "15":
                     isRunning = false;
                     dataBase.saveToFile("data.ser");
                     System.out.println("Logged out successfully.");
@@ -121,10 +125,38 @@ public class StudentMenu {
     private void registerForCourse() throws IOException {
         System.out.println("Available Courses: ");
         dataBase.courses.forEach(System.out::println);
-        System.out.print("Enter Course title to register: ");
-        String courseTitle = reader.readLine();
+        System.out.println("Enter course Subject: ");
+        Subject subject;
+        System.out.println("""
+                    Enter subject
+                    1. CALCULUS1,
+                        
+                    2. CALCULUS2,
+                        
+                    3. OOP
+                       
+                    4. ALGORITHM
+                        
+                    5.  ENGLISH
+                        
+                    6. JAPANESE
+                    """);
+        String check = reader.readLine();
+        if(check.equals("1")){
+            subject = Subject.CALCULUS1;
+        } else if(check.equals("2")){
+            subject = Subject.CALCULUS2;
+        } else if(check.equals("3")){
+            subject = Subject.OOP;
+        } else if(check.equals("4")){
+            subject = Subject.ALGORITHM;
+        } else if(check.equals("5")){
+            subject = Subject.ENGLISH;
+        } else{
+            subject = Subject.JAPANESE;
+        }
         try {
-            Course course = dataBase.getCourseByTitle(courseTitle);
+            Course course = dataBase.getCourseByTitle(subject);
             student.registerForCourse(course);
             System.out.println("Registered successfully for course: " + course.getTitle());
         } catch (ExceededCreditException e) {
@@ -158,13 +190,41 @@ public class StudentMenu {
         System.out.println("Organizations: " + student.getOrganization());
     }
 
-    public void viewTeacherInfo() {
-        System.out.println("Enter a course name to see teacher info: ");
-        String courseTitle;
+    public void viewTeacherInfo() throws IOException {
+        System.out.println("Enter course Subject: ");
+        Subject subject;
+        System.out.println("""
+                    Enter subject
+                    1. CALCULUS1,
+                        
+                    2. CALCULUS2,
+                        
+                    3. OOP
+                       
+                    4. ALGORITHM
+                        
+                    5.  ENGLISH
+                        
+                    6. JAPANESE
+                    """);
+        String check = reader.readLine();
+        if(check.equals("1")){
+            subject = Subject.CALCULUS1;
+        } else if(check.equals("2")){
+            subject = Subject.CALCULUS2;
+        } else if(check.equals("3")){
+            subject = Subject.OOP;
+        } else if(check.equals("4")){
+            subject = Subject.ALGORITHM;
+        } else if(check.equals("5")){
+            subject = Subject.ENGLISH;
+        } else{
+            subject = Subject.JAPANESE;
+        }
         Course course;
         try {
-            courseTitle = reader.readLine();
-            course = dataBase.getCourseByTitle(courseTitle);
+
+            course = dataBase.getCourseByTitle(subject);
             System.out.println("Teacher info: " + student.getInfoAboutTeacher(course));
         } catch (IOException | NotAutorizedException e) {
             throw new RuntimeException(e);
@@ -263,6 +323,10 @@ public class StudentMenu {
         student.createDiplomaProject(dp);
         System.out.println("Successfully created Diploma Project");
 
+    }
+
+    public void getGPA() throws IOException, ClassNotFoundException {
+        System.out.println("Your GPA is: " + student.getTranscript().getGpa());
     }
 
 

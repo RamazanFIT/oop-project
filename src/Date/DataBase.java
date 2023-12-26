@@ -526,6 +526,11 @@ public class DataBase implements Serializable{
      * @param course  the course
      */
     public void addTeacherToTeachCourse(Teacher teacher, Course course) {
+//        if(!courses.contains(course)){
+//            course.addInstructor(teacher);
+//            courses.add(course);
+//            return;
+//        }
         for (Course c : courses) {
             if (c.equals(course)) {
                 c.addInstructor(teacher);
@@ -713,7 +718,7 @@ public class DataBase implements Serializable{
         return null;
     }
 
-    public Course getCourseByTitle(String title) throws NotAutorizedException{
+    public Course getCourseByTitle(Subject title) throws NotAutorizedException{
 
         for(Course course : this.courses){
             if(course.getTitle().equals(title)){

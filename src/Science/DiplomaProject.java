@@ -97,5 +97,13 @@ public class DiplomaProject implements Comparable<DiplomaProject>, Serializable 
         }
         return this.title.compareTo(o.getTitle());
     }
+
+    @Override
+    public String toString() {
+        return "DiplomaProject{" +
+                "topic='" + topic + '\'' +
+                ", title='" + title + '\'' +
+                '}';
+    }
 }
 

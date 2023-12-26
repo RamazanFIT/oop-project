@@ -130,9 +130,38 @@ public class TeacherMenu {
     }
 
     public void addCourseToTeacher() throws IOException, NotAutorizedException, ClassNotFoundException {
-        System.out.println("Enter the title of course: ");
-        String title = reader.readLine();
-        Course c = dataBase.getCourseByTitle(title);
+        System.out.println("Enter course Subject: ");
+        Subject subject;
+        System.out.println("""
+                    Enter subject
+                    1. CALCULUS1,
+                        
+                    2. CALCULUS2,
+                        
+                    3. OOP
+                       
+                    4. ALGORITHM
+                        
+                    5.  ENGLISH
+                        
+                    6. JAPANESE
+                    """);
+        String check = reader.readLine();
+        if(check.equals("1")){
+            subject = Subject.CALCULUS1;
+        } else if(check.equals("2")){
+            subject = Subject.CALCULUS2;
+        } else if(check.equals("3")){
+            subject = Subject.OOP;
+        } else if(check.equals("4")){
+            subject = Subject.ALGORITHM;
+        } else if(check.equals("5")){
+            subject = Subject.ENGLISH;
+        } else{
+            subject = Subject.JAPANESE;
+        }
+        Course c = dataBase.getCourseByTitle(subject);
+
         teacher.addTeachCourse(c);
         System.out.println("Success");
     }
@@ -162,8 +191,36 @@ public class TeacherMenu {
 
     }
     public void putMarkToStudent() throws IOException, NotAutorizedException {
-        System.out.println("Enter the Course name");
-        String courseName = reader.readLine();
+        System.out.println("Enter course Subject: ");
+        Subject subject;
+        System.out.println("""
+                    Enter subject
+                    1. CALCULUS1,
+                        
+                    2. CALCULUS2,
+                        
+                    3. OOP
+                       
+                    4. ALGORITHM
+                        
+                    5.  ENGLISH
+                        
+                    6. JAPANESE
+                    """);
+        String check = reader.readLine();
+        if(check.equals("1")){
+            subject = Subject.CALCULUS1;
+        } else if(check.equals("2")){
+            subject = Subject.CALCULUS2;
+        } else if(check.equals("3")){
+            subject = Subject.OOP;
+        } else if(check.equals("4")){
+            subject = Subject.ALGORITHM;
+        } else if(check.equals("5")){
+            subject = Subject.ENGLISH;
+        } else{
+            subject = Subject.JAPANESE;
+        }
         System.out.println("Enter the name of student");
         String name = reader.readLine();
         System.out.println("Enter the surname of student");
@@ -185,7 +242,7 @@ public class TeacherMenu {
         } else{
             att = Attestation.FINAL;
         }
-        Course course = dataBase.getCourseByTitle(courseName);
+        Course course = dataBase.getCourseByTitle(subject);
         Student student = (Student) dataBase.getUser(name, surname);
         teacher.putMark(student, score, course, att);
         System.out.println("Success");

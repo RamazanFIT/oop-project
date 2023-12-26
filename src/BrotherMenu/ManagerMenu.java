@@ -43,7 +43,8 @@ public class ManagerMenu {
                 4. Add news.
                 5. Delete news.
                 6. Send message to Dean. 
-                7. next command
+                7. Add Course
+                8. next command
                 0. Logout. """;
         boolean isRunning = true;
         while(isRunning){
@@ -69,6 +70,9 @@ public class ManagerMenu {
                     sendMessageToDean();
                     break;
                 case "7":
+                    addCourse();
+                    break;
+                case "8":
                     isRunning = false;
                     dataBase.saveToFile("data.ser");
                     System.out.println("Logged out successfully");
@@ -86,27 +90,111 @@ public class ManagerMenu {
 
 
     private void getStudentsInfo() throws IOException, ClassNotFoundException, NotAutorizedException {
-        System.out.println("Enter course title: ");
-        String courseName = reader.readLine();
-        Course course = dataBase.getCourseByTitle(courseName);
+        System.out.println("Enter course Subject: ");
+        Subject subject;
+        System.out.println("""
+                    Enter subject
+                    1. CALCULUS1,
+                        
+                    2. CALCULUS2,
+                        
+                    3. OOP
+                       
+                    4. ALGORITHM
+                        
+                    5.  ENGLISH
+                        
+                    6. JAPANESE
+                    """);
+        String check = reader.readLine();
+        if(check.equals("1")){
+            subject = Subject.CALCULUS1;
+        } else if(check.equals("2")){
+            subject = Subject.CALCULUS2;
+        } else if(check.equals("3")){
+            subject = Subject.OOP;
+        } else if(check.equals("4")){
+            subject = Subject.ALGORITHM;
+        } else if(check.equals("5")){
+            subject = Subject.ENGLISH;
+        } else{
+            subject = Subject.JAPANESE;
+        }
+        Course course = dataBase.getCourseByTitle(subject);
         manager.getInfoStudents(course, new AToZComparator());
     }
 
     private void getTeacherInfo() throws IOException, ClassNotFoundException, NotAutorizedException {
-        System.out.println("Enter course title: ");
-        String courseName = reader.readLine();
-        Course course = dataBase.getCourseByTitle(courseName);
+        System.out.println("Enter course Subject: ");
+        Subject subject;
+        System.out.println("""
+                    Enter subject
+                    1. CALCULUS1,
+                        
+                    2. CALCULUS2,
+                        
+                    3. OOP
+                       
+                    4. ALGORITHM
+                        
+                    5.  ENGLISH
+                        
+                    6. JAPANESE
+                    """);
+        String check = reader.readLine();
+        if(check.equals("1")){
+            subject = Subject.CALCULUS1;
+        } else if(check.equals("2")){
+            subject = Subject.CALCULUS2;
+        } else if(check.equals("3")){
+            subject = Subject.OOP;
+        } else if(check.equals("4")){
+            subject = Subject.ALGORITHM;
+        } else if(check.equals("5")){
+            subject = Subject.ENGLISH;
+        } else{
+            subject = Subject.JAPANESE;
+        }
+        Course course = dataBase.getCourseByTitle(subject);
         manager.getInfoTeachers(course, new AToZComparator());
     }
 
     private void addStudentToCourse() throws IOException, ClassNotFoundException, NotAutorizedException{
-        System.out.println("Enter course title; ");
-        String courseName = reader.readLine();
+        System.out.println("Enter course Subject: ");
+        Subject subject;
+        System.out.println("""
+                    Enter subject
+                    1. CALCULUS1,
+                        
+                    2. CALCULUS2,
+                        
+                    3. OOP
+                       
+                    4. ALGORITHM
+                        
+                    5.  ENGLISH
+                        
+                    6. JAPANESE
+                    """);
+        String check = reader.readLine();
+        if(check.equals("1")){
+            subject = Subject.CALCULUS1;
+        } else if(check.equals("2")){
+            subject = Subject.CALCULUS2;
+        } else if(check.equals("3")){
+            subject = Subject.OOP;
+        } else if(check.equals("4")){
+            subject = Subject.ALGORITHM;
+        } else if(check.equals("5")){
+            subject = Subject.ENGLISH;
+        } else{
+            subject = Subject.JAPANESE;
+        }
         System.out.println("Enter student's name: ");
         String studName = reader.readLine();
         System.out.println("Enter student's surname: ");
         String studSurname = reader.readLine();
-        Course course = dataBase.getCourseByTitle(courseName);
+        Course course = dataBase.getCourseByTitle(subject);
         Student student = (Student) dataBase.getUser(studName, studSurname);
         manager.addStudentToCourse(student, course);
     }
@@ -146,5 +234,44 @@ public class ManagerMenu {
         String message = reader.readLine();
         MessageToDean messageToDean = new MessageToDean(level, message);
         manager.sendMessageToDean(messageToDean);
+    }
+    public void addCourse() throws IOException, ClassNotFoundException {
+        System.out.println("Enter course Subject: ");
+        Subject subject;
+        System.out.println("""
+                    Enter subject
+                    1. CALCULUS1,
+                        
+                    2. CALCULUS2,
+                        
+                    3. OOP
+                       
+                    4. ALGORITHM
+                        
+                    5.  ENGLISH
+                        
+                    6. JAPANESE
+                    """);
+        String check = reader.readLine();
+        if(check.equals("1")){
+            subject = Subject.CALCULUS1;
+        } else if(check.equals("2")){
+            subject = Subject.CALCULUS2;
+        } else if(check.equals("3")){
+            subject = Subject.OOP;
+        } else if(check.equals("4")){
+            subject = Subject.ALGORITHM;
+        } else if(check.equals("5")){
+            subject = Subject.ENGLISH;
+        } else{
+            subject = Subject.JAPANESE;
+        }
+
+        System.out.println("Enter course description: ");
+        String description = reader.readLine();
+        System.out.println("Enter course credit: ");
+        int credit = Integer.parseInt(reader.readLine());
+        Course course = new Course(credit, subject, description);
+        manager.addCourse(course);
     }
 }
