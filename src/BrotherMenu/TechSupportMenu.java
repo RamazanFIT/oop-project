@@ -47,10 +47,10 @@ public class TechSupportMenu {
                     getTaskMess();
                     break;
                 case "2":
-//                    setSubjectSpec();
+                    changeTaskMess();
                     break;
                 case "3":
-//                    getListOfCourses();
+                    changeToAcceptedMess();
                     break;
                 case "4":
 //                    addCourseToTeacher();
@@ -73,6 +73,14 @@ public class TechSupportMenu {
         System.out.println("Message task: " + techSupportSpecialist.getTask());
     }
 
+    public void changeTaskMess() throws IOException, ClassNotFoundException {
+        System.out.println("Successfully changed to Done task.");
+        techSupportSpecialist.ChangeToDone();
+    }
 
+    public void changeToAcceptedMess() throws IOException, ClassNotFoundException {
+        System.out.println("Successfully changed to Accepted task.");
+        techSupportSpecialist.ChangeToAccepted();
+    }
 
 }
