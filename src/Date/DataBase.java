@@ -732,4 +732,21 @@ public class DataBase implements Serializable{
         return null;
     }
 
+    public ResearchProject getResearchProjectByTopic(String topic){
+        for(ResearchProject rp : projects){
+            if(rp.getTopic().equals(topic)){
+                return rp;
+            }
+        }
+        return null;
+    }
+
+    public ResearchPaper getResearchPaperByTitle(String title){
+        for(ResearchPaper rp : papers){
+            if(rp.getTitle().equals(title)){
+                return rp;
+            }
+        }
+        return null;
+    }
 }
